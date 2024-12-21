@@ -38,6 +38,7 @@ export default function Folder({ title, style, content, position }) {
           width={105}
           height={90}
           alt="folder"
+          loading="eager"
         />
         <h3 className="font-serif italic mt-2">{title}</h3>
       </div>

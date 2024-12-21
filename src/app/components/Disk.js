@@ -50,7 +50,7 @@ function CD() {
       onTap={() => {
         ctx.setStatus(ctx.status === "playing" ? "paused" : "playing");
       }}
-      className="size-[500px] absolute left-1/2 z-10 flex origin-center select-none items-center justify-center overflow-hidden border-2 border-[#d3d3d3] bg-gray-400 shadow-[0_0_80px_-20px_rgba(0,0,0,0.3)]"
+      className="size-[500px] absolute left-1/2 z-10 flex origin-center select-none items-center justify-center overflow-hidden border-2 border-[#d3d3d3] bg-gray-200 shadow-[0_0_80px_-20px_rgba(0,0,0,0.3)]"
     >
       <Image
         src="/images/nujabes.webp"
@@ -58,6 +58,7 @@ function CD() {
         className="pointer-events-none select-none object-cover"
         layout="fill"
         objectFit="cover"
+        loading="eager"
       />
       <motion.div className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center">
         <div className="size-[480px] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border-[0.1px] border-white bg-transparent opacity-35" />
