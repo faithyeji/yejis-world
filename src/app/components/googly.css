@@ -1,0 +1,63 @@
+.googly {
+  width: 45px;
+  height: 45px;
+  border-radius: 100%;
+  border: 0.9px solid rgb(215, 215, 215);
+  margin-bottom: 7px;
+  overflow: hidden;
+  position: relative;
+  background-color: rgba(255, 255, 255, 0.353);
+
+  box-shadow: 1px 1px 2px rgba(75, 75, 75, 0.9),
+    inset 4px -5px 8px rgba(140, 140, 140, 0.4),
+    inset 1px 4px 2px rgba(224, 224, 224, 0.6);
+}
+
+.pupil {
+  background: #313030;
+  border: 0.7px solid rgb(135, 135, 135);
+  width: 62%;
+  height: 62%;
+  position: relative;
+  left: 25%;
+  bottom: 25%;
+  transform-origin: bottom;
+  border-radius: 100%;
+}
+
+.highlight {
+  height: 15px;
+  width: 30px;
+  background: rgb(255, 255, 255);
+  box-shadow: 0 0 3px 5px #ffffff;
+  opacity: 50%;
+  border-radius: 80%;
+  position: absolute;
+  top: 15%;
+}
+
+.googly-mobile {
+  width: 29px;
+  height: 30px;
+  border-radius: 100%;
+  border: 0.7px solid rgb(215, 215, 215);
+  margin-bottom: 9px;
+  overflow: hidden;
+  position: relative;
+
+  box-shadow: 1px 1px 3px rgba(63, 63, 63, 0.861),
+    inset 4px -5px 8px rgba(140, 140, 140, 0.416),
+    inset 1px 4px 2px rgba(224, 224, 224, 0.224);
+}
+
+.pupil-mobile {
+  background: #1f1f1f;
+  border: 0.7px solid rgb(135, 135, 135);
+  width: 69%;
+  height: 63%;
+  position: absolute;
+  left: 60%;
+  top: 69%;
+  transform: translate(-50%, -50%);
+  border-radius: 100%;
+}
