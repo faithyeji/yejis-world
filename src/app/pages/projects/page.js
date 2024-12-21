@@ -4,7 +4,7 @@ import Project from "@/app/components/Project";
 export default function Projects() {
   return (
     <main className="">
-      <div className="flex flex-wrap mt-16 justify-center items-center text-center gap-8 w-full text-neutral-600">
+      <div className="flex flex-wrap mt-14 justify-center items-center text-center gap-8 w-full text-neutral-600">
         <Project
           title="The StoryGraph"
           type="UI/UX DESIGN"

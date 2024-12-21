@@ -96,12 +96,9 @@ export default function Playground() {
           <img src="/images/playground/experiments/ascii.webp" alt="ASCII" />
         </div>
         <div className="box">
-          <img src="/images/playground/experiments/lamp.webp" alt="Lamp" />
-        </div>
-        <div className="box">
           <img
-            src="/images/playground/experiments/domoscene.webp"
-            alt="Domo Scene"
+            src="/images/playground/graphics/fathead4.webp"
+            alt="Fathead 4"
           />
         </div>
         <div className="box">
@@ -117,7 +114,16 @@ export default function Playground() {
           />
         </div>
         <div className="box">
+          <img
+            src="/images/playground/experiments/domoscene.webp"
+            alt="Domo Scene"
+          />
+        </div>
+        <div className="box">
           <img src="/images/playground/experiments/YEJI.webp" alt="YEJI" />
+        </div>
+        <div className="box">
+          <img src="/images/playground/graphics/deck.webp" alt="Deck" />
         </div>
         <div className="box">
           <img
@@ -136,9 +142,6 @@ export default function Playground() {
         </div>
         <div className="box">
           <img src="/images/playground/graphics/activist.webp" alt="Activist" />
-        </div>
-        <div className="box">
-          <img src="/images/playground/graphics/deck.webp" alt="Deck" />
         </div>
         <div className="box">
           <img
@@ -168,10 +171,7 @@ export default function Playground() {
           />
         </div>
         <div className="box">
-          <img
-            src="/images/playground/graphics/fathead4.webp"
-            alt="Fathead 4"
-          />
+          <img src="/images/playground/experiments/lamp.webp" alt="Lamp" />
         </div>
         <div className="box">
           <img
