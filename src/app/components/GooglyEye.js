@@ -56,7 +56,7 @@ export default function GooglyEye() {
   return (
     <div className="googly-container z-20">
       {/* Mobile googly */}
-      <div className="googly-mobile block sm:hidden">
+      <div className="googly-mobile block sm:hidden ml-2">
         <div className="pupil-mobile"></div>
         <div className="highlight"></div>
       </div>

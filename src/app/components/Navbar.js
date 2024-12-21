@@ -33,10 +33,10 @@ const Navbar = () => {
           </div>
 
           {/* Navigation */}
-          <div className="flex-1 flex justify-center space-x-8 font-mono ml-5">
+          <div className="flex-1 flex justify-center space-x-6 sm:space-x-8 font-mono sm:ml-5 text-xs sm:text-sm font-medium">
             <Link
               href="/pages/projects"
-              className={`inline-flex items-center px-1 pt-1 text-sm font-medium transition-colors duration-200 ${isActive(
+              className={`inline-flex items-center px-1 pt-1 transition-colors duration-200 ${isActive(
                 "/pages/projects"
               )}`}
             >
@@ -44,7 +44,7 @@ const Navbar = () => {
             </Link>
             <Link
               href="/pages/playground"
-              className={`inline-flex items-center px-1 pt-1 text-sm font-medium transition-colors duration-200 ${isActive(
+              className={`inline-flex items-center px-1 pt-1 transition-colors duration-200 ${isActive(
                 "/pages/playground"
               )}`}
             >
@@ -52,7 +52,7 @@ const Navbar = () => {
             </Link>
             <Link
               href="/pages/about"
-              className={`inline-flex items-center px-1 pt-1 text-sm font-medium transition-colors duration-200 ${isActive(
+              className={`inline-flex items-center px-1 pt-1 transition-colors duration-200 ${isActive(
                 "/pages/about"
               )}`}
             >
@@ -61,7 +61,7 @@ const Navbar = () => {
           </div>
 
           {/* Logos */}
-          <div className="ml-auto flex space-x-4">
+          <div className="ml-auto space-x-4 hidden sm:flex">
             <a href="https://www.linkedin.com/in/faithyejiseo/" target="_blank">
               <Image
                 src="/logos/linkedin.svg"

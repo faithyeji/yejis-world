@@ -4,10 +4,10 @@ import "./playground.css";
 export default function Playground() {
   return (
     <main className="overflow-hidden">
-      <h1 className="text-serif italic text-neutral-600 m-auto text-center mt-6 text-2xl">
+      <h1 className="text-serif italic text-neutral-600 m-auto text-center mt-6 text-2xl animate-slidein opacity-0 [--slidein-delay:60ms]">
         My collection of creative experiments!
       </h1>
-      <div className="container">
+      <div className="container animate-slidein opacity-0 [--slidein-delay:800ms]">
         <div className="box">
           <img src="/images/playground/drawings/doodling.webp" alt="Doodling" />
         </div>
