@@ -79,6 +79,7 @@ function CD() {
               layout="fill"
               objectFit="cover"
               loading="eager"
+              priority
             />
           </motion.div>
         </AnimatePresence>

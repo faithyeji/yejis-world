@@ -47,21 +47,17 @@ export function AudioProvider({ children }) {
   const [status, setStatus] = useState("paused");
   const [isClient, setIsClient] = useState(false);
 
-  const [currentSongIndex, setCurrentSongIndex] = useState(() => {
-    if (typeof window !== "undefined") {
-      // check local storage
-      const savedIndex = localStorage.getItem("currentSongIndex");
-      if (savedIndex) {
-        return parseInt(savedIndex, 10);
-      } else {
-        return Math.floor(Math.random() * allSongs.length);
-      }
-    }
-    return 0;
-  });
+  const [currentSongIndex, setCurrentSongIndex] = useState(0);
 
   useEffect(() => {
-    setIsClient(true);
+    if (typeof window !== "undefined") {
+      const savedIndex = localStorage.getItem("currentSongIndex");
+      if (savedIndex) {
+        setCurrentSongIndex(parseInt(savedIndex, 10));
+      } else {
+        setCurrentSongIndex(Math.floor(Math.random() * allSongs.length));
+      }
+    }
   }, []);
 
   // localStorage persistence (changes)
