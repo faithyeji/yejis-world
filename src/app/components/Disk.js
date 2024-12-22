@@ -1,54 +1,21 @@
 "use client";
 
 import { motion, MotionConfig, AnimatePresence } from "framer-motion";
+import { useAudio } from "./AudioContext";
 
-import React, { createContext, useContext, useState } from "react";
+import { useEffect, useRef } from "react";
 import Image from "next/image";
-
-const allSongs = [
-  {
-    image: "/images/songs/nujabes.webp",
-    name: "Beat Laments the World",
-    alt: "Nujabes",
-    audio: "audios/Beats Lament the World.mp3",
-  },
-  {
-    image: "/images/songs/starry-night.webp",
-    name: "Starry Night",
-    alt: "Starry Night",
-    audio: "audios/Starry Night.mp3",
-  },
-  {
-    image: "/images/songs/track-uno.webp",
-    name: "Track Uno",
-    alt: "Track Uno",
-    audio: "audios/TRACK UNO.mp3",
-  },
-  {
-    image: "/images/songs/butterflies.webp",
-    name: "Butterflies",
-    alt: "Butterflies",
-    audio: "audios/Butterflies.mp3",
-  },
-];
-
-const Context = createContext({
-  status: "",
-  setStatus: () => null,
-  currentSongIndex: 0,
-  setCurrentSongIndex: () => null,
-});
 
 const transition = { type: "spring", bounce: 0, duration: 0.4 };
 
 function CD() {
-  const ctx = useContext(Context);
-  const { currentSongIndex, setCurrentSongIndex, status, setStatus } = ctx;
+  const { currentSongIndex, setCurrentSongIndex, status, setStatus, allSongs } =
+    useAudio();
   const currentSong = allSongs[currentSongIndex];
-  const playing = ctx.status === "playing";
-  const audioRef = React.useRef(null);
+  const playing = status === "playing";
+  const audioRef = useRef(null);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (audioRef.current) {
       if (playing) {
         audioRef.current.play();
@@ -92,7 +59,7 @@ function CD() {
           scale: 1.03,
         }}
         onTap={() => {
-          ctx.setStatus(ctx.status === "playing" ? "paused" : "playing");
+          setStatus(status === "playing" ? "paused" : "playing");
         }}
         className="size-[500px] absolute left-1/2 z-10 flex origin-center select-none items-center justify-center overflow-hidden border-2 border-[#d3d3d3] bg-gray-200 shadow-[0_0_80px_-20px_rgba(0,0,0,0.3)]"
       >
@@ -128,7 +95,9 @@ function CD() {
         </motion.div>
         <audio ref={audioRef} src={currentSong.audio} loop />
       </motion.div>
-      <div className="absolute z-30 flex bottom-[0%] left-1/2 -translate-x-1/2 space-x-[535px]">
+
+      {/* arrows */}
+      <div className="absolute z-30 flex bottom-[0%] left-1/2 -translate-x-1/2 space-x-[542px]">
         <button
           onClick={handlePreviousSong}
           className="bg-white/70 border border-neutral-200 rounded-full w-10 h-10 px-2 flex items-center justify-center transition-all  drop-shadow-sm hover:bg-white hover:scale-105"
@@ -174,17 +143,4 @@ function CD() {
   );
 }
 
-export default function Disk() {
-  const [status, setStatus] = useState("paused");
-  const [currentSongIndex, setCurrentSongIndex] = useState(0);
-
-  return (
-    <Context.Provider
-      value={{ status, setStatus, currentSongIndex, setCurrentSongIndex }}
-    >
-      <MotionConfig transition={transition}>
-        <CD />
-      </MotionConfig>
-    </Context.Provider>
-  );
-}
+export default CD;

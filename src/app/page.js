@@ -1,6 +1,9 @@
+"use client";
 import Image from "next/image";
 import Folder from "./components/Folder";
 import CD from "./components/Disk";
+import { useAudio } from "./components/AudioContext";
+
 export default function Home() {
   const inspos = [
     {
@@ -44,11 +47,14 @@ export default function Home() {
     },
   ];
 
+  const { allSongs, currentSongIndex, status } = useAudio();
+  const currentSongTitle = allSongs[currentSongIndex]?.name || "Nothing";
+
   return (
     <main className="overflow-hidden h-full w-full">
       <Folder
         title="current inspos"
-        style="top-[40%] left-[12%] animate-slidein opacity-0 [--slidein-delay:400ms]"
+        style="top-[37%] left-[13%] animate-slidein opacity-0 [--slidein-delay:400ms]"
         content={inspos}
         position="top-[110%] left-[8%] origin-[0%-30%]"
       />
@@ -89,7 +95,9 @@ export default function Home() {
         </div>
       </div>
       <div className="hidden sm:flex justify-between w-full font-mono absolute bottom-6 text-neutral-600 z-0">
-        <p className="text-xs ml-8">NOW PLAYING: BEAT LAMENTS THE WORLD</p>
+        <p className="text-xs ml-8">
+          NOW {status == "playing" ? "PLAYING:" : "PAUSED:"} {currentSongTitle}
+        </p>{" "}
         <p className="text-xs mr-8">CODED WITH NEXTJS AND &lt;3</p>
       </div>
     </main>

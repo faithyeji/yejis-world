@@ -4,6 +4,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 
 import Navbar from "./components/Navbar";
+import { AudioProvider } from "./components/AudioContext";
 
 const newsreader = Newsreader({
   subsets: ["latin"],
@@ -30,16 +31,18 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <head>
-        <link rel="icon" href="/favicon.ico" />
-      </head>
-      <body
-        className={`${elza.variable} ${newsreader.variable} ${dmMono.variable} antialiased`}
-      >
-        <Navbar />
-        {children}
-      </body>
-    </html>
+    <AudioProvider>
+      <html lang="en">
+        <head>
+          <link rel="icon" href="/favicon.ico" />
+        </head>
+        <body
+          className={`${elza.variable} ${newsreader.variable} ${dmMono.variable} antialiased`}
+        >
+          <Navbar />
+          {children}
+        </body>
+      </html>
+    </AudioProvider>
   );
 }
