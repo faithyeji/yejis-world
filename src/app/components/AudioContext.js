@@ -28,6 +28,12 @@ export function AudioProvider({ children }) {
       alt: "Let's Go Back",
       audio: "audios/Let's Go Back.mp3",
     },
+    {
+      image: "/images/songs/gypsy.webp",
+      name: "GYPSY",
+      alt: "Gypsy",
+      audio: "audios/Gypsy.mp3",
+    },
     // {
     //   image: "/images/songs/butterflies.webp",
     //   name: "BUTTERFLIES",
