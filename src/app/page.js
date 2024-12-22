@@ -83,7 +83,7 @@ export default function Home() {
         content={photos}
         position="bottom-[120%] right-[-60%] origin-bottom"
       />
-      <div className="flex flex-col mt-40 justify-center items-center text-center gap-2 text-neutral-600 relative">
+      <div className="flex flex-col mt-24 sm:mt-40 justify-center items-center text-center gap-2 text-neutral-600 relative">
         {/* <h1 className="font-serif italic text-5xl text-blue-700">Yeji Seo</h1> */}
         <Image
           src="/smalleryeji.gif"

@@ -98,7 +98,7 @@ function CD() {
       </motion.div>
 
       {/* arrows */}
-      <div className="absolute z-30 flex bottom-[0%] left-1/2 -translate-x-1/2 space-x-[542px]">
+      <div className="absolute flex bottom-[0%] left-1/2 -translate-x-1/2 space-x-[542px]">
         <button
           onClick={handlePreviousSong}
           className="bg-white/70 border border-neutral-200 rounded-full w-10 h-10 px-2 flex items-center justify-center transition-all  drop-shadow-sm hover:bg-white hover:scale-105"
