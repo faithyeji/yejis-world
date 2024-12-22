@@ -45,21 +45,32 @@ export function AudioProvider({ children }) {
   // State for audio playback (status and song index)
   // start with paused because browsers prevent autoplay lollll
   const [status, setStatus] = useState("paused");
+  const [isClient, setIsClient] = useState(false);
+
   const [currentSongIndex, setCurrentSongIndex] = useState(() => {
-    const savedIndex = localStorage.getItem("currentSongIndex");
-    if (savedIndex) {
-      return parseInt(savedIndex, 10);
-    } else {
-      // random index
-      return Math.floor(Math.random() * allSongs.length);
+    if (typeof window !== "undefined") {
+      // check local storage
+      const savedIndex = localStorage.getItem("currentSongIndex");
+      if (savedIndex) {
+        return parseInt(savedIndex, 10);
+      } else {
+        return Math.floor(Math.random() * allSongs.length);
+      }
     }
+    return 0;
   });
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
 
   // localStorage persistence (changes)
   useEffect(() => {
-    localStorage.setItem("audioStatus", status);
-    localStorage.setItem("currentSongIndex", currentSongIndex);
-  }, [status, currentSongIndex]);
+    if (isClient) {
+      localStorage.setItem("audioStatus", status);
+      localStorage.setItem("currentSongIndex", currentSongIndex);
+    }
+  }, [status, currentSongIndex, isClient]);
 
   return (
     <AudioContext.Provider
