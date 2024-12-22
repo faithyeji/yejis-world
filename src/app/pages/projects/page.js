@@ -9,19 +9,21 @@ export default function Projects() {
           title="The StoryGraph"
           type="UI/UX DESIGN"
           imageSrc="/images/projects/storygraph.webp"
-          link="https://www.figma.com/proto/1GGlcr1JEq7slx0zS53tKa/Career-Case-Studies?page-id=0%3A1&node-id=1-2&node-type=frame&viewport=864%2C471%2C0.05&t=6SLbc7dnNFzr2wvj-1&scaling=contain&content-scaling=fixed"
+          link="https://accurate-camera-fa3.notion.site/The-StoryGraph-163d2970043580a2b3dccf6ca916812c?pvs=74"
           description="Working as the sole UX designer for a book-sharing platform with 3 million users."
         />
         <Project
           title="Lumen"
           type="UX/BRANDING"
           imageSrc="/images/projects/lumen.webp"
+          link="https://accurate-camera-fa3.notion.site/Lumen-164d2970043580df97e8eb670fe641cd"
           description="Collecting, organizing, and illuminating user feedback to highlight key insights."
         />
         <Project
           title="Namu"
           type="DESIGN, FULL-STACK DEV"
           imageSrc="/images/projects/namu.webp"
+          link="https://accurate-camera-fa3.notion.site/Namu-164d2970043580bea568dd6e3bcaef87?pvs=73"
           description="A digital garden where work-in-progresses and unfinished projects can grow."
         />
         <Project
