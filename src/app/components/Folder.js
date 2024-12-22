@@ -45,7 +45,7 @@ export default function Folder({ title, style, content, image, position }) {
 
       {/* opened folder */}
       <div
-        className={`absolute ${position} transform bg-white/70 backdrop-blur-lg text-neutral-700 shadow-md rounded-md w-72 transition-all duration-200 ease ${
+        className={`absolute ${position} transform bg-white/80 backdrop-blur-lg text-neutral-700 shadow-md rounded-md w-72 transition-all duration-200 ease ${
           isOpen ? "scale-100 opacity-100" : "scale-0 opacity-0"
         }`}
       >
@@ -64,7 +64,11 @@ export default function Folder({ title, style, content, image, position }) {
                       className="h-20 w-28 bg-cover bg-center mb-2 border-4 border-solid border-white rounded-md drop-shadow-[1px_2px_3px_rgba(0,0,0,0.2)]"
                       style={{ backgroundImage: `url(${internal.image})` }}
                     ></div>
-                    <p className="text-xs w-32 hover:text-blue-600">
+                    <p
+                      className={`${
+                        internal.href && "hover:text-blue-600"
+                      } text-xs w-32`}
+                    >
                       {internal.text}
                     </p>
                   </a>

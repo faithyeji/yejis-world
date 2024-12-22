@@ -43,7 +43,20 @@ export default function Home() {
 
   const photos = [
     {
-      text: "hi! i'm empty... for now.",
+      text: "Neighhh.",
+      image: "/images/folder/horsey.webp",
+    },
+    {
+      text: "Mount Ye (ji)",
+      image: "/images/folder/mountYe.webp",
+    },
+    {
+      text: "LA shenanigans!",
+      image: "/images/folder/coolStore.webp",
+    },
+    {
+      text: "Djing..",
+      image: "/images/folder/djing.webp",
     },
   ];
 
@@ -72,11 +85,13 @@ export default function Home() {
       />
       <div className="flex flex-col mt-40 justify-center items-center text-center gap-2 text-neutral-600 relative">
         {/* <h1 className="font-serif italic text-5xl text-blue-700">Yeji Seo</h1> */}
-        <img
-          src="./smalleryeji.gif"
+        <Image
+          src="/smalleryeji.gif"
           alt="alternate yejis"
-          width="210"
+          width={210}
+          height={200}
           className="absolute top-0 animate-slidein opacity-0 [--slidein-delay:100ms]"
+          priority
           loading="eager"
         />
         <p className="w-52 sm:w-96 font-sans text-lg leading-6 mt-28 animate-slidein opacity-0 [--slidein-delay:300ms]">
