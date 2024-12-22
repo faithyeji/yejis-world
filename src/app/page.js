@@ -6,9 +6,23 @@ export default function Home() {
     {
       text: "Doechii's Tiny Desk",
       href: "https://www.youtube.com/watch?v=-91vymvIH0c",
+      image: "/images/folder/doechii.webp",
     },
-    { text: "MS PAINT GOD @khwampa", href: "https://x.com/khwampa" },
-    { text: "Example Link 3", href: "https://example3.com" },
+    {
+      text: "@khwampa's MS Paint",
+      href: "https://x.com/khwampa",
+      image: "/images/folder/khwampa.webp",
+    },
+    {
+      text: "Cha Cha's Art",
+      href: "https://www.instagram.com/cha._cha.__/",
+      image: "/images/folder/chacha.webp",
+    },
+    {
+      text: "Prosperity's DJing",
+      href: "https://www.instagram.com/prosperityroom/?hl=en",
+      image: "/images/folder/prosperity.webp",
+    },
   ];
 
   const musings = [
@@ -26,29 +40,29 @@ export default function Home() {
 
   const photos = [
     {
-      text: "hi! i'm currently empty.",
+      text: "hi! i'm empty.",
     },
   ];
 
   return (
-    <main className="overflow-hidden">
+    <main className="overflow-hidden h-full w-full">
       <Folder
         title="current inspos"
-        style="top-[40%] left-[15%] animate-slidein opacity-0 [--slidein-delay:400ms]"
+        style="top-[40%] left-[12%] animate-slidein opacity-0 [--slidein-delay:400ms]"
         content={inspos}
-        position="top-[110%] left-[20%] origin-[0%-40%]"
+        position="top-[110%] left-[8%] origin-[0%-30%]"
       />
       <Folder
         title="musings"
         style="top-[20%] right-[12%] animate-slidein opacity-0 [--slidein-delay:500ms]"
         content={musings}
-        position="top-[110%] right-[5%] origin-[100%-30%]"
+        position="top-[110%] right-[2%] origin-[100%-30%]"
       />
       <Folder
         title="photos"
         style="bottom-[20%] right-[16%] animate-slidein opacity-0 [--slidein-delay:500ms]"
         content={photos}
-        position="bottom-[90%] right-[-120%] origin-[-20%-30%]"
+        position="bottom-[120%] right-[-60%] origin-bottom"
       />
       <div className="flex flex-col mt-40 justify-center items-center text-center gap-2 text-neutral-600 relative">
         {/* <h1 className="font-serif italic text-5xl text-blue-700">Yeji Seo</h1> */}
@@ -56,11 +70,12 @@ export default function Home() {
           src="./smalleryeji.gif"
           alt="alternate yejis"
           width="210"
-          className="absolute top-0 animate-slidein opacity-0 [--slidein-delay:200ms]"
+          className="absolute top-0 animate-slidein opacity-0 [--slidein-delay:100ms]"
+          loading="eager"
         />
-        <p className="w-52 sm:w-96 font-sans text-lg leading-6 mt-28 animate-slidein opacity-0 [--slidein-delay:500ms]">
+        <p className="w-52 sm:w-96 font-sans text-lg leading-6 mt-28 animate-slidein opacity-0 [--slidein-delay:300ms]">
           is a{" "}
-          <span className="bg-[#d4e6ff] mx-1 px-2 py-0.5 rounded-lg text-black font-mono text-xs">
+          <span className="bg-[#d4e6ff] mx-1 px-2 py-0.5 rounded-lg text-blue-700 font-mono text-xs">
             ?????
           </span>{" "}
           who loves to play in: product design, ui/ux, front-end dev,
@@ -68,8 +83,8 @@ export default function Home() {
         </p>
       </div>
       {/* cd */}
-      <div className="flex justify-center mt-11 h-96 overflow-hidden relative pt-12 animate-slidein opacity-0 [--slidein-delay:700ms]">
-        <div className="mt-4">
+      <div className="flex justify-center mt-11 h-[380px] overflow-hidden relative pt-12 animate-slidein opacity-0 [--slidein-delay:700ms]">
+        <div className="mt-3">
           <CD />
         </div>
       </div>

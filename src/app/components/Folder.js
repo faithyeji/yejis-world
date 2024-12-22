@@ -2,7 +2,7 @@
 import Image from "next/image";
 import React, { useState, useRef, useEffect } from "react";
 
-export default function Folder({ title, style, content, position }) {
+export default function Folder({ title, style, content, image, position }) {
   const [isOpen, setIsOpen] = useState(false);
   const folderRef = useRef(null);
 
@@ -35,7 +35,7 @@ export default function Folder({ title, style, content, position }) {
       >
         <Image
           src="/images/folder-icon.webp"
-          width={105}
+          width={100}
           height={90}
           alt="folder"
           loading="eager"
@@ -45,21 +45,40 @@ export default function Folder({ title, style, content, position }) {
 
       {/* opened folder */}
       <div
-        className={`absolute ${position} transform bg-white/60 backdrop-blur-lg text-neutral-500 shadow-md rounded-md w-64 transition-all duration-100 ease-out ${
+        className={`absolute ${position} transform bg-white/70 backdrop-blur-lg text-neutral-700 shadow-md rounded-md w-72 transition-all duration-200 ease ${
           isOpen ? "scale-100 opacity-100" : "scale-0 opacity-0"
         }`}
       >
-        <div className="w-full h-6 bg-gray-200"></div>
-        <div className="flex flex-col gap-4 font-sans text-sm p-3">
-          {content.map((link, index) => (
-            <a
-              key={index}
-              href={link.href}
-              target="_blank"
-              className={link.href ? "underline" : ""}
-            >
-              <p>{link.text}</p>
-            </a>
+        <div className="w-full h-6 bg-gray-100 border-y border-solid border-gray-200"></div>
+        <div className="flex flex-wrap gap-y-4 gap-x-1 font-sans text-xs my-6 px-2 justify-center">
+          {content.map((internal, index) => (
+            <div key={index}>
+              {internal.image ? (
+                <>
+                  <a
+                    href={internal.href}
+                    target="_blank"
+                    className="flex flex-col items-center text-center"
+                  >
+                    <div
+                      className="h-20 w-28 bg-cover bg-center mb-2 border-4 border-solid border-white rounded-md drop-shadow-[1px_2px_3px_rgba(0,0,0,0.2)]"
+                      style={{ backgroundImage: `url(${internal.image})` }}
+                    ></div>
+                    <p className="text-xs w-32 hover:text-blue-600">
+                      {internal.text}
+                    </p>
+                  </a>
+                </>
+              ) : (
+                <a
+                  href={internal.href}
+                  target="_blank"
+                  className={internal.href ? "underline" : ""}
+                >
+                  <p className="w-64 text-left">{internal.text}</p>
+                </a>
+              )}
+            </div>
           ))}
         </div>
       </div>

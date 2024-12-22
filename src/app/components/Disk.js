@@ -53,7 +53,7 @@ function CD() {
       className="size-[500px] absolute left-1/2 z-10 flex origin-center select-none items-center justify-center overflow-hidden border-2 border-[#d3d3d3] bg-gray-200 shadow-[0_0_80px_-20px_rgba(0,0,0,0.3)]"
     >
       <Image
-        src="/images/nujabes.webp"
+        src="/images/songs/nujabes.webp"
         alt="Nujabes"
         className="pointer-events-none select-none object-cover"
         layout="fill"

@@ -42,7 +42,7 @@ export default function About() {
                 sketching
               </a>
               , starting another book, Letterboxd logging the latest film I
-              watched, or drinking soymilk.
+              watched, trying to DJ, or drinking soymilk.
             </p>
             <p className="animate-slidein opacity-0 [--slidein-delay:600ms]">
               <span className="font-mono text-md text-blue-500">
