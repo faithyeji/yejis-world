@@ -1,8 +1,5 @@
 .container {
-  width: 1400px;
   margin: 20px auto;
-  columns: 4;
-  column-gap: 20px;
 }
 
 .container .box {

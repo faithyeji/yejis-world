@@ -7,7 +7,7 @@ export default function Playground() {
       <h1 className="text-serif italic text-neutral-600 m-auto text-center mt-6 text-2xl animate-slidein opacity-0 [--slidein-delay:60ms]">
         My collection of creative experiments!
       </h1>
-      <div className="container animate-slidein opacity-0 [--slidein-delay:800ms]">
+      <div className="container columns-2 sm:columns-4 gap-x-2 sm:gap-x-5 w-[400px] sm:w-[1400px] animate-slidein opacity-0 [--slidein-delay:800ms]">
         <div className="box">
           <img src="/images/playground/drawings/doodling.webp" alt="Doodling" />
         </div>
@@ -159,15 +159,18 @@ export default function Playground() {
           <img src="/images/playground/brand/treffa.webp" alt="Treffa" />
         </div>
         <div className="box">
-          <img
-            src="/images/playground/graphics/fathead5.webp"
-            alt="Fathead 5"
-          />
+          <video
+            src="/images/playground/experiments/smelllog.webm"
+            autoPlay
+            loop
+            muted
+            className="w-full"
+          ></video>
         </div>
         <div className="box">
           <img
-            src="/images/playground/graphics/fathead3.webp"
-            alt="Fathead 3"
+            src="/images/playground/graphics/fathead5.webp"
+            alt="Fathead 5"
           />
         </div>
         <div className="box">
@@ -177,6 +180,12 @@ export default function Playground() {
           <img
             src="/images/playground/experiments/spoonButler.webp"
             alt="Spoon Butler"
+          />
+        </div>
+        <div className="box">
+          <img
+            src="/images/playground/graphics/fathead3.webp"
+            alt="Fathead 3"
           />
         </div>
         <div className="box">

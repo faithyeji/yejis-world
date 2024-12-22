@@ -40,7 +40,7 @@ export default function Home() {
 
   const photos = [
     {
-      text: "hi! i'm empty.",
+      text: "hi! i'm empty... for now.",
     },
   ];
 
@@ -60,7 +60,7 @@ export default function Home() {
       />
       <Folder
         title="photos"
-        style="bottom-[20%] right-[16%] animate-slidein opacity-0 [--slidein-delay:500ms]"
+        style="bottom-[25%] right-[15%] animate-slidein opacity-0 [--slidein-delay:500ms]"
         content={photos}
         position="bottom-[120%] right-[-60%] origin-bottom"
       />
@@ -83,12 +83,12 @@ export default function Home() {
         </p>
       </div>
       {/* cd */}
-      <div className="flex justify-center mt-11 h-[380px] overflow-hidden relative pt-12 animate-slidein opacity-0 [--slidein-delay:700ms]">
+      <div className="flex justify-center mt-11 h-[380px] overflow-y-hidden relative pt-12 animate-slidein opacity-0 [--slidein-delay:700ms] z-10">
         <div className="mt-3">
           <CD />
         </div>
       </div>
-      <div className="hidden sm:flex justify-between w-full font-mono absolute bottom-6 text-neutral-600">
+      <div className="hidden sm:flex justify-between w-full font-mono absolute bottom-6 text-neutral-600 z-0">
         <p className="text-xs ml-8">NOW PLAYING: BEAT LAMENTS THE WORLD</p>
         <p className="text-xs mr-8">CODED WITH NEXTJS AND &lt;3</p>
       </div>
