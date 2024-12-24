@@ -27,7 +27,7 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex justify-between items-center h-16">
           <div className="flex-shrink-0 mt-2 ml-2">
-            <Link href="/">
+            <Link href="/" aria-label="home">
               <GooglyEye />
             </Link>
           </div>

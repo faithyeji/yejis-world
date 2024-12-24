@@ -101,6 +101,7 @@ function CD() {
       <div className="absolute flex bottom-[0%] left-1/2 -translate-x-1/2 space-x-[542px]">
         <button
           onClick={handlePreviousSong}
+          aria-label="previous"
           className="bg-white/70 border border-neutral-200 rounded-full w-10 h-10 px-2 flex items-center justify-center transition-all  drop-shadow-sm hover:bg-white hover:scale-105"
         >
           <svg
@@ -121,6 +122,7 @@ function CD() {
 
         <button
           onClick={handleNextSong}
+          aria-label="next"
           className="bg-white/70 border border-neutral-200 rounded-full w-10 h-10 px-2 flex items-center justify-center transition-all  drop-shadow-sm hover:bg-white hover:scale-105"
         >
           <svg

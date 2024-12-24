@@ -4,7 +4,7 @@ import "./playground.css";
 export default function Playground() {
   return (
     <main className="overflow-hidden">
-      <h1 className="text-serif italic text-neutral-600 m-auto text-center mt-6 text-2xl animate-slidein opacity-0 [--slidein-delay:60ms]">
+      <h1 className="text-serif italic text-neutral-600 m-auto text-center mt-6 text-xl sm:text-2xl animate-slidein opacity-0 [--slidein-delay:60ms]">
         My collection of creative experiments!
       </h1>
       <div className="container columns-2 sm:columns-4 gap-x-2 sm:gap-x-5 w-[400px] sm:w-[1400px] animate-slidein opacity-0 [--slidein-delay:800ms]">
@@ -23,6 +23,7 @@ export default function Playground() {
             autoPlay
             loop
             muted
+            playsInline
             className="w-full"
           ></video>
         </div>
@@ -113,6 +114,7 @@ export default function Playground() {
             autoPlay
             loop
             muted
+            playsInline
             className="w-full"
           ></video>
         </div>
@@ -244,6 +246,15 @@ export default function Playground() {
         </div>
         <div className="box">
           <Image
+            src="/images/playground/graphics/ebaesFlyer.webp"
+            alt="Ebae's Flyer"
+            layout="responsive"
+            width={500}
+            height={500}
+          />
+        </div>
+        <div className="box">
+          <Image
             src="/images/playground/graphics/fathead2.webp"
             alt="Fathead 2"
             layout="responsive"
@@ -261,13 +272,14 @@ export default function Playground() {
           />
         </div>
         <div className="box">
-          <Image
-            src="/images/playground/graphics/ebaesFlyer.webp"
-            alt="Ebae's Flyer"
-            layout="responsive"
-            width={500}
-            height={500}
-          />
+          <video
+            src="/images/playground/experiments/smelllog.webm"
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full"
+          ></video>
         </div>
         <div className="box">
           <Image
@@ -286,15 +298,6 @@ export default function Playground() {
             width={500}
             height={500}
           />
-        </div>
-        <div className="box">
-          <video
-            src="/images/playground/experiments/smelllog.webm"
-            autoPlay
-            loop
-            muted
-            className="w-full"
-          ></video>
         </div>
         <div className="box">
           <Image
