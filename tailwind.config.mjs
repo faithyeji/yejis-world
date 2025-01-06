@@ -27,9 +27,18 @@ export default {
             transform: "translateY(0)",
           },
         },
+        fadein: {
+          from: {
+            opacity: "0",
+          },
+          to: {
+            opacity: "1",
+          },
+        },
       },
       animation: {
         slidein: "slidein 1s ease var(--slidein-delay, 0) forwards",
+        fadein: "fadein 1s ease",
       },
     },
   },

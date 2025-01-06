@@ -1,6 +1,8 @@
 "use client";
 import Image from "next/image";
 import React, { useState, useRef, useEffect } from "react";
+import { gsap } from "gsap";
+import { Draggable } from "gsap/Draggable";
 
 export default function Folder({ title, style, content, image, position }) {
   const [isOpen, setIsOpen] = useState(false);
@@ -27,6 +29,19 @@ export default function Folder({ title, style, content, image, position }) {
     };
   }, [isOpen]);
 
+  // draggable
+  useEffect(() => {
+    gsap.registerPlugin(Draggable);
+    if (folderRef.current) {
+      Draggable.create(folderRef.current, {
+        type: "x,y",
+        bounds: window,
+        inertia: true,
+        zIndexBoost: true,
+      });
+    }
+  }, []);
+
   return (
     <div ref={folderRef} className={`absolute ${style} z-30 hidden sm:block`}>
       <div
@@ -38,9 +53,12 @@ export default function Folder({ title, style, content, image, position }) {
           width={100}
           height={90}
           alt="folder"
+          className="w-24 h-auto"
           loading="eager"
         />
-        <h3 className="font-serif italic mt-2">{title}</h3>
+        <h3 className="backdrop-blur-sm bg-white-60 font-serif italic mt-2 px-2 rounded-lg">
+          {title}
+        </h3>
       </div>
 
       {/* opened folder */}

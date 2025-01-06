@@ -76,10 +76,11 @@ function CD() {
               src={currentSong.image}
               alt={currentSong.alt}
               className="pointer-events-none select-none object-cover"
-              layout="fill"
-              objectFit="cover"
+              style={{ objectFit: "cover" }}
               loading="eager"
               priority
+              fill
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             />
           </motion.div>
         </AnimatePresence>

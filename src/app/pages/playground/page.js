@@ -19,7 +19,7 @@ export default function Playground() {
         </div>
         <div className="box">
           <video
-            src="/images/playground/experiments/AllCardsVideo.webm"
+            src="/images/playground/experiments/smelllog.webm"
             autoPlay
             loop
             muted
@@ -108,7 +108,7 @@ export default function Playground() {
             height={500}
           />
         </div>
-        <div className="box">
+        {/* <div className="box">
           <video
             src="/images/playground/experiments/CUGirl.webm"
             autoPlay
@@ -117,11 +117,11 @@ export default function Playground() {
             playsInline
             className="w-full"
           ></video>
-        </div>
+        </div> */}
         <div className="box">
           <Image
-            src="/images/playground/drawings/crayons.webp"
-            alt="Crayons"
+            src="/images/playground/graphics/ConquestMap.webp"
+            alt="Conquest Map"
             layout="responsive"
             width={500}
             height={500}
@@ -129,8 +129,8 @@ export default function Playground() {
         </div>
         <div className="box">
           <Image
-            src="/images/playground/graphics/ConquestMap.webp"
-            alt="Conquest Map"
+            src="/images/playground/drawings/crayons.webp"
+            alt="Crayons"
             layout="responsive"
             width={500}
             height={500}
@@ -272,14 +272,13 @@ export default function Playground() {
           />
         </div>
         <div className="box">
-          <video
-            src="/images/playground/experiments/smelllog.webm"
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="w-full"
-          ></video>
+          <Image
+            src="/images/playground/experiments/spoonButler.webp"
+            alt="Spoon Butler"
+            layout="responsive"
+            width={500}
+            height={500}
+          />
         </div>
         <div className="box">
           <Image
@@ -289,6 +288,16 @@ export default function Playground() {
             width={500}
             height={500}
           />
+        </div>
+        <div className="box">
+          <video
+            src="/images/playground/experiments/AllCardsVideo.webm"
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full"
+          ></video>
         </div>
         <div className="box">
           <Image
@@ -312,15 +321,6 @@ export default function Playground() {
           <Image
             src="/images/playground/experiments/lamp.webp"
             alt="Lamp"
-            layout="responsive"
-            width={500}
-            height={500}
-          />
-        </div>
-        <div className="box">
-          <Image
-            src="/images/playground/experiments/spoonButler.webp"
-            alt="Spoon Butler"
             layout="responsive"
             width={500}
             height={500}

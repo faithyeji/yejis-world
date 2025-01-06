@@ -65,24 +65,26 @@ export default function Home() {
 
   return (
     <main className="overflow-hidden h-full w-full">
-      <Folder
-        title="current inspos"
-        style="top-[37%] left-[13%] animate-slidein opacity-0 [--slidein-delay:400ms]"
-        content={inspos}
-        position="top-[110%] left-[8%] origin-[0%-30%]"
-      />
-      <Folder
-        title="musings"
-        style="top-[20%] right-[12%] animate-slidein opacity-0 [--slidein-delay:500ms]"
-        content={musings}
-        position="top-[110%] right-[2%] origin-[100%-30%]"
-      />
-      <Folder
-        title="photos"
-        style="bottom-[25%] right-[15%] animate-slidein opacity-0 [--slidein-delay:500ms]"
-        content={photos}
-        position="bottom-[120%] right-[-60%] origin-bottom"
-      />
+      <div className="animate-fadein">
+        <Folder
+          title="current inspos"
+          style="top-[37%] left-[13%]"
+          content={inspos}
+          position="top-[110%] left-[8%] origin-[0%-30%]"
+        />
+        <Folder
+          title="musings"
+          style="top-[20%] right-[12%]"
+          content={musings}
+          position="top-[110%] right-[2%] origin-[100%-30%]"
+        />
+        <Folder
+          title="photos"
+          style="bottom-[25%] right-[15%]"
+          content={photos}
+          position="bottom-[120%] right-[-60%] origin-bottom"
+        />
+      </div>
       <div className="flex flex-col mt-24 sm:mt-40 justify-center items-center text-center gap-2 text-neutral-600 relative">
         {/* <h1 className="font-serif italic text-5xl text-blue-700">Yeji Seo</h1> */}
         <video
