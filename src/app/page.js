@@ -88,14 +88,16 @@ export default function Home() {
       <div className="flex flex-col mt-24 sm:mt-40 justify-center items-center text-center gap-2 text-neutral-600 relative">
         {/* <h1 className="font-serif italic text-5xl text-blue-700">Yeji Seo</h1> */}
         <video
-          src="/yejinames.webm"
           width="210"
           autoPlay
           loop
           muted
           playsInline
           className="absolute top-0 animate-slidein opacity-0 [--slidein-delay:100ms]"
-        ></video>
+        >
+          <source src="/yejinames-hevc.mov" />
+          <source src="/yejinames.webm" />
+        </video>
         <p className="w-52 sm:w-96 font-sans text-lg leading-6 mt-28 animate-slidein opacity-0 [--slidein-delay:300ms]">
           is a{" "}
           <span className="bg-[#d4e6ff] mx-1 px-2 py-0.5 rounded-lg text-blue-700 font-mono text-xs">
