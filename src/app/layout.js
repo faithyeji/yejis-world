@@ -2,6 +2,7 @@ import { Newsreader } from "next/font/google";
 import { DM_Mono } from "next/font/google";
 import localFont from "next/font/local";
 import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/react";
 import "./globals.css";
 
 import Navbar from "./components/Navbar";
@@ -42,6 +43,7 @@ export default function RootLayout({ children }) {
         >
           <Navbar />
           {children}
+          <Analytics />
           <SpeedInsights />
         </body>
       </html>
