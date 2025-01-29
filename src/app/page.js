@@ -108,7 +108,7 @@ export default function Home() {
         </p>
       </div>
       {/* cd */}
-      <div className="flex justify-center mt-11 h-[380px] overflow-y-hidden relative pt-12 animate-slidein opacity-0 [--slidein-delay:700ms] z-10">
+      <div className="flex w-full justify-center items-center h-[380px] absolute bottom-0 mx-auto translate-x-1/2 origin-center overflow-y-hidden pt-12 animate-slidein opacity-0 [--slidein-delay:700ms] z-10">
         <div className="mt-3">
           <CD />
         </div>
