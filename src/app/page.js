@@ -82,7 +82,7 @@ export default function Home() {
           position="bottom-[120%] right-[-60%] origin-bottom"
         />
       </div>
-      <div className="flex flex-col mt-24 md:mt-[135px] justify-center items-center text-center gap-2 text-neutral-600 relative">
+      <div className="flex flex-col mt-24 md:mt-[122px] justify-center items-center text-center gap-2 text-neutral-600 relative">
         {/* <h1 className="font-serif italic text-5xl text-blue-700">Yeji Seo</h1> */}
         <video
           width="240"
@@ -95,7 +95,7 @@ export default function Home() {
           <source src="/yejinames-hevc.mov" />
           <source src="/yejinames.webm" />
         </video>
-        <p className="w-72 sm:w-80 md:w-[430px] font-mono text-sm leading-5 mt-36 sm:mt-[135px] animate-slidein opacity-0 [--slidein-delay:300ms]">
+        <p className="w-72 sm:w-80 md:w-[400px] font-mono text-sm leading-5 mt-36 sm:mt-[137px] animate-slidein opacity-0 [--slidein-delay:300ms]">
          IS A MULTIDISCIPLINARY DESIGNER x CREATIVE TECHNOLOGIST DEDICATED TO CRAFTING EXPERIENCES THAT EVOKE DELIGHT & PLAY. <br/> <br/>DESPITE A PASSION FOR EVERYTHING CREATIVE, SHE SPECIALIZES IN DIGITAL ART DIRECTION, BRAND, WEB, PRODUCT, & INTERACTIVE STORYTELLING.
         </p>
       </div>
