@@ -43,7 +43,7 @@ export default function Folder({ title, style, content, image, position }) {
   }, []);
 
   return (
-    <div ref={folderRef} className={`absolute ${style} z-30 hidden sm:block`}>
+    <div ref={folderRef} className={`absolute ${style} z-30 hidden md:block`}>
       <div
         className="flex flex-col items-center cursor-pointer"
         onClick={toggleFolder}

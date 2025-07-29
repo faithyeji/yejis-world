@@ -33,11 +33,8 @@ export default function Home() {
       text: "if art decorates space, music decorates time.",
     },
     {
-      text: "the urinal fly is one of the BEST examples of design.",
+      text: "why I believe the urinal fly is one of the BEST examples of design.",
       href: "https://www.washingtonpost.com/news/wonk/wp/2017/10/09/whats-a-urinal-fly-and-what-does-it-have-to-with-winning-a-nobel-prize/",
-    },
-    {
-      text: "our current expectation of realism in film is why it's just not as FUN anymore.",
     },
   ];
 
@@ -85,10 +82,10 @@ export default function Home() {
           position="bottom-[120%] right-[-60%] origin-bottom"
         />
       </div>
-      <div className="flex flex-col mt-24 sm:mt-40 justify-center items-center text-center gap-2 text-neutral-600 relative">
+      <div className="flex flex-col mt-24 md:mt-[135px] justify-center items-center text-center gap-2 text-neutral-600 relative">
         {/* <h1 className="font-serif italic text-5xl text-blue-700">Yeji Seo</h1> */}
         <video
-          width="210"
+          width="240"
           autoPlay
           loop
           muted
@@ -98,13 +95,8 @@ export default function Home() {
           <source src="/yejinames-hevc.mov" />
           <source src="/yejinames.webm" />
         </video>
-        <p className="w-52 sm:w-96 font-sans text-lg leading-6 mt-28 animate-slidein opacity-0 [--slidein-delay:300ms]">
-          is a{" "}
-          <span className="bg-[#d4e6ff] mx-1 px-2 py-0.5 rounded-lg text-blue-700 font-mono text-xs">
-            ?????
-          </span>{" "}
-          who loves to play in: product design, ui/ux, front-end dev,
-          prototyping, and ++ways to make the web a more fun place.
+        <p className="w-72 sm:w-80 md:w-[430px] font-mono text-sm leading-5 mt-36 sm:mt-[135px] animate-slidein opacity-0 [--slidein-delay:300ms]">
+         IS A MULTIDISCIPLINARY DESIGNER x CREATIVE TECHNOLOGIST DEDICATED TO CRAFTING EXPERIENCES THAT EVOKE DELIGHT & PLAY. <br/> <br/>DESPITE A PASSION FOR EVERYTHING CREATIVE, SHE SPECIALIZES IN DIGITAL ART DIRECTION, BRAND, WEB, PRODUCT, & INTERACTIVE STORYTELLING.
         </p>
       </div>
       {/* cd */}
