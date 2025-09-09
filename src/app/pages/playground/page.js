@@ -49,6 +49,12 @@ const items = [
     alt: "Alien",
     category: "illustration",
   },
+  {
+    type: "image",
+    src: "/images/playground/graphics/colorful.webp",
+    alt: "Colorful",
+    category: "illustration",
+  },
 
   // Graphics
   {
@@ -73,18 +79,6 @@ const items = [
     type: "image",
     src: "/images/playground/graphics/kaytra.webp",
     alt: "kaytra",
-    category: "graphics",
-  },
-  {
-    type: "image",
-    src: "/images/playground/graphics/colorful.webp",
-    alt: "Colorful",
-    category: "graphics",
-  },
-  {
-    type: "image",
-    src: "/images/playground/graphics/activist2.webp",
-    alt: "Activist 2",
     category: "graphics",
   },
   {
