@@ -307,7 +307,7 @@ export default function Playground() {
 
         {/* Gallery */}
         <motion.div
-          className="container columns-2 sm:columns-4 gap-x-2 sm:gap-x-5 w-[400px] sm:w-[1200px]"
+          className="container columns-2 sm:columns-4 gap-x-2 sm:gap-x-5 w-[400px] sm:w-[1200px]  opacity-0 animate-slidein [--slidein-delay:600ms]"
           variants={containerVariants}
           initial="hidden"
           animate="show"
