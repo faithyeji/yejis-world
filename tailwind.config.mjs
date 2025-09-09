@@ -15,6 +15,7 @@ export default {
         sans: ["var(--font-elza)"],
         serif: ["var(--font-newsreader)"],
         mono: ["var(--font-dmMono)"],
+        franklin: ["var(--font-franklin)"],
       },
       keyframes: {
         slidein: {

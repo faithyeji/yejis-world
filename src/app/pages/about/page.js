@@ -58,7 +58,8 @@ export default function About() {
               >
                 Iovine and Young Academy
               </a>
-              . Also building fun things @{" "}
+              .<br />
+              Also building fun things @{" "}
               <a
                 href="https://www.deeplocal.com/"
                 target="_blank"

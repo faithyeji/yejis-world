@@ -19,6 +19,11 @@ const elza = localFont({
   variable: "--font-elza",
 });
 
+const franklin = localFont({
+  src: "./Franklin-Demi.woff",
+  variable: "--font-franklin",
+});
+
 const dmMono = DM_Mono({
   weight: ["300"],
   subsets: ["latin"],
@@ -39,7 +44,7 @@ export default function RootLayout({ children }) {
           <link rel="icon" href="/favicon.ico" />
         </head>
         <body
-          className={`${elza.variable} ${newsreader.variable} ${dmMono.variable} antialiased`}
+          className={`${elza.variable} ${newsreader.variable} ${dmMono.variable} ${franklin.variable} antialiased`}
         >
           <Navbar />
           {children}

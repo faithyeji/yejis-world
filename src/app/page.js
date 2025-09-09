@@ -28,13 +28,15 @@ export default function Home() {
     },
   ];
 
-  const musings = [
+  const albums = [
     {
-      text: "if art decorates space, music decorates time.",
+      text: "I Love My Computer - Ninajirachi",
     },
     {
-      text: "why I believe the urinal fly is one of the BEST examples of design.",
-      href: "https://www.washingtonpost.com/news/wonk/wp/2017/10/09/whats-a-urinal-fly-and-what-does-it-have-to-with-winning-a-nobel-prize/",
+      text: "Imaginal Disk - Magdalena Bay",
+    },
+    {
+      text: "Essex Honey - Blood Orange",
     },
   ];
 
@@ -70,9 +72,9 @@ export default function Home() {
           position="top-[110%] left-[8%] origin-[0%-30%]"
         />
         <Folder
-          title="musings"
+          title="currents"
           style="top-[20%] right-[12%]"
-          content={musings}
+          content={albums}
           position="top-[110%] right-[2%] origin-[100%-30%]"
         />
         <Folder
@@ -96,7 +98,10 @@ export default function Home() {
           <source src="/yejinames.webm" />
         </video>
         <p className="w-72 sm:w-80 md:w-[400px] font-mono text-sm leading-5 mt-36 sm:mt-[137px] animate-slidein opacity-0 [--slidein-delay:300ms]">
-         IS A MULTIDISCIPLINARY DESIGNER x CREATIVE TECHNOLOGIST DEDICATED TO CRAFTING EXPERIENCES THAT EVOKE DELIGHT & PLAY. <br/> <br/>DESPITE A PASSION FOR EVERYTHING CREATIVE, SHE SPECIALIZES IN DIGITAL ART DIRECTION, BRAND, WEB, PRODUCT, & INTERACTIVE STORYTELLING.
+          IS A MULTIDISCIPLINARY DESIGNER x CREATIVE TECHNOLOGIST DEDICATED TO
+          CRAFTING EXPERIENCES THAT EVOKE DELIGHT & PLAY. <br /> <br />
+          SHE (DESPITE A PASSION FOR EVERYTHING CREATIVE) SPECIALIZES IN DIGITAL
+          ART DIRECTION, BRAND, WEB/PRODUCT, & INTERACTIVE STORYTELLING.
         </p>
       </div>
       {/* cd */}
