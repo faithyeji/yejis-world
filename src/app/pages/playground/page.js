@@ -4,9 +4,6 @@ import "./playground.css";
 export default function Playground() {
   return (
     <main className="overflow-hidden">
-      <h1 className="font-sans text-neutral-600 m-auto text-center mt-6 text-sm sm:text-md animate-slidein opacity-0 [--slidein-delay:60ms]">
-        [A collection of creative experiments]
-      </h1>
       <div className="container columns-2 sm:columns-4 gap-x-2 sm:gap-x-5 w-[400px] sm:w-[1400px] animate-slidein opacity-0 [--slidein-delay:800ms]">
         <div className="box">
           <Image
