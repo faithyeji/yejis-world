@@ -125,6 +125,12 @@ const items = [
   },
   {
     type: "image",
+    src: "/images/playground/graphics/europa.webp",
+    alt: "Europa",
+    category: "graphics",
+  },
+  {
+    type: "image",
     src: "/images/playground/graphics/dublab_new.webp",
     alt: "dublabnew",
     category: "graphics",
@@ -143,8 +149,8 @@ const items = [
   },
   {
     type: "image",
-    src: "/images/playground/graphics/totoro.webp",
-    alt: "Totoro",
+    src: "/images/playground/graphics/devworkshop.webp",
+    alt: "Dev Workshop",
     category: "graphics",
   },
   {
@@ -171,6 +177,18 @@ const items = [
     alt: "Treffa",
     category: "graphics",
   },
+  {
+    type: "image",
+    src: "/images/playground/graphics/1dayleft.webp",
+    alt: "1dayleft",
+    category: "graphics",
+  },
+  {
+    type: "image",
+    src: "/images/playground/graphics/totoro.webp",
+    alt: "Totoro",
+    category: "graphics",
+  },
 
   // motion x 3d
   {
@@ -193,8 +211,8 @@ const items = [
   },
   {
     type: "image",
-    src: "/images/playground/experiments/lamp.webp",
-    alt: "Lamp",
+    src: "/images/playground/experiments/hanok.webp",
+    alt: "Hanok",
     category: "motion",
   },
   {
@@ -245,6 +263,12 @@ const items = [
     type: "image",
     src: "/images/playground/experiments/deskDumpster.webp",
     alt: "Desk Dumpster",
+    category: "experiments",
+  },
+  {
+    type: "image",
+    src: "/images/playground/experiments/lamp.webp",
+    alt: "Lamp",
     category: "experiments",
   },
 ];
