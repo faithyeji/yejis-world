@@ -3,7 +3,7 @@ export default function About() {
   return (
     <main className="overflow-hidden">
       <div className="flex flex-col sm:flex-row mt-2 sm:mt-20 justify-center items-center sm:items-start text-center gap-8 sm:gap-12 text-neutral-600">
-        <div className="relative group h-fit mt-8 opacity-0 animate-slidein [--slidein-delay:400ms]">
+        <div className="relative group h-fit mt-8 opacity-0 animate-slidein [--slidein-delay:200ms]">
           <Image
             src="/images/elmo.webp"
             width={100}

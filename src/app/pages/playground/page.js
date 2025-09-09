@@ -113,12 +113,6 @@ const items = [
   },
   {
     type: "image",
-    src: "/images/playground/graphics/dublab_new.webp",
-    alt: "dublabnew",
-    category: "graphics",
-  },
-  {
-    type: "image",
     src: "/images/playground/graphics/activist.webp",
     alt: "Activist",
     category: "graphics",
@@ -127,6 +121,12 @@ const items = [
     type: "image",
     src: "/images/playground/graphics/fathead6.webp",
     alt: "Fathead 6",
+    category: "graphics",
+  },
+  {
+    type: "image",
+    src: "/images/playground/graphics/dublab_new.webp",
+    alt: "dublabnew",
     category: "graphics",
   },
   {
@@ -207,6 +207,18 @@ const items = [
     type: "video",
     src: "/images/playground/graphics/seesawreel.webm",
     alt: "SeeSaw",
+    category: "motion",
+  },
+  {
+    type: "video",
+    src: "/images/playground/motion/recruit1.webm",
+    alt: "CTC recruitment",
+    category: "motion",
+  },
+  {
+    type: "video",
+    src: "/images/playground/motion/tangshorter.webm",
+    alt: "hand drawn Tang",
     category: "motion",
   },
 
