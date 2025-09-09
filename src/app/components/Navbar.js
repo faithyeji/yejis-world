@@ -70,10 +70,10 @@ const Navbar = () => {
                 height={20}
               />
             </a>
-            <a href="https://github.com/faithyeji" target="_blank">
+            <a href="https://www.instagram.com/seoyemilk/" target="_blank">
               <Image
-                src="/logos/github.svg"
-                alt="GitHub"
+                src="/logos/insta.svg"
+                alt="Insta"
                 width={20}
                 height={20}
               />
