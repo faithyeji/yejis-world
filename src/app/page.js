@@ -60,7 +60,7 @@ export default function Home() {
     <main className="h-full w-full">
       <div className="flex w-full justify-center items-center mt-[140px] gap-2 ml-20 animate-slidein opacity-0 [--slidein-delay:700ms]">
         {/* Vinyl */}
-        <div className="w-[390px] h-[375px] rounded-xl drop-shadow-md px-10 py-14 border-1.5 z-20 bg-white -rotate-2">
+        <div className="w-[390px] h-[375px] px-10 py-14 border-1.5 z-20 bg-[url('/images/paperbacking.webp')] bg-cover rounded-xl drop-shadow-md -rotate-2">
           <div className="flex w-full justify-between">
             {/* Arrows */}
             <button
@@ -130,7 +130,7 @@ export default function Home() {
               </svg>
             </button>
           </div>
-          <p className="w-full px-1 font-mono text-sm leading-tight mt-6 text-gray-700">
+          <p className="w-full px-2 font-mono text-sm leading-tight mt-6 text-gray-700">
             IS A MULTIDISCIPLINARY DESIGNER x CREATIVE TECHNOLOGIST DEDICATED TO
             CRAFTING EXPERIENCES THAT EVOKE DELIGHT & PLAY. <br /> <br />
             SHE (DESPITE AN INTEREST IN EVERYTHING CREATIVE) SPECIALIZES IN
