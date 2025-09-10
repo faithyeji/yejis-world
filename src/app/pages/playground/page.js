@@ -301,35 +301,31 @@ export default function Playground() {
           <h1 className="font-franklin text-5xl">FILTER</h1>
           <button
             onClick={() => setFilter("all")}
-            className={filter === "all" ? "text-blue-500 font-bold" : ""}
+            className={filter === "all" ? "text-blue-500" : ""}
           >
             EVERYTHING (ALL @ ONCE)
           </button>
           <button
             onClick={() => setFilter("graphics")}
-            className={filter === "graphics" ? "text-blue-500 font-bold" : ""}
+            className={filter === "graphics" ? "text-blue-500" : ""}
           >
             GRAPHICS
           </button>
           <button
             onClick={() => setFilter("motion")}
-            className={filter === "motion" ? "text-blue-500 font-bold" : ""}
+            className={filter === "motion" ? "text-blue-500" : ""}
           >
             MOTION / 3D
           </button>
           <button
             onClick={() => setFilter("illustration")}
-            className={
-              filter === "illustration" ? "text-blue-500 font-bold" : ""
-            }
+            className={filter === "illustration" ? "text-blue-500" : ""}
           >
             ILLUSTRATION
           </button>
           <button
             onClick={() => setFilter("experiments")}
-            className={
-              filter === "experiments" ? "text-blue-500 font-bold" : ""
-            }
+            className={filter === "experiments" ? "text-blue-500" : ""}
           >
             EXPERIMENTS
           </button>
