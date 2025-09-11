@@ -44,14 +44,22 @@ function CD() {
           playing
             ? {
                 rotate: 360,
+                y: [0, 20],
                 transition: {
-                  ease: "linear",
-                  duration: 20,
-                  repeat: Infinity,
+                  rotate: {
+                    ease: "linear",
+                    duration: 20,
+                    repeat: Infinity,
+                  },
+                  y: {
+                    duration: 0.2,
+                    ease: "easeIn",
+                  },
                 },
               }
             : {
                 rotate: 0,
+                y: 0,
                 transition: { duration: 0.5 },
               }
         }
@@ -61,7 +69,7 @@ function CD() {
         onTap={() => {
           setStatus(status === "playing" ? "paused" : "playing");
         }}
-        className="size-[500px] absolute left-1/2 z-10 flex origin-center select-none items-center justify-center overflow-hidden border-2 border-[#d3d3d3] bg-gray-200 shadow-[0_0_80px_-20px_rgba(0,0,0,0.3)]"
+        className="size-[450px] absolute left-1/2 z-10 flex origin-center select-none items-center justify-center overflow-hidden border-2 border-[#d3d3d3] bg-gray-200 shadow-[0_0_80px_-20px_rgba(0,0,0,0.3)]"
       >
         <AnimatePresence mode="wait">
           <motion.div
@@ -99,7 +107,7 @@ function CD() {
       </motion.div>
 
       {/* arrows */}
-      <div className="absolute flex bottom-[0%] left-1/2 -translate-x-1/2 space-x-[542px]">
+      <div className="absolute flex bottom-[24%] left-1/2 -translate-x-1/2 space-x-[510px]">
         <button
           onClick={handlePreviousSong}
           aria-label="previous"

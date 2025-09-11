@@ -43,14 +43,14 @@ export default function Folder({ title, style, content, image, position }) {
   }, []);
 
   return (
-    <div ref={folderRef} className={`absolute ${style} z-30 hidden md:block`}>
+    <div ref={folderRef} className={`absolute ${style} z-30 hidden lg:block`}>
       <div
-        className="flex flex-col items-center cursor-pointer"
+        className="flex flex-col items-center cursor-pointer -rotate-2"
         onClick={toggleFolder}
       >
         <Image
           src="/images/folder-icon.webp"
-          width={100}
+          width={80}
           height={90}
           alt="folder"
           className="w-24 h-auto"
