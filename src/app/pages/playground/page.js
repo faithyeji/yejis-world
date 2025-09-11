@@ -6,6 +6,12 @@ import { motion, AnimatePresence } from "framer-motion";
 import "./playground.css";
 
 const items = [
+  {
+    type: "video",
+    src: "/images/playground/motion/synth.webm",
+    alt: "Synth",
+    category: "experiments",
+  },
   // Illustration
   {
     type: "image",
@@ -241,6 +247,12 @@ const items = [
   },
 
   // experiments
+  {
+    type: "image",
+    src: "/images/projects/namu.webp",
+    alt: "Namu",
+    category: "experiments",
+  },
   {
     type: "image",
     src: "/images/playground/experiments/tableclothShirt.webp",

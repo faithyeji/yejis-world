@@ -95,3 +95,26 @@ export default function About() {
     </main>
   );
 }
+
+// {/* Logos */}
+// <div className="ml-auto space-x-4 hidden sm:flex">
+//   <a href="https://www.linkedin.com/in/faithyejiseo/" target="_blank">
+//     <Image
+//       src="/logos/linkedin.svg"
+//       alt="LinkedIn"
+//       width={20}
+//       height={20}
+//     />
+//   </a>
+//   <a href="https://www.instagram.com/seoyemilk/" target="_blank">
+//     <Image
+//       src="/logos/insta.svg"
+//       alt="Insta"
+//       width={20}
+//       height={20}
+//     />
+//   </a>
+//   <a href="https://x.com/seoyemilk" target="_blank">
+//     <Image src="/logos/xlogo.svg" alt="X" width={20} height={20} />
+//   </a>
+// </div>

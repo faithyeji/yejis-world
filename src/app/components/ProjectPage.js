@@ -14,11 +14,14 @@ const ProjectPage = ({
 }) => {
   return (
     <div className="min-h-screen">
-      <div className="max-w-7xl mx-auto px-8 py-12">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
-          {/* Left Section - Text Content */}
+      <div className="max-w-7xl mt-4 mx-auto px-12 py-10 bg-white/90 rounded-md drop-shadow-md animate-slidein opacity-0 [--slidein-delay:100ms]">
+        <hr />
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start mt-8 mb-10">
+          {/* Text Content */}
           <div className="space-y-4">
-            <h1 className="text-5xl font-franklin text-gray-900">{title}</h1>
+            <h1 className="text-5xl pt-2 font-franklin text-gray-900">
+              {title}
+            </h1>
             {description && (
               <div className="text-gray-700 font-sans text-md">
                 {Array.isArray(description) ? (
@@ -63,9 +66,6 @@ const ProjectPage = ({
                 </div>
               )}
             </div>
-
-            {/* Custom Content */}
-            {children && <div className="pt-8">{children}</div>}
           </div>
 
           {/* Right Image */}
@@ -82,6 +82,9 @@ const ProjectPage = ({
             </div>
           </div>
         </div>
+        <hr />
+        {/* Custom Content */}
+        {children && <div className="pt-10">{children}</div>}
       </div>
     </div>
   );

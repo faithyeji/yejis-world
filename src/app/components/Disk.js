@@ -44,7 +44,7 @@ function CD() {
           playing
             ? {
                 rotate: 360,
-                y: [0, 30],
+                y: [0, -45],
                 transition: {
                   rotate: {
                     ease: "linear",
@@ -69,7 +69,7 @@ function CD() {
         onTap={() => {
           setStatus(status === "playing" ? "paused" : "playing");
         }}
-        className="size-[450px] absolute left-1/2 z-10 flex origin-center select-none items-center justify-center overflow-hidden border-2 border-[#d3d3d3] bg-gray-200 shadow-[0_0_80px_-20px_rgba(0,0,0,0.3)]"
+        className="size-[425px] absolute left-1/2 z-20 flex origin-center select-none items-center justify-center overflow-hidden border-2 border-[#d3d3d3] bg-gray-200 shadow-[0_0_80px_-20px_rgba(0,0,0,0.3)]"
       >
         <AnimatePresence mode="wait">
           <motion.div
@@ -107,11 +107,11 @@ function CD() {
       </motion.div>
 
       {/* arrows */}
-      <div className="absolute flex bottom-[24%] left-1/2 -translate-x-1/2 space-x-[510px]">
+      <div className="absolute flex bottom-[0%] left-1/2 -translate-x-1/2 translate-y-[82px] space-x-[500px]">
         <button
           onClick={handlePreviousSong}
           aria-label="previous"
-          className="bg-white/70 border border-neutral-200 rounded-full w-10 h-10 px-2 flex items-center justify-center transition-all  drop-shadow-sm hover:bg-white hover:scale-105"
+          className="bg-white/60 border border-neutral-200 rounded-full w-10 h-10 px-2 flex items-center justify-center transition-all  drop-shadow-sm hover:bg-white hover:scale-105 relative z-[100]"
         >
           <svg
             width="18"
@@ -132,7 +132,7 @@ function CD() {
         <button
           onClick={handleNextSong}
           aria-label="next"
-          className="bg-white/70 border border-neutral-200 rounded-full w-10 h-10 px-2 flex items-center justify-center transition-all  drop-shadow-sm hover:bg-white hover:scale-105"
+          className="bg-white/60 border border-neutral-200 rounded-full w-10 h-10 px-2 flex items-center justify-center transition-all  drop-shadow-sm hover:bg-white hover:scale-105 relative z-[100]"
         >
           <svg
             width="18"

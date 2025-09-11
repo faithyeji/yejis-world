@@ -5,7 +5,7 @@ import CD from "./components/Disk";
 import { useAudio } from "./components/AudioContext";
 import { Draggable } from "gsap/Draggable";
 import Project from "./components/Project";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 export default function Home() {
   const photos = [
@@ -29,6 +29,7 @@ export default function Home() {
 
   const { allSongs, currentSongIndex, status } = useAudio();
   const currentSongTitle = allSongs[currentSongIndex]?.name || "Nothing";
+  const videoRef = useRef(null);
 
   // hash navigation
   useEffect(() => {
@@ -53,8 +54,26 @@ export default function Home() {
     };
   }, []);
 
+  // sync video with audio status
+  useEffect(() => {
+    if (videoRef.current) {
+      if (status === "playing") {
+        videoRef.current.play();
+      } else {
+        videoRef.current.pause();
+      }
+    }
+  }, [status]);
+
   return (
     <main className="overflow-hidden h-full w-full">
+      <div className="w-full justify-center items-center absolute top-0 h-[300px] mx-auto translate-x-1/2 origin-center overflow-y-hidden pt-12 animate-slidein opacity-0 [--slidein-delay:200ms] z-10 hidden sm:flex">
+        <div className="flex flex-col justify-center items-center">
+          <div className="mt-3 pb-2 w-fit -translate-y-[305px]">
+            <CD />
+          </div>
+        </div>
+      </div>
       <div className="animate-fadein">
         <Folder
           title="photos"
@@ -79,11 +98,11 @@ export default function Home() {
           loading="eager"
         />
       </div>
-      <div className="flex flex-col mt-24 md:mt-20 justify-center items-center text-center gap-2 text-neutral-600 relative">
+      <div className="flex flex-col mt-8 md:mt-32 justify-center items-center text-center gap-2 text-neutral-600 relative">
         {/* <h1 className="font-serif italic text-5xl text-blue-700">Yeji Seo</h1> */}
         <video
+          ref={videoRef}
           width="240"
-          autoPlay
           loop
           muted
           playsInline
@@ -98,14 +117,6 @@ export default function Home() {
           SHE (DESPITE A PASSION FOR EVERYTHING CREATIVE) SPECIALIZES IN DIGITAL
           ART DIRECTION, BRAND, WEB/PRODUCT, & INTERACTIVE STORYTELLING.
         </p>
-        <div className="flex w-full justify-center items-center h-[300px] mx-auto translate-x-1/2 origin-center overflow-y-hidden pt-12 animate-slidein opacity-0 [--slidein-delay:700ms] z-10">
-          <div className="flex flex-col justify-center items-center">
-            <div className="mt-3 pb-2 w-fit">
-              <CD />
-            </div>
-            <div className="mt-2 bg-[linear-gradient(90deg,rgba(168,168,168,1)_0%,rgba(222,222,222,1)_27%,rgba(168,168,168,1)_100%)] opacity-75 drop-shadow-md w-[525px] rounded-md h-1 z-30"></div>
-          </div>
-        </div>
         <p className="text-[10px] mt-2 z-20 text-center font-mono text-gray-400 animate-slidein opacity-0 [--slidein-delay:700ms]">
           NOW {status == "playing" ? "PLAYING:" : "PAUSED:"} {currentSongTitle}
         </p>{" "}
@@ -126,11 +137,11 @@ export default function Home() {
               description="Collecting, organizing, and illuminating user feedback to highlight key insights."
             />
             <Project
-              title="Namu"
-              type="DESIGN, FULL-STACK DEV"
-              imageSrc="/images/projects/namu.webp"
-              link="/pages/projects/namu"
-              description="A digital garden where work-in-progresses and unfinished projects can grow."
+              title="Fathead WP"
+              type="GRAPHIC DESIGN"
+              imageSrc="/images/projects/fatheadkid.webp"
+              link="/pages/projects/fathead"
+              description="186 pages of pure graphic design for the NAACP award-winning film's White Paper."
             />
             <Project
               title="Encore"
@@ -138,13 +149,6 @@ export default function Home() {
               imageSrc="/images/projects/encore2.webp"
               link="/pages/projects/encore"
               description="Designing a space for aspiring musicians to find community and support."
-            />
-            <Project
-              title="Fathead WP"
-              type="GRAPHIC DESIGN"
-              imageSrc="/images/projects/fatheadkid.webp"
-              link="/pages/projects/fathead"
-              description="186 pages of pure graphic design for the NAACP award-winning film's White Paper."
             />
             <Project
               title="Synth"
