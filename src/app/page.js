@@ -67,9 +67,9 @@ export default function Home() {
 
   return (
     <main className="overflow-hidden h-full w-full">
-      <div className="w-full justify-center items-center absolute top-0 h-[300px] mx-auto translate-x-1/2 origin-center overflow-y-hidden pt-12 animate-slidein opacity-0 [--slidein-delay:200ms] z-10 hidden sm:flex">
+      <div className="w-full justify-center items-center absolute top-0 h-[300px] mx-auto translate-x-1/2 origin-center overflow-y-hidden pt-12 animate-slidein opacity-0 [--slidein-delay:200ms] z-10 hidden md:flex">
         <div className="flex flex-col justify-center items-center">
-          <div className="mt-3 pb-2 w-fit -translate-y-[305px]">
+          <div className="mt-3 pb-2 w-fit -translate-y-[300px]">
             <CD />
           </div>
         </div>
@@ -98,7 +98,7 @@ export default function Home() {
           loading="eager"
         />
       </div>
-      <div className="flex flex-col mt-8 md:mt-32 justify-center items-center text-center gap-2 text-neutral-600 relative">
+      <div className="flex flex-col mt-7 md:mt-32 justify-center items-center text-center gap-2 text-neutral-600 relative">
         {/* <h1 className="font-serif italic text-5xl text-blue-700">Yeji Seo</h1> */}
         <video
           ref={videoRef}
@@ -121,7 +121,7 @@ export default function Home() {
           NOW {status == "playing" ? "PLAYING:" : "PAUSED:"} {currentSongTitle}
         </p>{" "}
         <div id="projects" className="rounded-lg mt-8">
-          <div className="flex flex-wrap mt-8 mb-16 sm:mt-12 md:mx-32 justify-center items-center text-center gap-8 w-fit text-neutral-600">
+          <div className="flex flex-wrap mt-8 mb-16 sm:mt-12 md:mx-20 justify-center items-center text-center gap-4 sm:gap-10 w-fit text-neutral-600">
             <Project
               title="The StoryGraph"
               type="UI/UX DESIGN"
@@ -142,6 +142,13 @@ export default function Home() {
               imageSrc="/images/projects/fatheadkid.webp"
               link="/pages/projects/fathead"
               description="186 pages of pure graphic design for the NAACP award-winning film's White Paper."
+            />
+            <Project
+              title="Two Cents Club"
+              type="BRAND, WEB"
+              imageSrc="/images/projects/storygraph.webp"
+              link="/pages/projects/storygraph"
+              description="Working as the sole UX designer for a book-sharing platform with 3 million users."
             />
             <Project
               title="Encore"

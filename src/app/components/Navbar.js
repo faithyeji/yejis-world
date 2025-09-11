@@ -31,10 +31,13 @@ const Navbar = () => {
           </Link>
         </div>
 
-        <div className="flex space-x-2 sm:space-x-2 font-mono text-xs sm:text-sm font-medium">
+        <div
+          className="flex flex-row items-center md:flex-col md:items-start lg:flex-row lg:items-center 
+                space-x-0 md:space-x-0 space-y-0 font-mono text-xs sm:text-sm font-medium"
+        >
           <Link
             href={pathname === "/" ? "/#projects" : "/"}
-            className={`inline-flex items-center px-1 pt-1 transition-colors duration-200 relative z-[100] ${isActive(
+            className={`inline-flex px-1 pt-1 transition-colors duration-200 relative z-[100] ${isActive(
               "/pages/projects"
             )}`}
           >
@@ -42,7 +45,7 @@ const Navbar = () => {
           </Link>
           <Link
             href="/pages/playground"
-            className={`inline-flex items-center px-1 pt-1 transition-colors duration-200 relative z-[100] ${isActive(
+            className={`inline-flex px-1 pt-1 transition-colors duration-200 relative z-[100] ${isActive(
               "/pages/playground"
             )}`}
           >
@@ -50,7 +53,7 @@ const Navbar = () => {
           </Link>
           <Link
             href="/pages/about"
-            className={`inline-flex items-center px-1 pt-1 transition-colors duration-200 relative z-[100] ${isActive(
+            className={`inline-flex px-1 pt-1 transition-colors duration-200 relative z-[100] ${isActive(
               "/pages/about"
             )}`}
           >
