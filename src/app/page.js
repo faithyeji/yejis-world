@@ -6,6 +6,7 @@ import { useAudio } from "./components/AudioContext";
 import { Draggable } from "gsap/Draggable";
 import Project from "./components/Project";
 import { useEffect, useRef } from "react";
+import DraggableSticker from "./components/DraggableSticker";
 
 export default function Home() {
   const photos = [
@@ -69,7 +70,7 @@ export default function Home() {
     <main className="overflow-hidden h-full w-full">
       <div className="w-full justify-center items-center absolute top-0 h-[300px] mx-auto translate-x-1/2 origin-center overflow-y-hidden pt-12 animate-slidein opacity-0 [--slidein-delay:200ms] z-10 hidden md:flex">
         <div className="flex flex-col justify-center items-center">
-          <div className="mt-3 pb-2 w-fit -translate-y-[300px]">
+          <div className="mt-3 pb-2 w-fit -translate-y-[250px] lg:-translate-y-[300px] transition">
             <CD />
           </div>
         </div>
@@ -81,21 +82,31 @@ export default function Home() {
           content={photos}
           position="top-[110%] left-[8%] origin-[0%-30%]"
         />
-        <Image
+        {/* <Image
           src="/images/codedwithlove.webp"
           width={100}
           height={100}
           alt="folder"
           className="w-27 h-auto absolute hidden lg:block top-[30%] right-[24%]"
           loading="eager"
+        /> */}
+        <DraggableSticker
+          src="/images/codedwithlove.webp"
+          alt="coded"
+          width={90}
+          height={90}
+          startX="68%"
+          startY="32%"
+          rotation={0}
         />
-        <Image
+        <DraggableSticker
           src="/images/yeggi.webp"
-          width={100}
-          height={100}
           alt="folder"
-          className="w-16 h-auto absolute hidden lg:block left-[28%] top-[29%]"
-          loading="eager"
+          width={60}
+          height={60}
+          startX="28%"
+          startY="29%"
+          rotation={0}
         />
       </div>
       <div className="flex flex-col mt-7 md:mt-32 justify-center items-center text-center gap-2 text-neutral-600 relative">
@@ -124,15 +135,15 @@ export default function Home() {
           <div className="flex flex-wrap mt-8 mb-16 sm:mt-12 md:mx-20 justify-center items-center text-center gap-4 sm:gap-10 w-fit text-neutral-600">
             <Project
               title="The StoryGraph"
-              type="UI/UX DESIGN"
+              type="PRODUCT, UI/UX"
               imageSrc="/images/projects/storygraph.webp"
               link="/pages/projects/storygraph"
-              description="Working as the sole UX designer for a book-sharing platform with 3 million users."
+              description="Worked as the sole UX designer revamping a book-sharing platform with 3 million users."
             />
             <Project
               title="Lumen"
-              type="UX/BRANDING"
-              imageSrc="/images/projects/lumen.webp"
+              type="PRODUCT, MOTION"
+              videoSrc="/images/projects/lumen.webm"
               link="/pages/projects/lumen"
               description="Collecting, organizing, and illuminating user feedback to highlight key insights."
             />
@@ -141,29 +152,29 @@ export default function Home() {
               type="GRAPHIC DESIGN"
               imageSrc="/images/projects/fatheadkid.webp"
               link="/pages/projects/fathead"
-              description="186 pages of pure graphic design for the NAACP award-winning film's White Paper."
+              description="186 pages of pure graphic design for a Cannes award-winning film's White Paper."
             />
             <Project
               title="Two Cents Club"
-              type="BRAND, WEB"
-              imageSrc="/images/projects/storygraph.webp"
-              link="/pages/projects/storygraph"
-              description="Working as the sole UX designer for a book-sharing platform with 3 million users."
+              type="ART DIRECTION, BRAND"
+              imageSrc="/images/projects/tcc.webp"
+              link="/pages/projects/twocentsclub"
+              description="Founding designer for a community platform for post-grad learning."
             />
             <Project
+              title="Climate Cents"
+              type="ART DIRECTION, UI DEV"
+              videoSrc="/images/projects/climatecents.webm"
+              link="/pages/projects/climatecents"
+              description="An interactive map of nonprofit climate projects and weather data for the 2028 LA Olympics."
+            />
+            {/* <Project
               title="Encore"
               type="UI/UX DESIGN (TEAM)"
               imageSrc="/images/projects/encore2.webp"
               link="/pages/projects/encore"
               description="Designing a space for aspiring musicians to find community and support."
-            />
-            <Project
-              title="Synth"
-              type="CREATIVE CODING"
-              imageSrc="/images/projects/synth.webp"
-              link="/pages/projects/synth"
-              description="A TouchDesigner project that plays with hand & midi inputs to visualize music in real-time."
-            />
+            /> */}
           </div>
         </div>
       </div>

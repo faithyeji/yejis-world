@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useLayoutEffect, useEffect } from "react";
 import { gsap } from "gsap";
 import { Draggable } from "gsap/Draggable";
 
@@ -30,7 +30,7 @@ export default function Folder({ title, style, content, image, position }) {
   }, [isOpen]);
 
   // draggable
-  useEffect(() => {
+  useLayoutEffect(() => {
     gsap.registerPlugin(Draggable);
     if (folderRef.current) {
       // Reset position to original when component mounts

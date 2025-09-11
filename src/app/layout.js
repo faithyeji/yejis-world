@@ -39,7 +39,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <AudioProvider>
-      <html lang="en" className="scroll-smooth">
+      <html lang="en" className="scroll-smooth overflow-y-scroll">
         <head>
           <link rel="icon" href="/favicon.ico" />
         </head>

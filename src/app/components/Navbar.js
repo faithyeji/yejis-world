@@ -32,8 +32,8 @@ const Navbar = () => {
         </div>
 
         <div
-          className="flex flex-row items-center md:flex-col md:items-start lg:flex-row lg:items-center 
-                space-x-0 md:space-x-0 space-y-0 font-mono text-xs sm:text-sm font-medium"
+          className="flex flex-row items-center  
+                space-x-0 md:space-x-0 space-y-0 font-mono text-xs lg:text-sm font-medium"
         >
           <Link
             href={pathname === "/" ? "/#projects" : "/"}

@@ -16,6 +16,13 @@ function CD() {
   const audioRef = useRef(null);
 
   useEffect(() => {
+    if (allSongs.length > 0) {
+      const randomIndex = Math.floor(Math.random() * allSongs.length);
+      setCurrentSongIndex(randomIndex);
+    }
+  }, []);
+
+  useEffect(() => {
     if (audioRef.current) {
       if (playing) {
         audioRef.current.play();
@@ -69,7 +76,7 @@ function CD() {
         onTap={() => {
           setStatus(status === "playing" ? "paused" : "playing");
         }}
-        className="size-[425px] absolute left-1/2 z-20 flex origin-center select-none items-center justify-center overflow-hidden border-2 border-[#d3d3d3] bg-gray-200 shadow-[0_0_80px_-20px_rgba(0,0,0,0.3)]"
+        className="size-[350px] lg:size-[425px] absolute left-1/2 z-20 flex origin-center select-none items-center justify-center overflow-hidden border-2 border-[#d3d3d3] bg-gray-200 shadow-[0_0_80px_-20px_rgba(0,0,0,0.3)]"
       >
         <AnimatePresence mode="wait">
           <motion.div
@@ -107,7 +114,7 @@ function CD() {
       </motion.div>
 
       {/* arrows */}
-      <div className="absolute flex bottom-[0%] left-1/2 -translate-x-1/2 translate-y-[82px] space-x-[500px]">
+      <div className="absolute hidden lg:flex bottom-[0%] left-1/2 -translate-x-1/2 translate-y-[82px] space-x-[500px]">
         <button
           onClick={handlePreviousSong}
           aria-label="previous"

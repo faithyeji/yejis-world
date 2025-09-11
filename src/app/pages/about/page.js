@@ -27,13 +27,15 @@ export default function About() {
           </h1>
           <div className="flex flex-col gap-6 text-sm sm:text-base">
             <p className="animate-slidein opacity-0 [--slidein-delay:400ms]">
-              At heart, I'm a designer passionate in crafting meaningful digital
-              experiences. After falling in love with code as a medium with
-              infinite potential to create, I live now in the exciting (and
-              sometimes-silly) space where technology meets art.
+              At heart, I'm a designer passionate in creating and learning.
+              Whether that means painting a wall or coding an app from scratch
+              myself, I'm guided by a desire to make any experience I touch feel
+              human and fun! It's a desire that's led me to creating all types
+              of work for clients like Google, Microsoft, Netflix, award-winning
+              films, and book-reading apps.
             </p>
             <p className="animate-slidein opacity-0 [--slidein-delay:500ms]">
-              Outside of work, you can find me:{" "}
+              Outside of work though, you can find me:{" "}
               <a
                 href="https://www.instagram.com/seoyemilk/"
                 target="_blank"
@@ -42,7 +44,14 @@ export default function About() {
                 sketching
               </a>
               , starting another book, Letterboxd logging the latest film I
-              watched, trying to DJ, or drinking soymilk.
+              watched, trying to DJ, or drinking soymilk. Reach me by email{" "}
+              <a
+                href="mailto:faithyejiseo@gmail.com"
+                target="_blank"
+                className="underline"
+              >
+                here!
+              </a>
             </p>
             <p className="animate-slidein opacity-0 [--slidein-delay:600ms]">
               <span className="font-mono text-md text-blue-500">

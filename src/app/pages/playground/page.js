@@ -103,6 +103,16 @@ const items = [
     category: "graphics",
   },
   {
+    type: "video",
+    src: "/images/playground/experiments/smelllog.webm",
+    alt: "LA Smell Log",
+    tool: "HTML/CSS/JS",
+    description:
+      "A data project in which I tracked and visualized every smell I encountered in LA for 30 days.",
+    link: "https://www.figma.com/proto/RuDfBtR4W1SO2kExfFLcKm/PORTFOLIO-DECKS?page-id=0%3A1&node-id=2002-1793&viewport=2164%2C-32%2C0.07&t=JE604n1QSV4gjVyb-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1%3A425",
+    category: "experiments",
+  },
+  {
     type: "image",
     src: "/images/playground/graphics/kaytra.webp",
     alt: "Dance Dance Dance!",
@@ -121,13 +131,6 @@ const items = [
     src: "/images/playground/graphics/fathead4.webp",
     alt: "Brian Pohl",
     tool: "Photoshop, InDesign",
-    category: "graphics",
-  },
-  {
-    type: "image",
-    src: "/images/playground/graphics/deck.webp",
-    alt: "Low Resource Languages",
-    tool: "Figma",
     category: "graphics",
   },
   {
@@ -171,6 +174,16 @@ const items = [
     alt: "Dublab Residents",
     tool: "Photoshop",
     category: "graphics",
+  },
+  {
+    type: "image",
+    src: "/images/playground/drawings/blaze.webp",
+    alt: "Mural for Blaze Pizza",
+    tool: "Procreate, Illustrator",
+    description:
+      "Getting to singlehandedly draw a mural was one of the coolest experiences I've done. Check it out in-person at the Figueroa LA location!",
+    link: "https://www.linkedin.com/posts/faithyejiseo_the-part-of-mural-making-i-love-most-isn-activity-7320946487197077505-96yI?utm_source=share&utm_medium=member_desktop&rcm=ACoAADYyotIBlxa02TH6E94nSP4iyBsmVI-QZOs",
+    category: "illustration",
   },
   {
     type: "image",
@@ -321,13 +334,11 @@ const items = [
     category: "experiments",
   },
   {
-    type: "video",
-    src: "/images/playground/experiments/smelllog.webm",
-    alt: "LA Smell Log",
-    tool: "HTML/CSS/JS",
-    description: "A data visualization of every smell I encountered in LA.",
-    link: "https://www.figma.com/proto/RuDfBtR4W1SO2kExfFLcKm/PORTFOLIO-DECKS?page-id=0%3A1&node-id=2002-1793&viewport=2164%2C-32%2C0.07&t=JE604n1QSV4gjVyb-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1%3A425",
-    category: "experiments",
+    type: "image",
+    src: "/images/playground/graphics/deck.webp",
+    alt: "Low Resource Languages",
+    tool: "Figma",
+    category: "graphics",
   },
   {
     type: "image",
@@ -410,7 +421,7 @@ export default function Playground() {
 
         {/* Gallery */}
         <motion.div
-          className="container columns-2 sm:columns-4 gap-x-2 sm:gap-x-5 w-[400px] sm:w-[1200px]  opacity-0 animate-slidein [--slidein-delay:600ms]"
+          className="container columns-2 sm:columns-4 gap-x-2 sm:gap-x-5 w-[400px] sm:w-[1200px]  opacity-0 animate-slidein [--slidein-delay:700ms]"
           variants={containerVariants}
           initial="hidden"
           animate="show"
@@ -420,7 +431,7 @@ export default function Playground() {
             {filteredItems.map((item) => (
               <motion.div
                 key={item.src}
-                className="box"
+                className="box relative group"
                 variants={itemVariants}
                 initial="hidden"
                 animate="show"
@@ -429,45 +440,73 @@ export default function Playground() {
                 onMouseEnter={() => setHoveredItem(item)}
                 onMouseLeave={() => setHoveredItem(null)}
               >
-                {item.link ? (
-                  <a href={item.link} target="_blank" rel="noopener noreferrer">
-                    {item.type === "image" ? (
-                      <Image
-                        src={item.src}
-                        alt={item.alt}
-                        layout="responsive"
-                        width={500}
-                        height={500}
-                      />
-                    ) : (
-                      <video
-                        src={item.src}
-                        autoPlay
-                        loop
-                        muted
-                        playsInline
-                        className="w-full"
-                      />
-                    )}
-                  </a>
-                ) : item.type === "image" ? (
-                  <Image
-                    src={item.src}
-                    alt={item.alt}
-                    layout="responsive"
-                    width={500}
-                    height={500}
-                  />
-                ) : (
-                  <video
-                    src={item.src}
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className="w-full"
-                  />
-                )}
+                <div className="relative">
+                  {item.link && (
+                    <div className="absolute top-2 right-2 w-6 h-6 bg-white/80 backdrop-blur-md border border-gray-300 rounded-full flex items-center justify-center z-20 transition-transform duration-100 group-hover:scale-110 group-hover:bg-white/90">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="#000000"
+                        viewBox="0 0 24 24"
+                        className="w-4 h-4"
+                      >
+                        <g data-name="Layer 2">
+                          <g data-name="diagonal-arrow-right-up">
+                            <rect
+                              width="24"
+                              height="24"
+                              transform="rotate(180 12 12)"
+                              opacity="0"
+                            />
+                            <path d="M18 7.05a1 1 0 0 0-1-1L9 6a1 1 0 0 0 0 2h5.56l-8.27 8.29a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0L16 9.42V15a1 1 0 0 0 1 1 1 1 0 0 0 1-1z" />
+                          </g>
+                        </g>
+                      </svg>
+                    </div>
+                  )}
+                  {item.link ? (
+                    <a
+                      href={item.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {item.type === "image" ? (
+                        <Image
+                          src={item.src}
+                          alt={item.alt}
+                          layout="responsive"
+                          width={500}
+                          height={500}
+                        />
+                      ) : (
+                        <video
+                          src={item.src}
+                          autoPlay
+                          loop
+                          muted
+                          playsInline
+                          className="w-full"
+                        />
+                      )}
+                    </a>
+                  ) : item.type === "image" ? (
+                    <Image
+                      src={item.src}
+                      alt={item.alt}
+                      layout="responsive"
+                      width={500}
+                      height={500}
+                    />
+                  ) : (
+                    <video
+                      src={item.src}
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      className="w-full"
+                    />
+                  )}
+                </div>
               </motion.div>
             ))}
           </AnimatePresence>
