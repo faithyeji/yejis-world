@@ -132,7 +132,7 @@ export default function Home() {
           NOW {status == "playing" ? "PLAYING:" : "PAUSED:"} {currentSongTitle}
         </p>{" "}
         <div id="projects" className="rounded-lg mt-8">
-          <div className="flex flex-wrap mt-8 mb-16 sm:mt-12 md:mx-20 justify-center items-center text-center gap-4 sm:gap-10 w-fit text-neutral-600">
+          <div className="flex flex-wrap mt-8 mb-16 sm:mt-12 md:mx-20 justify-center items-center text-center gap-4 sm:gap-10 w-fit text-neutral-600 opacity-0 animate-slidein [--slidein-delay:500ms]">
             <Project
               title="The StoryGraph"
               type="PRODUCT, UI/UX"
