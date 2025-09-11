@@ -44,7 +44,7 @@ function CD() {
           playing
             ? {
                 rotate: 360,
-                y: [0, 20],
+                y: [0, 30],
                 transition: {
                   rotate: {
                     ease: "linear",

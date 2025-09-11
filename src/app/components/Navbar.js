@@ -12,7 +12,7 @@ const Navbar = () => {
 
   const isActive = (path) => {
     return pathname === path
-      ? "text-blue-600 border-b-2 border-blue-600"
+      ? "text-blue-600"
       : "text-gray-600 hover:text-blue-600";
   };
 
@@ -35,12 +35,12 @@ const Navbar = () => {
           {/* Navigation */}
           <div className="flex-1 flex justify-center space-x-6 sm:space-x-8 font-mono sm:ml-5 text-xs sm:text-sm font-medium">
             <Link
-              href="/pages/projects"
+              href={pathname === "/" ? "/#projects" : "/"}
               className={`inline-flex items-center px-1 pt-1 transition-colors duration-200 ${isActive(
                 "/pages/projects"
               )}`}
             >
-              PROJECTS
+              [WORK]
             </Link>
             <Link
               href="/pages/playground"
@@ -48,7 +48,7 @@ const Navbar = () => {
                 "/pages/playground"
               )}`}
             >
-              PLAYGROUND
+              [PLAYGROUND]
             </Link>
             <Link
               href="/pages/about"
@@ -56,7 +56,7 @@ const Navbar = () => {
                 "/pages/about"
               )}`}
             >
-              ABOUT
+              [ABOUT]
             </Link>
           </div>
 

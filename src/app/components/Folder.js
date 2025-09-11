@@ -33,6 +33,8 @@ export default function Folder({ title, style, content, image, position }) {
   useEffect(() => {
     gsap.registerPlugin(Draggable);
     if (folderRef.current) {
+      // Reset position to original when component mounts
+      gsap.set(folderRef.current, { x: 0, y: 0 });
       Draggable.create(folderRef.current, {
         type: "x,y",
         bounds: window,
@@ -53,12 +55,12 @@ export default function Folder({ title, style, content, image, position }) {
           width={80}
           height={90}
           alt="folder"
-          className="w-24 h-auto"
+          className="w-20 h-auto"
           loading="eager"
         />
-        <h3 className="backdrop-blur-sm bg-white-60 font-serif italic mt-2 px-2 rounded-lg">
+        {/* <h3 className="backdrop-blur-sm bg-white-60 font-serif italic mt-2 px-2 rounded-lg">
           {title}
-        </h3>
+        </h3> */}
       </div>
 
       {/* opened folder */}
