@@ -13,11 +13,11 @@ export default function Project({
   return (
     <div className="flex gap-6 flex-wrap font-sans">
       <Link href={link}>
-        <div className="w-[20.5rem] h-fit bg-neutral-100 bg-opacity-40 backdrop-blur-sm rounded-md flex flex-col p-2 pb-6 items-left hover:bg-neutral-200 hover:scale-[1.01] transition ease-out overflow-hidden text-left">
+        <div className="w-[24rem] h-fit bg-neutral-100 bg-opacity-40 backdrop-blur-sm rounded-md flex flex-col p-2 pb-6 items-left hover:bg-neutral-200 hover:scale-[1.01] transition ease-out overflow-hidden text-left">
           {/* Image or Video */}
           {videoSrc ? (
             <video
-              className={`h-48 w-full object-cover rounded-md transition ease-out ${
+              className={`h-[14rem] w-full object-cover rounded-md transition ease-out ${
                 imageClass || ""
               }`}
               src={videoSrc}
@@ -28,7 +28,7 @@ export default function Project({
             />
           ) : (
             <div
-              className={`h-48 bg-cover bg-center rounded-md transition ease-out ${
+              className={`h-[14rem] bg-cover bg-center rounded-md transition ease-out ${
                 imageClass || ""
               }`}
               style={{ backgroundImage: `url(${imageSrc})` }}

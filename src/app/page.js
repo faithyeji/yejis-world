@@ -141,22 +141,29 @@ export default function Home() {
               description="Worked as the sole UX designer revamping a book-sharing platform with 3 million users."
             />
             <Project
+              title="Deeplocal"
+              type="ART DIRECTION, EXPERIENTIAL"
+              videoSrc="/images/projects/DL.webm"
+              link="/pages/projects/deeplocal"
+              description="Concepting and designing fun creative tech projects for Google, Microsoft, and Netflix."
+            />
+            <Project
               title="Lumen"
-              type="PRODUCT, MOTION"
+              type="PRODUCT, MOTION, BRAND"
               videoSrc="/images/projects/lumen.webm"
               link="/pages/projects/lumen"
               description="Collecting, organizing, and illuminating user feedback to highlight key insights."
             />
             <Project
-              title="Fathead WP"
-              type="GRAPHIC DESIGN"
-              imageSrc="/images/projects/fatheadkid.webp"
+              title="Fathead White Paper"
+              type="GRAPHIC, PRINT"
+              imageSrc="/images/projects/fathead2.webp"
               link="/pages/projects/fathead"
               description="186 pages of pure graphic design for a Cannes award-winning film's White Paper."
             />
             <Project
               title="Two Cents Club"
-              type="ART DIRECTION, BRAND"
+              type="PRODUCT, BRAND"
               imageSrc="/images/projects/tcc.webp"
               link="/pages/projects/twocentsclub"
               description="Founding designer for a community platform for post-grad learning."

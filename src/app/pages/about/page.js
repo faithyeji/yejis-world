@@ -30,9 +30,7 @@ export default function About() {
               At heart, I'm a designer passionate in creating and learning.
               Whether that means painting a wall or coding an app from scratch
               myself, I'm guided by a desire to make any experience I touch feel
-              human and fun! It's a desire that's led me to creating all types
-              of work for clients like Google, Microsoft, Netflix, award-winning
-              films, and book-reading apps.
+              human and fun!
             </p>
             <p className="animate-slidein opacity-0 [--slidein-delay:500ms]">
               Outside of work though, you can find me:{" "}
@@ -95,7 +93,7 @@ export default function About() {
               <br />
               <span className="font-mono text-xs mr-1 text-neutral-500">
                 [03]
-              </span>
+              </span>{" "}
               trying to leave things better than I found them.
             </p>
           </div>

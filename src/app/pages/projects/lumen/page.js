@@ -9,9 +9,9 @@ export default function LumenPage() {
       description={[
         "Lumen is an AI-powered platform designed to consolidate scattered user feedback across the web into actionable insights. It was built in Lavalab (USC’s premier 8-week startup incubator) and awarded “Best Demo.”",
       ]}
-      role="Lead Graphic Designer"
+      role="Founding Designer"
       timeline="2024"
-      disciplines={["Graphic Design", "Publication Design", "Brand"]}
+      disciplines={["Brand", "Motion", "Pitch Decks"]}
     >
       <div className="space-y-6">
         <div>
