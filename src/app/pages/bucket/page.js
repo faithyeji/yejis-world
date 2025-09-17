@@ -568,7 +568,7 @@ export default function Playground() {
                     alt={selectedItem.alt}
                     width={1600}
                     height={800}
-                    className="h-[700px] w-auto object-contain rounded"
+                    className="h-[670px] w-auto object-contain rounded"
                   />
                 ) : (
                   <video
