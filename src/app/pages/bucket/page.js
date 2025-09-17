@@ -103,14 +103,11 @@ const items = [
     category: "graphics",
   },
   {
-    type: "video",
-    src: "/images/playground/experiments/smelllog.webm",
-    alt: "LA Smell Log",
-    tool: "HTML/CSS/JS",
-    description:
-      "A data project in which I tracked and visualized every smell I encountered in LA for 30 days.",
-    link: "https://www.figma.com/proto/RuDfBtR4W1SO2kExfFLcKm/PORTFOLIO-DECKS?page-id=0%3A1&node-id=2002-1793&viewport=2164%2C-32%2C0.07&t=JE604n1QSV4gjVyb-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1%3A425",
-    category: "experiments",
+    type: "image",
+    src: "/images/playground/graphics/dublab_new.webp",
+    alt: "Dublab Residents",
+    tool: "Photoshop",
+    category: "graphics",
   },
   {
     type: "image",
@@ -169,11 +166,14 @@ const items = [
     category: "graphics",
   },
   {
-    type: "image",
-    src: "/images/playground/graphics/dublab_new.webp",
-    alt: "Dublab Residents",
-    tool: "Photoshop",
-    category: "graphics",
+    type: "video",
+    src: "/images/playground/experiments/smelllog.webm",
+    alt: "LA Smell Log",
+    tool: "HTML/CSS/JS",
+    description:
+      "A data project in which I tracked and visualized every smell I encountered in LA for 30 days.",
+    link: "https://www.figma.com/proto/RuDfBtR4W1SO2kExfFLcKm/PORTFOLIO-DECKS?page-id=0%3A1&node-id=2002-1793&viewport=2164%2C-32%2C0.07&t=JE604n1QSV4gjVyb-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1%3A425",
+    category: "experiments",
   },
   {
     type: "image",
@@ -252,17 +252,17 @@ const items = [
   // motion x 3d
   {
     type: "image",
-    src: "/images/playground/experiments/jeong.webp",
-    alt: "Jeong",
-    tool: "Blender",
-    description: "A magical potion that cures homesickness.",
+    src: "/images/playground/experiments/woodenBox.webp",
+    alt: "Tea Box for Mom",
+    tool: "Woodworking",
     category: "motion",
   },
   {
     type: "image",
-    src: "/images/playground/experiments/woodenBox.webp",
-    alt: "Tea Box for Mom",
-    tool: "Woodworking",
+    src: "/images/playground/experiments/jeong.webp",
+    alt: "Jeong",
+    tool: "Blender",
+    description: "A magical potion that cures homesickness.",
     category: "motion",
   },
   {
@@ -375,6 +375,7 @@ export default function Playground() {
   const [filter, setFilter] = useState("all");
   const [hoveredItem, setHoveredItem] = useState(null);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [selectedItem, setSelectedItem] = useState(null);
 
   const filteredItems =
     filter === "all" ? items : items.filter((item) => item.category === filter);
@@ -439,6 +440,9 @@ export default function Playground() {
                 transition={{ duration: 0.3 }}
                 onMouseEnter={() => setHoveredItem(item)}
                 onMouseLeave={() => setHoveredItem(null)}
+                onClick={() => {
+                  if (!item.link) setSelectedItem(item); // modal only if no link
+                }}
               >
                 <div className="relative">
                   {item.link && (
@@ -537,6 +541,45 @@ export default function Playground() {
                   {hoveredItem.description}
                 </div>
               )}
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        {/* Modal */}
+        <AnimatePresence>
+          {selectedItem && (
+            <motion.div
+              className="fixed inset-0 backdrop-blur-sm flex items-center justify-center z-50"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setSelectedItem(null)}
+            >
+              <motion.div
+                className="bg-white rounded-lg w-fit p-4 relative flex justify-center"
+                initial={{ scale: 0.3 }}
+                animate={{ scale: 1 }}
+                exit={{ scale: 0.3 }}
+                onClick={(e) => e.stopPropagation()} // prevent modal close
+              >
+                {selectedItem.type === "image" ? (
+                  <Image
+                    src={selectedItem.src}
+                    alt={selectedItem.alt}
+                    width={1600}
+                    height={800}
+                    className="h-[700px] w-auto object-contain rounded"
+                  />
+                ) : (
+                  <video
+                    src={selectedItem.src}
+                    controls
+                    autoPlay
+                    muted
+                    className="max-h-[750px] w-auto object-contain rounded"
+                  />
+                )}
+              </motion.div>
             </motion.div>
           )}
         </AnimatePresence>
