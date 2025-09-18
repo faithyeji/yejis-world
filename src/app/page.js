@@ -78,7 +78,7 @@ export default function Home() {
       <div className="animate-fadein">
         <Folder
           title="photos"
-          style="top-[39%] left-[23%]"
+          style="top-[40%] left-[26%]"
           content={photos}
           position="top-[110%] left-[8%] origin-[0%-30%]"
         />
@@ -95,8 +95,8 @@ export default function Home() {
           alt="coded"
           width={90}
           height={90}
-          startX="68%"
-          startY="32%"
+          startX="66%"
+          startY="34%"
           rotation={0}
         />
         <DraggableSticker
@@ -104,8 +104,8 @@ export default function Home() {
           alt="folder"
           width={60}
           height={60}
-          startX="28%"
-          startY="29%"
+          startX="30%"
+          startY="31%"
           rotation={0}
         />
       </div>

@@ -16,7 +16,7 @@ const ProjectPage = ({
     <div className="min-h-screen">
       <div className="max-w-7xl mt-4 mx-auto px-12 py-10 bg-white rounded-md drop-shadow-md animate-slidein opacity-0 [--slidein-delay:100ms]">
         <hr />
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start mt-8 mb-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start mt-8 mb-10">
           {/* Text Content */}
           <div className="space-y-4">
             <h1 className="text-5xl pt-2 font-franklin text-gray-900">

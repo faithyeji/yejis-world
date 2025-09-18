@@ -7,7 +7,7 @@ export default function StoryGraphPage() {
       headerImageAlt="Deeplocal project header"
       title="DEEPLOCAL"
       description={[
-        "Deeplocal is an award-winning creative technology agency. I was fortunate enough to spend a Yinzer summer working there as an intern and continued on as a freelance designer in the fall! While most of this work is under NDA, it was truly an unforgettable experience working across such a breadth of various projects and disciplines.",
+        "Deeplocal is an award-winning creative technology agency that creates interactive experiences connecting people to brands. I was fortunate enough to spend a Yinzer summer working there as an intern and continue on as a freelance designer in the fall working across a breadth of various projects and skillsets! Most of this work is under NDA and is available on request.",
       ]}
       role="Design Intern, Freelancer"
       timeline="May - September 2025"
@@ -16,16 +16,16 @@ export default function StoryGraphPage() {
         "Experience Design",
         "Motion & Visual Mockups",
         "UI/UX Design",
-        "Pitch Decks",
+        "RFP Pitching",
       ]}
     >
       <div className="space-y-6">
         <div>
           <h3 className="font-mono text-sm text-gray-500 uppercase mb-2">
-            PROJECTS
+            NOTABLE PROJECTS
           </h3>
           <p className="text-gray-700 font-sans text-md"></p>
-          <div className="flex font-serif italic gap-8">
+          <div className="flex font-serif italic gap-12">
             <div className="flex flex-col">
               <h1>Google Pixel Room Exhibit</h1>
             </div>

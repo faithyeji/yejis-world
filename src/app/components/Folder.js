@@ -37,7 +37,7 @@ export default function Folder({ title, style, content, image, position }) {
       gsap.set(folderRef.current, { x: 0, y: 0 });
       Draggable.create(folderRef.current, {
         type: "x,y",
-        bounds: window,
+        bounds: document.body,
         inertia: true,
         zIndexBoost: true,
       });
@@ -45,7 +45,10 @@ export default function Folder({ title, style, content, image, position }) {
   }, []);
 
   return (
-    <div ref={folderRef} className={`absolute ${style} z-30 hidden lg:block`}>
+    <div
+      ref={folderRef}
+      className={`absolute ${style} z-30 hidden lg:block transition-all`}
+    >
       <div
         className="flex flex-col items-center cursor-pointer -rotate-2"
         onClick={toggleFolder}

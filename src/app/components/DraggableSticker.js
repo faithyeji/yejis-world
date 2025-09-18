@@ -24,7 +24,7 @@ export default function DraggableSticker({
         type: "x,y",
         edgeResistance: 0.65,
         inertia: true,
-        bounds: window,
+        bounds: document.body,
       });
     }
   }, []);
