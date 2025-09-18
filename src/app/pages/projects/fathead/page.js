@@ -15,7 +15,7 @@ export default function FatheadPage() {
       disciplines={["Graphic Design", "Publication Design", "Brand"]}
     >
       <div className="space-y-6">
-        <div className="bg-black">
+        <div className="">
           <Image
             src="/images/projects/fathead/craig.webp"
             alt="craig"
