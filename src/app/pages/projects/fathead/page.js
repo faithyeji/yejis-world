@@ -17,12 +17,12 @@ export default function FatheadPage() {
       <div className="space-y-6">
         <div className="">
           <Image
-            src="/images/projects/fathead/craig.webp"
-            alt="craig"
-            width={1000}
-            height={800}
+            src="/images/projects/fathead/magazines.webp"
+            alt="magazine"
+            width={3000}
+            height={1000}
             priority
-            className="w-[37rem] h-fit"
+            className="w-full h-fit"
           />
         </div>
         <div>
