@@ -53,7 +53,7 @@ const CaseStudy = ({
         {/* Main Content */}
         <main className="flex justify-center max-w-4xl mx-auto min-h-screen">
           {/* Header Section */}
-          <div className="bg-white rounded-md drop-shadow-md py-16 px-20 animate-slidein opacity-0 [--slidein-delay:100ms]">
+          <div className="bg-white rounded-md drop-shadow-md py-10 px-20 animate-slidein opacity-0 [--slidein-delay:100ms]">
             {description && (
               <div className="text-gray-700 font-sans text-center text-md mt-4 mx-4 sm:mx-20">
                 {Array.isArray(description)

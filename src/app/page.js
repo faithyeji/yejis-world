@@ -78,7 +78,7 @@ export default function Home() {
       <div className="animate-fadein delay-200">
         <Folder
           title="photos"
-          style="top-[41%] left-[26%]"
+          style="top-[41%] left-[25%]"
           content={photos}
           position="top-[110%] left-[8%] origin-[0%-30%]"
         />
@@ -95,7 +95,7 @@ export default function Home() {
           alt="coded"
           width={90}
           height={90}
-          startX="67%"
+          startX="66%"
           startY="36%"
           rotation={0}
         />
@@ -117,7 +117,7 @@ export default function Home() {
           loop
           muted
           playsInline
-          className="absolute top-0 animate-slidein opacity-0 [--slidein-delay:100ms]"
+          className="absolute top-0 animate-slidein opacity-0 [--slidein-delay:100ms] bg-blend-multiply"
         >
           <source src="/YejiNames2-hevc-safari.mp4" />
           <source src="/YejiNames2-vp9-chrome.webm" />

@@ -1,8 +1,7 @@
-import ProjectPage from "@/app/components/ProjectPage";
-
-export default function FatheadPage() {
+import CaseStudy from "@/app/components/CaseStudy";
+export default function ClimateCentsPage() {
   return (
-    <ProjectPage
+    <CaseStudy
       headerImage="/images/projects/climate.jpg"
       headerImageAlt="Climate Cents header"
       title="CLIMATE CENTS"
@@ -46,6 +45,6 @@ export default function FatheadPage() {
           </a>
         </div>
       </div>
-    </ProjectPage>
+    </CaseStudy>
   );
 }

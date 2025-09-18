@@ -1,4 +1,5 @@
 import ProjectPage from "@/app/components/ProjectPage";
+import Image from "next/image";
 
 export default function FatheadPage() {
   return (
@@ -10,10 +11,20 @@ export default function FatheadPage() {
         "Fathead is a Cannes Film Festival award-winning & NAACP-nominated short film made as a Virtual Production on an LED-volume with all in-camera VFX and Epic Games' Unreal Engine. As lead designer, I created 186 pages of pure graphic design for the film's white paper, posters, and tour materials.",
       ]}
       role="Lead Graphic Designer"
-      timeline="2022-2023"
+      timeline="2023-2024"
       disciplines={["Graphic Design", "Publication Design", "Brand"]}
     >
       <div className="space-y-6">
+        <div className="bg-black">
+          <Image
+            src="/images/projects/fathead/craig.webp"
+            alt="craig"
+            width={1000}
+            height={800}
+            priority
+            className="w-[37rem] h-fit"
+          />
+        </div>
         <div>
           <a
             href="https://drive.google.com/file/d/1WfWgL6jatDaOm4jOPPUI4FIm1luHpora/view"
