@@ -142,10 +142,10 @@ export default function Home() {
             />
             <Project
               title="Deeplocal"
-              type="ART DIRECTION, EXPERIENTIAL"
+              type="ART DIRECTION, MOTION, UI/UX, GRAPHIC"
               videoSrc="/images/projects/DL.webm"
               link="/pages/projects/deeplocal"
-              description="Concepting and designing fun creative tech projects for Google, Microsoft, and Netflix."
+              description="Concepting/designing fun creative tech projects for Google, Microsoft, and Netflix experiential activations."
             />
             <Project
               title="Lumen"
