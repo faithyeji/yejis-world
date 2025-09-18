@@ -58,7 +58,7 @@ export default function Folder({ title, style, content, image, position }) {
           width={80}
           height={90}
           alt="folder"
-          className="w-20 h-auto"
+          className="w-20 h-auto cursor-grab active:cursor-grabbing"
           loading="eager"
         />
         {/* <h3 className="backdrop-blur-sm bg-white-60 font-serif italic mt-2 px-2 rounded-lg">

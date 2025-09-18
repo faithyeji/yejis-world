@@ -42,7 +42,7 @@ export default function Project({
               {type}
             </div>
           </div>
-          <p className="my-2 mx-2 text-sm leading-4 text-neutral-500">
+          <p className="my-[0.34rem] mx-2 text-sm leading-4 text-neutral-500">
             {description}
           </p>
         </div>

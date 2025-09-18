@@ -25,7 +25,7 @@ const franklin = localFont({
 });
 
 const dmMono = DM_Mono({
-  weight: ["300"],
+  weight: ["400"],
   subsets: ["latin"],
   style: ["normal"],
   variable: "--font-dmMono",

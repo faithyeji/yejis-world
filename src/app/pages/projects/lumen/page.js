@@ -1,8 +1,8 @@
-import ProjectPage from "@/app/components/ProjectPage";
+import CaseStudy from "@/app/components/CaseStudy";
 
 export default function LumenPage() {
   return (
-    <ProjectPage
+    <CaseStudy
       headerImage="/images/projects/lumen.webp"
       headerImageAlt="Lumen project header"
       title="LUMEN"
@@ -15,60 +15,62 @@ export default function LumenPage() {
     >
       <div className="space-y-6">
         <div>
-          <div className="flex flex-wrap justify-between space-y-8">
-            <video
-              className="h-60 w-full rounded-lg object-cover transition ease-out"
-              src="/images/projects/lumenclips/highlight.webm"
-              autoPlay
-              muted
-              loop
-              playsInline
-            />
-            <div className="flex flex-col gap-10 w-[38%]">
+          <section id="motion" data-section-title="Motion">
+            <div className="flex flex-wrap justify-between space-y-8">
               <video
-                className="h-fit rounded-lg object-cover transition ease-out"
-                src="/images/projects/lumenclips/miss.webm"
+                className="h-60 w-full rounded-lg object-cover transition ease-out"
+                src="/images/projects/lumenclips/highlight.webm"
                 autoPlay
                 muted
                 loop
                 playsInline
               />
-              <video
-                className="h-fit rounded-lg object-cover transition ease-out"
-                src="/images/projects/lumenclips/break.webm"
-                autoPlay
-                muted
-                loop
-                playsInline
-              />
-              <video
-                className="h-fit rounded-lg object-cover transition ease-out"
-                src="/images/projects/lumenclips/3insights.webm"
-                autoPlay
-                muted
-                loop
-                playsInline
-              />
+              <div className="flex flex-col gap-10 w-[38%]">
+                <video
+                  className="h-fit rounded-lg object-cover transition ease-out"
+                  src="/images/projects/lumenclips/miss.webm"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                />
+                <video
+                  className="h-fit rounded-lg object-cover transition ease-out"
+                  src="/images/projects/lumenclips/break.webm"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                />
+                <video
+                  className="h-fit rounded-lg object-cover transition ease-out"
+                  src="/images/projects/lumenclips/3insights.webm"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                />
+              </div>
+              <div className="flex flex-col gap-14 w-7/12">
+                <video
+                  className="h-fit rounded-lg object-cover transition ease-out"
+                  src="/images/projects/lumenclips/features.webm"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                />
+                <video
+                  className="h-[24.5rem] w-fit rounded-lg object-cover transition ease-out"
+                  src="/images/projects/lumenclips/spotlight.webm"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                />
+              </div>
             </div>
-            <div className="flex flex-col gap-14 w-7/12">
-              <video
-                className="h-fit rounded-lg object-cover transition ease-out"
-                src="/images/projects/lumenclips/features.webm"
-                autoPlay
-                muted
-                loop
-                playsInline
-              />
-              <video
-                className="h-[24.5rem] w-fit rounded-lg object-cover transition ease-out"
-                src="/images/projects/lumenclips/spotlight.webm"
-                autoPlay
-                muted
-                loop
-                playsInline
-              />
-            </div>
-          </div>
+          </section>
 
           <a
             href="https://accurate-camera-fa3.notion.site/Lumen-164d2970043580df97e8eb670fe641cd"
@@ -102,6 +104,6 @@ export default function LumenPage() {
           <p className="text-gray-700 font-sans text-md">Blah Blah Blah</p> */}
         </div>
       </div>
-    </ProjectPage>
+    </CaseStudy>
   );
 }

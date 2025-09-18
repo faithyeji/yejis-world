@@ -5,8 +5,6 @@ import gsap from "gsap";
 import Draggable from "gsap/Draggable";
 import Image from "next/image";
 
-gsap.registerPlugin(Draggable);
-
 export default function DraggableSticker({
   src,
   alt,
@@ -19,12 +17,13 @@ export default function DraggableSticker({
   const stickerRef = useRef(null);
 
   useLayoutEffect(() => {
+    gsap.registerPlugin(Draggable);
     if (stickerRef.current) {
       Draggable.create(stickerRef.current, {
         type: "x,y",
-        edgeResistance: 0.65,
         inertia: true,
         bounds: document.body,
+        zIndexBoost: true,
       });
     }
   }, []);
@@ -45,6 +44,7 @@ export default function DraggableSticker({
         width={width}
         height={height}
         draggable={false}
+        className="cursor-grab active:cursor-grabbing"
       />
     </div>
   );

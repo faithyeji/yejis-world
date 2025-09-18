@@ -1,22 +1,66 @@
-import ProjectPage from "@/app/components/ProjectPage";
+import CaseStudy from "@/app/components/CaseStudy";
+import Image from "next/image";
 
-export default function FatheadPage() {
+export default function TwoCentsPage() {
   return (
-    <ProjectPage
-      headerImage="/images/projects/tcc.webp"
+    <CaseStudy
+      headerImage="/images/projects/tcc/welcometcc.webp"
       headerImageAlt="Two Cents Club header"
       title="TWO CENTS CLUB"
       description={[
-        "What if your city was a campus? Two Cents Club is a community platform that helps young adults discover local, personalized experiences to learn new skills and connect with others.",
+        "What if your city was a campus? Two Cents Club is a community platform that helps young, post-graduate adults discover local, personalized experiences to learn new skills and connect with others.",
       ]}
       role="Founding Designer & Artistic Director"
       timeline="Ongoing (in-development)"
-      disciplines={["Graphic Design", "Publication Design", "Brand"]}
+      disciplines={["Graphic Design", "Brand", "Product", "UI/UX"]}
     >
       <div className="space-y-6">
         <div>
+          <div className="flex flex-wrap gap-8">
+            <video
+              className="h-full w-40 rounded-lg object-cover transition ease-out"
+              src="/images/projects/tcc/tcc.webm"
+              autoPlay
+              muted
+              loop
+              playsInline
+            />
+            <Image
+              src="/images/projects/tcc/subway.webp"
+              alt="2cc subway"
+              width={1000}
+              height={800}
+              priority
+              className="rounded-lg w-96 h-fit"
+            />
+            <Image
+              src="/images/projects/tcc/candles.webp"
+              alt="candles"
+              width={1000}
+              height={800}
+              priority
+              className="rounded-lg w-56 h-fit"
+            />
+            <Image
+              src="/images/projects/tcc/ethan.webp"
+              alt="ethan"
+              width={1000}
+              height={800}
+              priority
+              className="rounded-lg w-56 h-fit"
+            />
+            <Image
+              src="/images/projects/tcc/elizabeth.webp"
+              alt="elizabeth"
+              width={1000}
+              height={800}
+              priority
+              className="rounded-lg w-56 h-fit"
+            />
+          </div>
+
           <a href="https://thetwocents.club/" target="_blank">
-            <div className="bg-white-80 text-black py-3 px-5 rounded-3xl font-sans hover:bg-blue-400 hover:border-white transition duration-200 flex items-center w-fit gap-1 border-neutral-400 border">
+            <div className="bg-white-80 text-black py-3 px-5 rounded-3xl font-sans hover:bg-blue-400 hover:border-white transition duration-200 flex items-center w-fit gap-1 border-neutral-400 border mt-8">
               <div>
                 Case Study currently being coded for this page! Click for more
                 details.
@@ -43,6 +87,6 @@ export default function FatheadPage() {
           </a>
         </div>
       </div>
-    </ProjectPage>
+    </CaseStudy>
   );
 }

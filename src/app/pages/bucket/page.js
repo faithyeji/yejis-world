@@ -95,6 +95,14 @@ const items = [
   },
   {
     type: "image",
+    src: "/images/playground/experiments/etcsite.webp",
+    alt: "ETC Site Concept",
+    tool: "Figma",
+    category: "experiments",
+  },
+
+  {
+    type: "image",
     src: "/images/playground/graphics/jazzfest.webp",
     alt: "The 16th Pittsburgh International Jazz Festival",
     tool: "Photoshop",
@@ -163,6 +171,13 @@ const items = [
     src: "/images/playground/graphics/europa.webp",
     alt: "Europa White Paper",
     tool: "Figma",
+    category: "graphics",
+  },
+  {
+    type: "image",
+    src: "/images/playground/graphics/pathways.webp",
+    alt: "Pathways Film Branding",
+    tool: "Photoshop, Figma",
     category: "graphics",
   },
   {
@@ -259,6 +274,13 @@ const items = [
   },
   {
     type: "image",
+    src: "/images/playground/drawings/ebaesmat.webp",
+    alt: "Ebaes Tablemat",
+    tool: "Photoshop",
+    category: "illustration",
+  },
+  {
+    type: "image",
     src: "/images/playground/experiments/jeong.webp",
     alt: "Jeong",
     tool: "Blender",
@@ -316,6 +338,13 @@ const items = [
     tool: "Figma",
     link: "https://accurate-camera-fa3.notion.site/Namu-164d2970043580bea568dd6e3bcaef87?pvs=73",
     category: "experiments",
+  },
+  {
+    type: "image",
+    src: "/images/playground/graphics/activistegg.webp",
+    alt: "Hatching Up",
+    tool: "Blender, Figma",
+    category: "graphics",
   },
   {
     type: "image",

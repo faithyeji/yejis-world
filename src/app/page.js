@@ -75,10 +75,10 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div className="animate-fadein">
+      <div className="animate-fadein delay-200">
         <Folder
           title="photos"
-          style="top-[41%] left-[27%]"
+          style="top-[41%] left-[26%]"
           content={photos}
           position="top-[110%] left-[8%] origin-[0%-30%]"
         />
@@ -95,7 +95,7 @@ export default function Home() {
           alt="coded"
           width={90}
           height={90}
-          startX="66%"
+          startX="67%"
           startY="36%"
           rotation={0}
         />
@@ -104,7 +104,7 @@ export default function Home() {
           alt="folder"
           width={60}
           height={60}
-          startX="30%"
+          startX="31%"
           startY="32%"
           rotation={0}
         />
@@ -125,27 +125,27 @@ export default function Home() {
         <p className="w-72 sm:w-80 md:w-[400px] font-mono text-sm leading-5 mt-36 sm:mt-[137px] animate-slidein opacity-0 [--slidein-delay:300ms]">
           IS A MULTIDISCIPLINARY DESIGNER DEDICATED TO CRAFTING EXPERIENCES THAT
           EVOKE DELIGHT & PLAY. <br /> <br />
-          SHE (DESPITE A PASSION FOR EVERYTHING CREATIVE) SPECIALIZES IN DIGITAL
-          ART DIRECTION, BRAND, WEB/PRODUCT, & INTERACTIVE STORYTELLING.
+          SHE WORKS PRIMARILY ACROSS DIGITAL ART DIRECTION, GRAPHIC DESIGN,
+          BRANDING, PRODUCT, WEB, & INTERACTIVE STORYTELLING.
         </p>
         <p className="text-[10px] mt-2 z-20 text-center font-mono text-gray-400 animate-slidein opacity-0 [--slidein-delay:700ms]">
           NOW {status == "playing" ? "PLAYING:" : "PAUSED:"} {currentSongTitle}
         </p>{" "}
-        <div id="projects" className="rounded-lg mt-8">
-          <div className="flex flex-wrap mt-8 mb-16 sm:mt-12 md:mx-20 justify-center items-center text-center gap-4 sm:gap-10 w-fit text-neutral-600 opacity-0 animate-slidein [--slidein-delay:500ms]">
-            <Project
-              title="The StoryGraph"
-              type="PRODUCT, UI/UX"
-              imageSrc="/images/projects/storygraph.webp"
-              link="/pages/projects/storygraph"
-              description="Worked as the sole UX designer revamping a book-sharing platform with 4 million users."
-            />
+        <div id="projects" className="rounded-lg mt-12">
+          <div className="flex flex-wrap mt-8 mb-16 sm:mt-7 md:mx-4 justify-center items-center text-center gap-2 sm:gap-5 w-fit text-neutral-600 opacity-0 animate-slidein [--slidein-delay:500ms]">
             <Project
               title="Deeplocal"
               type="ART DIRECTION, MOTION, UI/UX, GRAPHIC"
               videoSrc="/images/projects/DL.webm"
               link="/pages/projects/deeplocal"
               description="Concepting/designing fun creative tech projects for Google, Microsoft, and Netflix experiential activations."
+            />
+            <Project
+              title="The StoryGraph"
+              type="PRODUCT, UI/UX"
+              imageSrc="/images/projects/storygraph.webp"
+              link="/pages/projects/storygraph"
+              description="Worked as the sole UX designer revamping a book-sharing platform with 4 million users."
             />
             <Project
               title="Lumen"
@@ -155,18 +155,18 @@ export default function Home() {
               description="Collecting, organizing, and illuminating user feedback to highlight key insights."
             />
             <Project
+              title="Two Cents Club"
+              type="BRAND, PRODUCT, GRAPHIC"
+              imageSrc="/images/projects/tcc.webp"
+              link="/pages/projects/twocentsclub"
+              description="Founding designer and creative director for a community platform for post-grad learning."
+            />
+            <Project
               title="Fathead White Paper"
               type="GRAPHIC, PRINT"
               imageSrc="/images/projects/fathead2.webp"
               link="/pages/projects/fathead"
               description="186 pages of pure graphic design for a Cannes award-winning film's White Paper."
-            />
-            <Project
-              title="Two Cents Club"
-              type="PRODUCT, BRAND"
-              imageSrc="/images/projects/tcc.webp"
-              link="/pages/projects/twocentsclub"
-              description="Founding designer for a community platform for post-grad learning."
             />
             <Project
               title="Climate Cents"
