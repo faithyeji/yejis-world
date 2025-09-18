@@ -7,7 +7,7 @@ export default function StoryGraphPage() {
       headerImageAlt="The StoryGraph project header"
       title="THE STORYGRAPH"
       description={[
-        "The StoryGraph is a book-sharing platform with over 3 million users, where readers connect through shared interests, recommendations, and social features. As the sole UX designer, I worked on creating intuitive experiences that make discovering new books a collaborative journey.",
+        "With over 4 million users worldwide, The StoryGraph is a book-tracking platform loved for its community-driven features and the leading Goodreads alternative. My role was to revamp the platform’s interface and user experience — bringing polish, clarity, and accessibility — all while respecting the constraints of their one-woman dev team.",
       ]}
       role="Sole UX Designer"
       timeline="August 2024 - April 2025"

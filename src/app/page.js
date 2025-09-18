@@ -78,7 +78,7 @@ export default function Home() {
       <div className="animate-fadein">
         <Folder
           title="photos"
-          style="top-[40%] left-[26%]"
+          style="top-[41%] left-[27%]"
           content={photos}
           position="top-[110%] left-[8%] origin-[0%-30%]"
         />
@@ -96,7 +96,7 @@ export default function Home() {
           width={90}
           height={90}
           startX="66%"
-          startY="34%"
+          startY="36%"
           rotation={0}
         />
         <DraggableSticker
@@ -105,7 +105,7 @@ export default function Home() {
           width={60}
           height={60}
           startX="30%"
-          startY="31%"
+          startY="32%"
           rotation={0}
         />
       </div>
@@ -138,7 +138,7 @@ export default function Home() {
               type="PRODUCT, UI/UX"
               imageSrc="/images/projects/storygraph.webp"
               link="/pages/projects/storygraph"
-              description="Worked as the sole UX designer revamping a book-sharing platform with 3 million users."
+              description="Worked as the sole UX designer revamping a book-sharing platform with 4 million users."
             />
             <Project
               title="Deeplocal"
