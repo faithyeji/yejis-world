@@ -15,15 +15,67 @@ export default function LumenPage() {
     >
       <div className="space-y-6">
         <div>
+          <div className="flex flex-wrap justify-between space-y-8">
+            <video
+              className="h-60 w-full rounded-lg object-cover transition ease-out"
+              src="/images/projects/lumenclips/highlight.webm"
+              autoPlay
+              muted
+              loop
+              playsInline
+            />
+            <div className="flex flex-col gap-10 w-[38%]">
+              <video
+                className="h-fit rounded-lg object-cover transition ease-out"
+                src="/images/projects/lumenclips/miss.webm"
+                autoPlay
+                muted
+                loop
+                playsInline
+              />
+              <video
+                className="h-fit rounded-lg object-cover transition ease-out"
+                src="/images/projects/lumenclips/break.webm"
+                autoPlay
+                muted
+                loop
+                playsInline
+              />
+              <video
+                className="h-fit rounded-lg object-cover transition ease-out"
+                src="/images/projects/lumenclips/3insights.webm"
+                autoPlay
+                muted
+                loop
+                playsInline
+              />
+            </div>
+            <div className="flex flex-col gap-14 w-7/12">
+              <video
+                className="h-fit rounded-lg object-cover transition ease-out"
+                src="/images/projects/lumenclips/features.webm"
+                autoPlay
+                muted
+                loop
+                playsInline
+              />
+              <video
+                className="h-[24.5rem] w-fit rounded-lg object-cover transition ease-out"
+                src="/images/projects/lumenclips/spotlight.webm"
+                autoPlay
+                muted
+                loop
+                playsInline
+              />
+            </div>
+          </div>
+
           <a
             href="https://accurate-camera-fa3.notion.site/Lumen-164d2970043580df97e8eb670fe641cd"
             target="_blank"
           >
-            <div className="bg-white-80 text-black py-3 px-5 rounded-3xl font-sans hover:bg-blue-400 hover:border-white transition duration-200 flex items-center w-fit gap-1 border-neutral-400 border">
-              <div>
-                Case Study currently being coded for this page! Click for more
-                details.
-              </div>
+            <div className="bg-white-80 text-black py-3 px-5 rounded-3xl font-sans hover:bg-blue-400 hover:border-white transition duration-200 flex items-center w-fit gap-1 border-neutral-400 border mt-8">
+              <div>Click to learn more!</div>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="#000000"
