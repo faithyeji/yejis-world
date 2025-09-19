@@ -1,6 +1,7 @@
 import CaseStudy from "@/app/components/CaseStudy";
-import TextWithImage from "@/app/components/TextWithImage";
+import TextWithImage from "@/app/components/TextWithMedia";
 import CenteredImageWithCaption from "@/app/components/CenteredImageWithCaption";
+import Image from "next/image";
 
 export default function StoryGraphPage() {
   return (
@@ -11,7 +12,7 @@ export default function StoryGraphPage() {
       description={[
         "The StoryGraph is a beloved book-tracking platform with 4M+ users and the leading alternative to Goodreads. My role was to revamp the platform’s interface and user experience — bringing polish, clarity, and accessibility — all while respecting the constraints of their one-woman dev team.",
       ]}
-      role="Contract UX Designer"
+      role={["Contract UX Designer"]}
       timeline="August 2024 - April 2025"
       disciplines={["UI/UX Design", "User Research", "Design Systems"]}
     >
@@ -19,13 +20,13 @@ export default function StoryGraphPage() {
       <section id="background" data-section-title="Background">
         <TextWithImage
           title="BACKGROUND: FROM USER TO OFFICIAL DESIGNER"
-          imgSrc="/images/projects/storygraph/roadmap.webp"
-          imgAlt="Roadmap"
+          mediaSrc="/images/projects/storygraph/roadmap.webp"
+          mediaAlt="Roadmap"
         >
           Before joining as a designer, I was an avid StoryGraph fan myself. I
           admired their mission and community spirit, but also became
           immediately familiarized with{" "}
-          <span className="font-bold text-teal-700">friction points</span>{" "}
+          <span className="font-bold text-blue-600">friction points</span>{" "}
           first-hand. <br />
           <br />
           Seeing that design improvements were already a major goal in their
@@ -39,12 +40,8 @@ export default function StoryGraphPage() {
         <CenteredImageWithCaption
           imgSrc="/images/projects/storygraph/research.webp"
           imgAlt="Research"
-          caption="The StoryGraph is known for its large, highly-active online communities—I studied countless discussions across their subreddit, forums, and TikTok/YouTube reviews."
+          caption="The StoryGraph is known for its large, highly-active online communities; I studied countless discussions across their subreddit, forums, and TikTok/YouTube reviews."
         />
-      </section>
-
-      {/* Navigation Section */}
-      <section id="navigation" data-section-title="Navigation">
         <CenteredImageWithCaption
           imgSrc="/images/projects/storygraph/navigation.webp"
           imgAlt="Navigation"
@@ -53,12 +50,76 @@ export default function StoryGraphPage() {
       </section>
 
       {/* Pain Points Section */}
-      <section id="painpoints" data-section-title="Pain Points">
+      <section
+        id="painpoints"
+        data-section-title="Pain Points"
+        className="pt-4"
+      >
         <CenteredImageWithCaption
           imgSrc="/images/projects/storygraph/painpoints.webp"
           imgAlt="Pain Points"
-          caption="Consolidating insights from my research & 5 interviews with fellow users."
+          caption="Consolidating insights from my research & 5 user interviews."
           title="PAIN POINTS"
+        />
+      </section>
+
+      {/* Concept Section */}
+      <section id="concept" data-section-title="V1: Concepts">
+        <h1 className="w-full text-center mt-10 mb-10 font-mono text-xl text-gray-500 uppercase">
+          PHASE 1: CONCEPT REDESIGN
+        </h1>
+        <TextWithImage
+          mediaSrc="/images/projects/storygraph/concept.webm"
+          mediaAlt="Concept"
+          mediaPosition="left"
+        >
+          I created proof-of-concept redesigns to test:
+          <div className="pl-4 mt-2 mb-4">
+            <li>Simplified flows, reducing unnecessary clicks.</li>
+            <li>
+              A touch of rebranding to feel warmer, less clinical, but still
+              undeniably The StoryGraph.
+            </li>
+            <li>Added visual hierarchy to pages with lots of static text.</li>
+          </div>
+          This research and early concepts eventually led to my role as an{" "}
+          <span className="underline">official contract designer</span> at The
+          StoryGraph!
+        </TextWithImage>
+      </section>
+
+      <hr className="border-t-1 border-gray-300 my-12 w-full" />
+
+      {/* Official Redesign Section */}
+      <section
+        id="official"
+        data-section-title="V2: OFFICIAL"
+        className="flex justify-center flex-col align-middle items-center mt-2"
+      >
+        <h1 className="w-full text-center mb-5 font-mono text-xl text-gray-500 uppercase">
+          PHASE 2: OFFICIAL REDESIGN
+        </h1>
+        <div className="font-sans text-center w-4/5">
+          <div className="py-6 px-10 border rounded-full border-gray-300 mt-2">
+            <div>
+              Now that I was officially designing for them, I had to ask myself:
+            </div>
+            <div className="mt-4">
+              How could I revamp The StoryGraph’s experience by simplifying
+              navigation, surfacing hidden features, and ensuring accessibility,
+              while still respecting the limits of a one-woman dev team and
+              avoiding a full system overhaul?
+            </div>
+          </div>
+        </div>
+        <Image
+          src="/images/projects/storygraph/revamp.webp"
+          alt="Revamp"
+          width={3000}
+          height={3000}
+          quality={100}
+          className="w-3/5 h-fit rounded-lg mt-8"
+          priority
         />
       </section>
 

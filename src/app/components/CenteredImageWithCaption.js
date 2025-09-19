@@ -9,7 +9,7 @@ export default function CenteredImageWithCaption({
   return (
     <div className="grid place-items-center">
       <div className="flex flex-col items-center font-sans text-sm w-full">
-        <h3 className="font-mono text-xl text-gray-500 uppercase mb-2">
+        <h3 className="font-mono text-xl text-gray-500 uppercase mb-4">
           {title}
         </h3>
         <Image
@@ -22,7 +22,7 @@ export default function CenteredImageWithCaption({
           priority
         />
         {caption && (
-          <h3 className="w-3/5 mt-6 text-center text-gray-700">{caption}</h3>
+          <h3 className="w-7/12 mt-6 text-center text-gray-700">{caption}</h3>
         )}
       </div>
     </div>

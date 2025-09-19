@@ -10,7 +10,7 @@ export default function TwoCentsPage() {
       description={[
         "What if your city was a campus? Two Cents Club is a community platform that helps young, post-graduate adults discover local, personalized experiences to learn new skills and connect with others.",
       ]}
-      role="Founding Designer & Artistic Director"
+      role={["Founding Designer", "Art Director"]}
       timeline="Ongoing (in-development)"
       disciplines={["Graphic Design", "Brand", "Product", "UI/UX"]}
     >
@@ -62,8 +62,7 @@ export default function TwoCentsPage() {
           <a href="https://thetwocents.club/" target="_blank">
             <div className="bg-white-80 text-black py-3 px-5 rounded-3xl font-sans hover:bg-blue-400 hover:border-white transition duration-200 flex items-center w-fit gap-1 border-neutral-400 border mt-8">
               <div>
-                Case Study currently being coded for this page! Click for more
-                details.
+                This project is currently being built! Click for more details.
               </div>
               <svg
                 xmlns="http://www.w3.org/2000/svg"

@@ -7,7 +7,7 @@ const ProjectPage = ({
   headerImageAlt = "Project header",
   title,
   description,
-  role,
+  role = [],
   timeline,
   disciplines = [],
   children,
@@ -36,14 +36,19 @@ const ProjectPage = ({
             )}
             {/* Project Details */}
             <div className="flex gap-16 text-sm pt-4">
-              {role && (
+              {role && role.length > 0 && (
                 <div>
                   <div className="font-mono text-md text-gray-500 uppercase mb-1">
                     Role
                   </div>
-                  <div className="text-gray-900 font-sans">{role}</div>
+                  <div className="text-gray-900 font-sans flex flex-col">
+                    {role.map((d, idx) => (
+                      <span key={idx}>{d}</span>
+                    ))}
+                  </div>
                 </div>
               )}
+
               {timeline && (
                 <div>
                   <div className="font-mono text-md text-gray-500 uppercase mb-1">

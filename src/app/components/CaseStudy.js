@@ -2,13 +2,14 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 const CaseStudy = ({
   headerImage,
   headerImageAlt = "Project header",
   title,
   description,
-  role,
+  role = [],
   timeline,
   disciplines = [],
   children,
@@ -33,6 +34,15 @@ const CaseStudy = ({
       <div className="flex mt-8">
         {/* Table of Contents */}
         <aside className="hidden lg:block sticky top-32 left-44 h-fit w-[8rem] flex-shrink-0 self-start animate-slidein opacity-0 [--slidein-delay:200ms]">
+          {/* Back Button */}
+          <div className="mb-6">
+            <Link
+              href="/#projects"
+              className="text-gray-600 hover:text-blue-600 font-mono text-sm uppercase"
+            >
+              ← Back
+            </Link>
+          </div>
           <h2 className="font-franklin text-4xl text-black uppercase mb-4 leading-8">
             {title}
           </h2>
@@ -41,7 +51,7 @@ const CaseStudy = ({
               <li key={sec.id}>
                 <a
                   href={`#${sec.id}`}
-                  className="text-gray-700 hover:text-teal-700 font-mono uppercase text-sm"
+                  className="text-gray-700 hover:text-blue-600 font-mono uppercase text-sm"
                 >
                   {sec.title}
                 </a>
@@ -53,7 +63,7 @@ const CaseStudy = ({
         {/* Main Content */}
         <main className="flex justify-center max-w-4xl mx-auto min-h-screen">
           {/* Header Section */}
-          <div className="bg-white rounded-md drop-shadow-md py-10 px-20 animate-slidein opacity-0 [--slidein-delay:100ms]">
+          <div className="bg-white rounded-md drop-shadow-md pt-10 pb-12 px-20 animate-slidein opacity-0 [--slidein-delay:100ms] mb-20">
             {description && (
               <div className="text-gray-700 font-sans text-center text-md mt-4 mx-4 sm:mx-20">
                 {Array.isArray(description)
@@ -79,12 +89,16 @@ const CaseStudy = ({
 
             {/* Project Details */}
             <div className="flex flex-wrap justify-center gap-20 text-sm pt-4 mt-8">
-              {role && (
+              {role && role.length > 0 && (
                 <div>
                   <div className="font-mono text-md text-gray-500 uppercase mb-1">
                     Role
                   </div>
-                  <div className="text-gray-900 font-sans">{role}</div>
+                  <div className="text-gray-900 font-sans flex flex-col">
+                    {role.map((d, idx) => (
+                      <span key={idx}>{d}</span>
+                    ))}
+                  </div>
                 </div>
               )}
               {timeline && (
@@ -110,7 +124,9 @@ const CaseStudy = ({
             </div>
             <hr className="my-12" />
             {/* Children sections */}
-            <div className="space-y-16">{children}</div>
+            <div className="space-y-16 flex flex-col justify-center items-center align-middle">
+              {children}
+            </div>
           </div>
         </main>
       </div>

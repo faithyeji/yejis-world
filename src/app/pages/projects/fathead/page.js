@@ -10,7 +10,7 @@ export default function FatheadPage() {
       description={[
         "Fathead is a Cannes Film Festival award-winning & NAACP-nominated short film made as a Virtual Production on an LED-volume with all in-camera VFX and Epic Games' Unreal Engine. As lead designer, I created 186 pages of pure graphic design for the film's white paper, posters, and tour materials.",
       ]}
-      role="Lead Graphic Designer"
+      role={["Lead Graphic Designer"]}
       timeline="2023-2024"
       disciplines={["Graphic Design", "Publication Design", "Brand"]}
     >

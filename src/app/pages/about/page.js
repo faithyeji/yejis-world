@@ -23,7 +23,7 @@ export default function About() {
         <div className="flex flex-col font-sans gap-4 mb-20 sm:mt-6 w-8/12 sm:w-1/3 text-center sm:text-left">
           <h1 className="font-serif italic text-2xl animate-slidein opacity-0 [--slidein-delay:200ms]">
             {" "}
-            Hi, welcome to my world! <span className="not-italic">🐦‍⬛</span>
+            Hi, welcome to my world!
           </h1>
           <div className="flex flex-col gap-6 text-sm sm:text-base">
             <p className="animate-slidein opacity-0 [--slidein-delay:400ms]">

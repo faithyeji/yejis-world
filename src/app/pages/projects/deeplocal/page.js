@@ -10,7 +10,7 @@ export default function StoryGraphPage() {
       description={[
         "Deeplocal is an award-winning creative technology agency that creates fun interactive experiences connecting people to brands. I was fortunate enough to spend a Yinzer (shoutout Pittsburgh) summer there as an intern and was extended to continue as a freelance designer in the fall — an experience that had me working across a breadth of various projects, pitches, and skillsets! This work is under NDA and is available upon request.",
       ]}
-      role="Design Intern, Freelancer"
+      role={["Design Intern", "Freelancer"]}
       timeline="May - September 2025"
       disciplines={[
         "Art Direction & Concepting",

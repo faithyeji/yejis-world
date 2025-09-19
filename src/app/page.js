@@ -117,7 +117,8 @@ export default function Home() {
           loop
           muted
           playsInline
-          className="absolute top-0 animate-slidein opacity-0 [--slidein-delay:100ms] bg-blend-multiply"
+          className="absolute top-0 animate-slidein opacity-0 [--slidein-delay:100ms]"
+          priority="true"
         >
           <source src="/YejiNames2-hevc-safari.mp4" />
           <source src="/YejiNames2-vp9-chrome.webm" />
