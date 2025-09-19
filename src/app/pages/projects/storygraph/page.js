@@ -14,7 +14,12 @@ export default function StoryGraphPage() {
       ]}
       role={["Contract UX Designer"]}
       timeline="August 2024 - April 2025"
-      disciplines={["UI/UX Design", "User Research", "Design Systems"]}
+      disciplines={[
+        "UI/UX Design",
+        "User Research",
+        "Design Systems,",
+        "Brand",
+      ]}
     >
       {/* Background Section */}
       <section id="background" data-section-title="Background">
@@ -73,18 +78,20 @@ export default function StoryGraphPage() {
           mediaAlt="Concept"
           mediaPosition="left"
         >
-          I created proof-of-concept redesigns to test:
-          <div className="pl-4 mt-2 mb-4">
-            <li>Simplified flows, reducing unnecessary clicks.</li>
-            <li>
-              A touch of rebranding to feel warmer, less clinical, but still
-              undeniably The StoryGraph.
-            </li>
-            <li>Added visual hierarchy to pages with lots of static text.</li>
+          <div className="pb-10">
+            I created proof-of-concept redesigns to test:
+            <div className="pl-4 mt-2 mb-4">
+              <li>Simplified flows, reducing unnecessary clicks.</li>
+              <li>
+                A touch of rebranding to feel warmer, less clinical, but still
+                undeniably The StoryGraph.
+              </li>
+              <li>Added visual hierarchy to pages with lots of static text.</li>
+            </div>
+            This research and early concepts eventually led to my role as an{" "}
+            <span className="underline">official contract designer</span> at The
+            StoryGraph!
           </div>
-          This research and early concepts eventually led to my role as an{" "}
-          <span className="underline">official contract designer</span> at The
-          StoryGraph!
         </TextWithImage>
       </section>
 

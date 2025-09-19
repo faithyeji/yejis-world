@@ -143,7 +143,7 @@ export default function Home() {
             />
             <Project
               title="The StoryGraph"
-              type="PRODUCT, UI/UX"
+              type="PRODUCT, UI/UX, BRAND"
               imageSrc="/images/projects/storygraph.webp"
               link="/pages/projects/storygraph"
               description="Worked as the sole UX designer revamping a book-sharing platform with 4 million users."
