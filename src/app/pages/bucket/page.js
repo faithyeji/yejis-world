@@ -81,13 +81,6 @@ const items = [
   // Graphics
   {
     type: "image",
-    src: "/images/playground/graphics/ebaesFlyer.webp",
-    alt: "Ebaes Flyer",
-    tool: "Photoshop",
-    category: "graphics",
-  },
-  {
-    type: "image",
     src: "/images/playground/graphics/dublab.webp",
     alt: "Dublab",
     tool: "Figma",
@@ -99,6 +92,13 @@ const items = [
     alt: "ETC Site Concept",
     tool: "Figma",
     category: "experiments",
+  },
+  {
+    type: "image",
+    src: "/images/playground/graphics/ebaesFlyer.webp",
+    alt: "Ebaes Flyer",
+    tool: "Photoshop",
+    category: "graphics",
   },
 
   {
@@ -451,7 +451,7 @@ export default function Playground() {
 
         {/* Gallery */}
         <motion.div
-          className="container columns-2 sm:columns-4 gap-x-2 sm:gap-x-5 w-[400px] sm:w-[1200px]  opacity-0 animate-slidein [--slidein-delay:700ms]"
+          className="container columns-2 md:columns-3 lg:columns-4 gap-x-2 sm:gap-x-5 w-[400px] sm:w-[1200px]  opacity-0 animate-slidein [--slidein-delay:700ms]"
           variants={containerVariants}
           initial="hidden"
           animate="show"
