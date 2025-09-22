@@ -14,12 +14,7 @@ export default function StoryGraphPage() {
       ]}
       role={["Contract UX Designer"]}
       timeline="August 2024 - April 2025"
-      disciplines={[
-        "UI/UX Design",
-        "User Research",
-        "Design Systems,",
-        "Brand",
-      ]}
+      disciplines={["UI/UX Design", "User Research", "Design Systems", "Brand"]}
     >
       {/* Background Section */}
       <section id="background" data-section-title="Background">
@@ -67,7 +62,7 @@ export default function StoryGraphPage() {
       </section>
       {/* Concept Section */}
       <section id="concept" data-section-title="V1: Concepts">
-        <h1 className="w-full text-center mt-10 mb-10 font-mono text-xl text-gray-500 uppercase">
+        <h1 className="w-full text-center mt-10 mb-8 font-mono text-xl text-gray-500 uppercase">
           PHASE 1: CONCEPT REDESIGN
         </h1>
         <TextWithImage
@@ -91,14 +86,14 @@ export default function StoryGraphPage() {
           </div>
         </TextWithImage>
       </section>
-      <hr className="border-t-1 border-gray-300 my-12 w-full" />
+      <hr className="border-t-1 border-gray-300 my-10 w-full" />
       {/* Official Redesign Section */}
       <section
         id="official"
         data-section-title="V2: OFFICIAL"
-        className="flex justify-center flex-col align-middle items-center mt-2"
+        className="flex justify-center flex-col align-middle items-center"
       >
-        <h1 className="w-full text-center mb-5 font-mono text-xl text-gray-500 uppercase">
+        <h1 className="w-full text-center mt-10 mb-5 font-mono text-xl text-gray-500 uppercase">
           PHASE 2: OFFICIAL REDESIGN
         </h1>
         <div className="font-sans text-center w-4/5">
@@ -197,13 +192,27 @@ export default function StoryGraphPage() {
         </div>
 
         <TextWithImage
+          mediaSrc="/images/projects/storygraph/detailednotes.webp"
+          mediaAlt="Detailed Notes"
+        >
+          <div className="pb-20">
+            Maintained detailed notes on my rationale behind design decisions,
+            accessibility considerations, and interactions like hover states.{" "}
+            <br />
+            <br />
+            Clear documentation streamlined collaboration for our tiny team
+            serving millions and reduced handoff friction.
+          </div>
+        </TextWithImage>
+
+        <TextWithImage
           mediaSrc="/images/projects/storygraph/designsystem.webp"
           mediaAlt="Design System"
           mediaPosition="left"
         >
           <div className="pb-20">
             Developed a robust design system covering:
-            <div className="pl-4 mt-2 mb-4">
+            <div className="pl-4 mt-2 mb-3">
               <li>
                 Responsive layouts and font sizing for desktop, tablet, & mobile
                 screens.
@@ -217,40 +226,17 @@ export default function StoryGraphPage() {
             </div>
           </div>
         </TextWithImage>
-
-        <TextWithImage
-          mediaSrc="/images/projects/storygraph/designsystem.webp"
-          mediaAlt="Design System"
-        >
-          <div className="pb-20">
-            Maintained detailed notes on my rationale behind design decisions,
-            accessibility considerations, and interactions like hover states.
-            Clear documentation streamlined collaboration for our tiny team
-            serving millions and reduced handoff friction.
-          </div>
-        </TextWithImage>
-
-        <TextWithImage
-          mediaSrc="/images/projects/storygraph/designsystem.webp"
-          mediaAlt="Design System"
-          mediaPosition="left"
-        >
-          <div className="pb-20">
-            Completed shipped updates of TSG's existing pages with focused
-            design improvements, rather than rebuilding from scratch. Each
-            redesign emphasized readability, discoverability, and visual polish.
-          </div>
-        </TextWithImage>
       </section>
 
       <hr className="border-t-1 border-gray-300 my-12 w-full" />
 
       <div className="font-sans text-center w-4/5 mt-20 mb-10">
         <div className="py-6 px-10 border rounded-full border-gray-300 mt-2">
-          Ultimately, this led to shipped, iterative page revamps — a refresh
-          the entire app's pages with focused design improvements rather than
-          rebuilding from scratch. Each redesign emphasized readability,
-          discoverability, ease-of-development, and visual polish.
+          Ultimately, this led to shipped, iterative page revamps! I refreshed
+          every page while also documenting my design rationale, accessibility
+          considerations, and interaction details — which streamlined
+          collaboration and reduced handoff friction for our small team serving
+          millions.
         </div>
       </div>
       <section id="outcomes" data-section-title="OUTCOMES">

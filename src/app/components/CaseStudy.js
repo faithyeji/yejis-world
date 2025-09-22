@@ -15,9 +15,9 @@ const CaseStudy = ({
   children,
 }) => {
   const [sections, setSections] = useState([]);
+  const [activeId, setActiveId] = useState(null);
 
   useEffect(() => {
-    // All direct children with data-section-title
     const sectionElements = Array.from(
       document.querySelectorAll("[data-section-title]")
     );
@@ -27,6 +27,23 @@ const CaseStudy = ({
         title: el.getAttribute("data-section-title"),
       }))
     );
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveId(entry.target.id);
+          }
+        });
+      },
+      { rootMargin: "-10% 0px -90% 0px", threshold: 0 }
+    );
+
+    sectionElements.forEach((el) => observer.observe(el));
+
+    return () => {
+      sectionElements.forEach((el) => observer.unobserve(el));
+    };
   }, [children]);
 
   return (
@@ -51,8 +68,13 @@ const CaseStudy = ({
               <li key={sec.id}>
                 <a
                   href={`#${sec.id}`}
-                  className="text-gray-700 hover:text-blue-600 font-mono uppercase text-sm"
+                  className={`font-mono uppercase text-sm transition-all duration-300 inline-block ${
+                    activeId === sec.id
+                      ? "text-blue-600 translate-x-2"
+                      : "text-gray-700"
+                  }`}
                 >
+                  {activeId === sec.id && "— "} {/* dash inherits color */}
                   {sec.title}
                 </a>
               </li>
