@@ -55,7 +55,7 @@ export function AudioProvider({ children }) {
       if (savedIndex) {
         setCurrentSongIndex(parseInt(savedIndex, 10));
       } else {
-        setCurrentSongIndex(Math.floor(Math.random() * allSongs.length));
+        setCurrentSongIndex(0);
       }
     }
   }, []);

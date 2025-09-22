@@ -126,8 +126,8 @@ export default function Home() {
         <p className="w-72 sm:w-80 md:w-[400px] font-mono text-sm leading-5 mt-36 sm:mt-[137px] animate-slidein opacity-0 [--slidein-delay:300ms]">
           IS A MULTIDISCIPLINARY DESIGNER DEDICATED TO CRAFTING DELIGHTFUL
           DIGITAL EXPERIENCES. <br /> <br />
-          SHE WORKS PRIMARILY ACROSS ART DIRECTION, GRAPHIC DESIGN, BRANDING,
-          PRODUCT, WEB, & INTERACTIVE STORYTELLING.
+          SHE WORKS PRIMARILY ACROSS ART DIRECTION, PRODUCT, BRANDING, GRAPHIC
+          DESIGN, WEB, & INTERACTIVE STORYTELLING.
         </p>
         <p className="text-[10px] mt-2 z-20 text-center font-mono text-gray-400 animate-slidein opacity-0 [--slidein-delay:700ms]">
           NOW {status == "playing" ? "PLAYING:" : "PAUSED:"} {currentSongTitle}
