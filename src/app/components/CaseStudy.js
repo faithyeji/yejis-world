@@ -33,7 +33,7 @@ const CaseStudy = ({
     <div className="min-h-screen">
       <div className="flex mt-8">
         {/* Table of Contents */}
-        <aside className="hidden lg:block sticky top-32 left-44 h-fit w-[8rem] flex-shrink-0 self-start animate-slidein opacity-0 [--slidein-delay:200ms]">
+        <aside className="hidden lg:block sticky top-32 lg:left-[11%] h-fit w-[8rem] flex-shrink-0 self-start animate-slidein opacity-0 [--slidein-delay:200ms]">
           {/* Back Button */}
           <div className="mb-6">
             <Link

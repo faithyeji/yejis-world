@@ -12,9 +12,14 @@ export default function ClimateCentsPage() {
       description={[
         "I led a team of 8 to develop an interactive map and backend integrating real-time weather data, making Blue Sky LA’s climate projects visible, searchable, and engaging for the public.",
       ]}
-      role={["Project LEad"]}
+      role={["Project Lead"]}
       timeline="2024 - 2025"
-      disciplines={["Art Direction", "UX Design", "Frontend Development"]}
+      disciplines={[
+        "Art Direction",
+        "UI/UX Design",
+        "Frontend Development",
+        "Design/Dev Handoff",
+      ]}
     >
       {/* Background Section */}
       <section id="background" data-section-title="Background">
@@ -77,7 +82,7 @@ export default function ClimateCentsPage() {
         <CenteredImageWithCaption
           imgSrc="/images/projects/climate/lowfi-card.webp"
           imgAlt="Low Fidelity Card"
-          caption="Simple project cards showing core info like type, location, and volunteer needs."
+          caption="Simple project cards showing core info like type, location, and completion status."
         />
         <CenteredImageWithCaption
           imgSrc="/images/projects/climate/midfi-map.webp"
@@ -87,7 +92,7 @@ export default function ClimateCentsPage() {
         <CenteredImageWithCaption
           imgSrc="/images/projects/climate/midfi-card.webp"
           imgAlt="Mid Fidelity Card"
-          caption="Project cards enriched with metadata and visual hierarchy."
+          caption="Project cards enriched with metadata and visual hierarchy. Thinking through ways to visualize multiple projects in the same location."
         />
         <CenteredImageWithCaption
           imgSrc="/images/projects/climate/hifi.webp"
@@ -129,13 +134,13 @@ export default function ClimateCentsPage() {
         </div>
       </section>
 
-      {/* Takeaways Section */}
-      <section id="takeaways" data-section-title="Takeaways">
+      {/* Learnings Section */}
+      <section id="learnings" data-section-title="Learnings">
         <div className="flex flex-col align-middle items-center">
-          <h1 className="w-full text-center mt-2 mb-10 font-mono text-xl text-gray-500 uppercase">
-            FINAL TAKEAWAYS
+          <h1 className="w-full text-center mt-2 mb-8 font-mono text-xl text-gray-500 uppercase">
+            LEARNINGS
           </h1>
-          <ul className="list-decimal list-inside space-y-4 text-left font-sans w-4/5">
+          <ul className="list-decimal list-inside space-y-4 text-left font-sans w-5/6">
             <li>
               <strong>Thoughtful interactions elevate simple builds.</strong>
               <br />
@@ -143,25 +148,26 @@ export default function ClimateCentsPage() {
               and informed, reinforcing Blue Sky LA’s community-driven mission.
             </li>
             <li>
-              <strong>Exploration fuels stronger outcomes.</strong>
+              <strong>Think big and explore first, then scale down.</strong>
               <br />
-              Early ideation, even ideas that did not make it into the final
-              product like a 3D map, shaped our approach and led to more
-              thoughtful, engaging designs.
+              Early ideation (even ambitious ideas that didn't make it into the
+              final product like a fully 3D map) still shaped our approach and
+              ultimately led to more engaging designs.
             </li>
             <li>
-              <strong>Designing for mission driven clarity.</strong>
-              <br /> In nonprofit work, clarity is the most crucial aspect. Our
-              design choices prioritized accessibility and ease of understanding
-              so the platform could empower the community without
-              overcomplicating the experience.
+              <strong>
+                Ease of use in nonprofit work always takes priority.
+              </strong>
+              <br /> Our work showed that in nonprofit design, clarity must come
+              first. Prioritizing accessibility and simplicity ensures the
+              platform empowers rather than overwhelms.
             </li>
             <li>
               <strong>Bridging design and development.</strong>
-              <br /> I resolved design to production gaps by translating
-              iterations directly into build-ready specifications, ensuring the
-              vision for “fun” interactions carried through to the final
-              implementation.
+              <br /> I resolved gaps by organizing directly communication and
+              feedback sessions between my developers and designers, and even
+              worked within the code myself to polish UI more closely to our
+              mockups.
             </li>
           </ul>
         </div>

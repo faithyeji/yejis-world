@@ -39,7 +39,6 @@ export default function StoryGraphPage() {
           some of the issues.
         </TextWithImage>
       </section>
-
       {/* Research Section */}
       <section id="research" data-section-title="Research">
         <CenteredImageWithCaption
@@ -53,7 +52,6 @@ export default function StoryGraphPage() {
           caption="Annotated every page of the platform to identify pain points, then mapped user flows (revealing overnavigation)."
         />
       </section>
-
       {/* Pain Points Section */}
       <section
         id="painpoints"
@@ -67,7 +65,6 @@ export default function StoryGraphPage() {
           title="PAIN POINTS"
         />
       </section>
-
       {/* Concept Section */}
       <section id="concept" data-section-title="V1: Concepts">
         <h1 className="w-full text-center mt-10 mb-10 font-mono text-xl text-gray-500 uppercase">
@@ -94,9 +91,7 @@ export default function StoryGraphPage() {
           </div>
         </TextWithImage>
       </section>
-
       <hr className="border-t-1 border-gray-300 my-12 w-full" />
-
       {/* Official Redesign Section */}
       <section
         id="official"
@@ -129,8 +124,200 @@ export default function StoryGraphPage() {
           priority
         />
       </section>
+      <section
+        id="process"
+        data-section-title="PROCESS"
+        className="flex justify-center flex-col align-middle items-center mt-2"
+      >
+        <h1 className="w-full text-center mt-10 mb-10 font-mono text-xl text-gray-500 uppercase">
+          THE PROCESS
+        </h1>
+        <div className="flex flex-wrap gap-8 items-start justify-center">
+          <Image
+            src="/images/projects/storygraph/1.webp"
+            alt="Step 1"
+            width={2000}
+            height={2000}
+            quality={100}
+            className="w-fit h-[17.5rem] rounded-lg mb-8"
+            priority
+          />
+          <Image
+            src="/images/projects/storygraph/2.webp"
+            alt="Step 2"
+            width={2000}
+            height={2000}
+            quality={100}
+            className="w-fit h-[17.5rem] rounded-lg mb-8"
+            priority
+          />
+          <Image
+            src="/images/projects/storygraph/3.webp"
+            alt="Step 2"
+            width={2000}
+            height={2000}
+            quality={100}
+            className="w-fit h-[17.5rem] rounded-lg mb-8"
+            priority
+          />
+          <Image
+            src="/images/projects/storygraph/4.webp"
+            alt="Step 2"
+            width={2000}
+            height={2000}
+            quality={100}
+            className="w-fit h-[17.5rem] rounded-lg mb-8"
+            priority
+          />
+          <Image
+            src="/images/projects/storygraph/5.webp"
+            alt="Step 2"
+            width={2000}
+            height={2000}
+            quality={100}
+            className="w-fit h-[17.5rem] rounded-lg mb-8"
+            priority
+          />
+          <Image
+            src="/images/projects/storygraph/6.webp"
+            alt="Step 2"
+            width={2000}
+            height={2000}
+            quality={100}
+            className="w-fit h-[17.5rem] rounded-lg mb-8"
+            priority
+          />
+        </div>
 
-      {/* Case Study Link */}
+        <div className="font-sans text-center w-4/5 mt-20 mb-10">
+          <div className="py-6 px-10 border rounded-full border-gray-300 mt-2">
+            Following this process I developed to best suit their one-developer
+            team and constraints, I...
+          </div>
+        </div>
+
+        <TextWithImage
+          mediaSrc="/images/projects/storygraph/designsystem.webp"
+          mediaAlt="Design System"
+          mediaPosition="left"
+        >
+          <div className="pb-20">
+            Developed a robust design system covering:
+            <div className="pl-4 mt-2 mb-4">
+              <li>
+                Responsive layouts and font sizing for desktop, tablet, & mobile
+                screens.
+              </li>
+              <li>Consistent light and dark mode colors.</li>
+              <li>
+                Reusable component library (buttons, inputs, cards) covering a
+                variety of completion states.
+              </li>
+              <li>WCAG 2.2 accessibility-first guidelines.</li>
+            </div>
+          </div>
+        </TextWithImage>
+
+        <TextWithImage
+          mediaSrc="/images/projects/storygraph/designsystem.webp"
+          mediaAlt="Design System"
+        >
+          <div className="pb-20">
+            Maintained detailed notes on my rationale behind design decisions,
+            accessibility considerations, and interactions like hover states.
+            Clear documentation streamlined collaboration for our tiny team
+            serving millions and reduced handoff friction.
+          </div>
+        </TextWithImage>
+
+        <TextWithImage
+          mediaSrc="/images/projects/storygraph/designsystem.webp"
+          mediaAlt="Design System"
+          mediaPosition="left"
+        >
+          <div className="pb-20">
+            Completed shipped updates of TSG's existing pages with focused
+            design improvements, rather than rebuilding from scratch. Each
+            redesign emphasized readability, discoverability, and visual polish.
+          </div>
+        </TextWithImage>
+      </section>
+
+      <hr className="border-t-1 border-gray-300 my-12 w-full" />
+
+      <div className="font-sans text-center w-4/5 mt-20 mb-10">
+        <div className="py-6 px-10 border rounded-full border-gray-300 mt-2">
+          Ultimately, this led to shipped, iterative page revamps — a refresh
+          the entire app's pages with focused design improvements rather than
+          rebuilding from scratch. Each redesign emphasized readability,
+          discoverability, ease-of-development, and visual polish.
+        </div>
+      </div>
+      <section id="outcomes" data-section-title="OUTCOMES">
+        <CenteredImageWithCaption
+          title="OUTCOMES"
+          imgSrc="/images/projects/storygraph/work1.webp"
+          imgAlt="Work 1"
+        />
+        <CenteredImageWithCaption
+          imgSrc="/images/projects/storygraph/work2.webp"
+          imgAlt="Work 2"
+        />
+      </section>
+
+      {/* Learnings Section */}
+      <section id="learnings" data-section-title="Learnings">
+        <div className="flex flex-col align-middle items-center mb-12">
+          <h1 className="w-full text-center mt-2 mb-8 font-mono text-xl text-gray-500 uppercase">
+            LEARNINGS
+          </h1>
+          <ul className="list-decimal list-inside space-y-4 text-left font-sans w-5/6">
+            <li>
+              <strong>Making design modular is hard, but rewarding.</strong>
+              <br />
+              The best design adapts to the diverse inputs users put in.
+            </li>
+            <li>
+              <strong>
+                Talk with your founders and user as often as you can.
+              </strong>
+              <br />
+              They reveal overlooked details and edge cases I wouldn’t have
+              thought of alone.
+            </li>
+            <li>
+              <strong>Color is powerful, even in subtle ways.</strong>
+              <br /> Simple choices, like using teal for inputs/CTAs and black
+              for text gave the design overall much more cohesion.
+            </li>
+            <li>
+              <strong>
+                Sometimes, the most “visually” appealing choice isn’t always
+                best.
+              </strong>
+              <br /> Certain design choices like omitting repetitive text looked
+              cleaner, but user testing revealed it to be less accessible.
+            </li>
+            <li>
+              <strong>There will always be design–dev discrepancies.</strong>
+              <br /> The key, however, is working closely with developers to
+              minimize them.
+            </li>
+          </ul>
+        </div>
+        <div className="flex justify-center items-center ">
+          <Image
+            src="/images/projects/storygraph/covermore.webp"
+            alt="Cover More"
+            width={2000}
+            height={2000}
+            quality={100}
+            className="w-fit h-60 rounded-lg mb-8"
+            priority
+          />
+        </div>
+      </section>
+      {/* Case Study Link
       <section id="casestudy-link" data-section-title="More Details">
         <div className="flex justify-center pt-8">
           <a
@@ -163,7 +350,7 @@ export default function StoryGraphPage() {
             </div>
           </a>
         </div>
-      </section>
+      </section> */}
     </CaseStudy>
   );
 }
