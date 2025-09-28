@@ -4,7 +4,7 @@ import Image from "next/image";
 export default function TwoCentsPage() {
   return (
     <CaseStudy
-      headerImage="/images/projects/tcc/welcometcc.webp"
+      headerImage="/images/projects/tcc/tccslide.webp"
       headerImageAlt="Two Cents Club header"
       title="TWO CENTS CLUB"
       description={[
@@ -16,7 +16,7 @@ export default function TwoCentsPage() {
     >
       <div className="space-y-6">
         <div>
-          <div className="flex flex-wrap gap-8">
+          <div className="flex flex-wrap gap-8 items-center justify-center">
             <video
               className="h-full w-40 rounded-lg object-cover transition ease-out"
               src="/images/projects/tcc/tcc.webm"
@@ -56,6 +56,14 @@ export default function TwoCentsPage() {
               height={800}
               priority
               className="rounded-lg w-56 h-fit"
+            />
+            <Image
+              src="/images/projects/tcc/welcometcc.webp"
+              alt="welcome"
+              width={1000}
+              height={800}
+              priority
+              className="rounded-lg w-80 h-fit"
             />
           </div>
 
