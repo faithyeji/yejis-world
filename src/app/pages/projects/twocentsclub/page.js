@@ -70,7 +70,7 @@ export default function TwoCentsPage() {
           <a href="https://thetwocents.club/" target="_blank">
             <div className="bg-white-80 text-black py-3 px-5 rounded-3xl font-sans hover:bg-blue-400 hover:border-white transition duration-200 flex items-center w-fit gap-1 border-neutral-400 border mt-8">
               <div>
-                This project is currently being built! Click for more details.
+                This app is currently in-development! Click for more details.
               </div>
               <svg
                 xmlns="http://www.w3.org/2000/svg"

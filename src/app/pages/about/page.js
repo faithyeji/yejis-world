@@ -56,8 +56,8 @@ export default function About() {
                 CURRENT ADVENTURE:
               </span>
               <br />
-              Studying integrated Computer Science, Product Design, and
-              Entrepreneurship at USC's{" "}
+              Studying integrated Design, Computer Science, and Entrepreneurship
+              at USC's{" "}
               <a
                 href="https://iovine-young.usc.edu/"
                 target="_blank"
