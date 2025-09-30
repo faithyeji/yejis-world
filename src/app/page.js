@@ -150,10 +150,10 @@ export default function Home() {
             />
             <Project
               title="Climate Cents"
-              type="ART DIRECTION, UI DEV"
+              type="ART DIRECTION, PRODUCT, UI DEV"
               videoSrc="/images/projects/climatecents.webm"
               link="/pages/projects/climatecents"
-              description="An interactive map of nonprofit climate projects and weather data for the 2028 LA Olympics."
+              description="Led development of an interactive map of nonprofit climate projects and weather data for the 2028 LA Olympics."
             />
 
             <Project
@@ -175,7 +175,7 @@ export default function Home() {
               type="PRODUCT, MOTION, BRAND"
               videoSrc="/images/projects/lumen.webm"
               link="/pages/projects/lumen"
-              description="Collecting, organizing, and illuminating user feedback to highlight key insights."
+              description="Consolidating, organizing, and illuminating user feedback to highlight key insights."
             />
             {/* <Project
               title="Encore"
