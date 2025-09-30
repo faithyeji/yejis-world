@@ -149,12 +149,13 @@ export default function Home() {
               description="Worked as the sole UX designer revamping a book-sharing platform with 4 million users."
             />
             <Project
-              title="Lumen"
-              type="PRODUCT, MOTION, BRAND"
-              videoSrc="/images/projects/lumen.webm"
-              link="/pages/projects/lumen"
-              description="Collecting, organizing, and illuminating user feedback to highlight key insights."
+              title="Climate Cents"
+              type="ART DIRECTION, UI DEV"
+              videoSrc="/images/projects/climatecents.webm"
+              link="/pages/projects/climatecents"
+              description="An interactive map of nonprofit climate projects and weather data for the 2028 LA Olympics."
             />
+
             <Project
               title="Two Cents Club"
               type="BRAND, PRODUCT, GRAPHIC"
@@ -170,11 +171,11 @@ export default function Home() {
               description="186 pages of pure graphic design for a Cannes award-winning film's White Paper."
             />
             <Project
-              title="Climate Cents"
-              type="ART DIRECTION, UI DEV"
-              videoSrc="/images/projects/climatecents.webm"
-              link="/pages/projects/climatecents"
-              description="An interactive map of nonprofit climate projects and weather data for the 2028 LA Olympics."
+              title="Lumen"
+              type="PRODUCT, MOTION, BRAND"
+              videoSrc="/images/projects/lumen.webm"
+              link="/pages/projects/lumen"
+              description="Collecting, organizing, and illuminating user feedback to highlight key insights."
             />
             {/* <Project
               title="Encore"
