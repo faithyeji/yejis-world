@@ -126,8 +126,8 @@ export default function Home() {
         <p className="w-72 sm:w-80 md:w-[400px] font-mono text-sm leading-5 mt-36 sm:mt-[137px] animate-slidein opacity-0 [--slidein-delay:300ms]">
           IS A MULTIDISCIPLINARY DESIGNER DEDICATED TO CRAFTING DELIGHTFUL
           DIGITAL EXPERIENCES. <br /> <br />
-          SHE WORKS PRIMARILY ACROSS ART DIRECTION, PRODUCT, BRANDING, GRAPHIC
-          DESIGN, WEB, & INTERACTIVE STORYTELLING.
+          SHE WORKS PRIMARILY IN BRAND/ART DIRECTION, PRODUCT, & INTERACTIVE
+          STORYTELLING.
         </p>
         <p className="text-[10px] mt-2 z-20 text-center font-mono text-gray-400 animate-slidein opacity-0 [--slidein-delay:700ms]">
           NOW {status == "playing" ? "PLAYING:" : "PAUSED:"} {currentSongTitle}
@@ -143,7 +143,7 @@ export default function Home() {
             />
             <Project
               title="The StoryGraph"
-              type="PRODUCT, UI/UX, BRAND"
+              type="PRODUCT, UI/U X, BRAND"
               imageSrc="/images/projects/storygraph.webp"
               link="/pages/projects/storygraph"
               description="Worked as the sole UX designer revamping a book-sharing platform with 4 million users."

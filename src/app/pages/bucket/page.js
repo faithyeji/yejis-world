@@ -14,7 +14,7 @@ const items = [
     description:
       "A real-time music visualizer that plays with hand & midi inputs!",
     link: "https://drive.google.com/file/d/1DVNiTyK964iSHWizV1mqaYqbdLrnYjqL/view",
-    category: "experiments",
+    category: "motion",
   },
   // Illustration
   {
@@ -23,6 +23,20 @@ const items = [
     alt: "Type Doodling",
     tool: "Ink",
     category: "illustration",
+  },
+  {
+    type: "video",
+    src: "/images/playground/motion/tangshorter.webm",
+    alt: "IYA Pitch Video",
+    tool: "After Effects, Blender, Procreate",
+    category: "motion",
+  },
+  {
+    type: "image",
+    src: "/images/playground/graphics/dublab.webp",
+    alt: "Dublab",
+    tool: "Figma",
+    category: "graphics",
   },
   {
     type: "image",
@@ -40,13 +54,6 @@ const items = [
   },
   {
     type: "image",
-    src: "/images/playground/drawings/crayons.webp",
-    alt: "Dream State",
-    tool: "Crayon, Ink",
-    category: "illustration",
-  },
-  {
-    type: "image",
     src: "/images/playground/drawings/theMan.webp",
     alt: "The Man",
     tool: "Freehand Ink",
@@ -54,20 +61,12 @@ const items = [
   },
   {
     type: "image",
-    src: "/images/playground/drawings/botstancomp.webp",
-    alt: "Lights Out",
-    tool: "Photoshop, Procreate",
-    description:
-      "A research art piece / writing on the dying influence of Neon in Hong Kong.",
-    category: "illustration",
+    src: "/images/playground/graphics/ebaesFlyer.webp",
+    alt: "Ebaes Flyer",
+    tool: "Photoshop",
+    category: "graphics",
   },
-  {
-    type: "image",
-    src: "/images/playground/drawings/alien.webp",
-    alt: "Alien",
-    tool: "Procreate",
-    category: "illustration",
-  },
+
   {
     type: "image",
     src: "/images/playground/graphics/colorful.webp",
@@ -81,10 +80,10 @@ const items = [
   // Graphics
   {
     type: "image",
-    src: "/images/playground/graphics/dublab.webp",
-    alt: "Dublab",
-    tool: "Figma",
-    category: "graphics",
+    src: "/images/playground/drawings/alien.webp",
+    alt: "Alien",
+    tool: "Procreate",
+    category: "illustration",
   },
   {
     type: "image",
@@ -95,16 +94,15 @@ const items = [
   },
   {
     type: "image",
-    src: "/images/playground/graphics/ebaesFlyer.webp",
-    alt: "Ebaes Flyer",
-    tool: "Photoshop",
-    category: "graphics",
+    src: "/images/playground/drawings/crayons.webp",
+    alt: "Dream State",
+    tool: "Crayon, Ink",
+    category: "illustration",
   },
-
   {
     type: "image",
     src: "/images/playground/graphics/jazzfest.webp",
-    alt: "The 16th Pittsburgh International Jazz Festival",
+    alt: "The 15th Pittsburgh International Jazz Festival",
     tool: "Photoshop",
     description:
       "Limited-edition poster created to be sold at the PIJF. Grand Prize award-winner of their first poster competition!",
@@ -132,11 +130,11 @@ const items = [
     category: "graphics",
   },
   {
-    type: "image",
-    src: "/images/playground/graphics/fathead4.webp",
-    alt: "Brian Pohl",
-    tool: "Photoshop, InDesign",
-    category: "graphics",
+    type: "video",
+    src: "/images/playground/graphics/seesawreel.webm",
+    alt: "SeeSaw Murals Promo",
+    tool: "After Effects, Photoshop",
+    category: "motion",
   },
   {
     type: "image",
@@ -168,16 +166,17 @@ const items = [
   },
   {
     type: "image",
-    src: "/images/playground/graphics/europa.webp",
-    alt: "Europa White Paper",
-    tool: "Figma",
-    category: "graphics",
+    src: "/images/playground/experiments/spoonButler.webp",
+    alt: "Spoon Butler",
+    tool: "Metalwork, Fabric",
+    description: "A little welded friend to hold your sponge.",
+    category: "experiments",
   },
   {
     type: "image",
-    src: "/images/playground/graphics/pathways.webp",
-    alt: "Pathways Film Branding",
-    tool: "Photoshop, Figma",
+    src: "/images/playground/brand/grocerase.webp",
+    alt: "Grocerease",
+    tool: "Photoshop",
     category: "graphics",
   },
   {
@@ -237,9 +236,9 @@ const items = [
   },
   {
     type: "image",
-    src: "/images/playground/brand/grocerase.webp",
-    alt: "Grocerase",
-    tool: "Photoshop",
+    src: "/images/playground/graphics/pathways.webp",
+    alt: "Pathways Film Branding",
+    tool: "Photoshop, Figma",
     category: "graphics",
   },
   {
@@ -274,9 +273,11 @@ const items = [
   },
   {
     type: "image",
-    src: "/images/playground/drawings/ebaesmat.webp",
-    alt: "Ebaes Tablemat",
-    tool: "Photoshop",
+    src: "/images/playground/drawings/botstancomp.webp",
+    alt: "Lights Out",
+    tool: "Photoshop, Procreate",
+    description:
+      "A research art piece / writing on the dying influence of Neon in Hong Kong.",
     category: "illustration",
   },
   {
@@ -309,11 +310,11 @@ const items = [
     category: "motion",
   },
   {
-    type: "video",
-    src: "/images/playground/graphics/seesawreel.webm",
-    alt: "SeeSaw Murals Promo",
-    tool: "After Effects, Photoshop",
-    category: "motion",
+    type: "image",
+    src: "/images/playground/graphics/fathead4.webp",
+    alt: "Brian Pohl",
+    tool: "Photoshop, InDesign",
+    category: "graphics",
   },
   {
     type: "video",
@@ -323,11 +324,11 @@ const items = [
     category: "motion",
   },
   {
-    type: "video",
-    src: "/images/playground/motion/tangshorter.webm",
-    alt: "IYA Pitch Video",
-    tool: "After Effects, Blender, Procreate",
-    category: "motion",
+    type: "image",
+    src: "/images/playground/drawings/ebaesmat.webp",
+    alt: "Ebaes Tablemat",
+    tool: "Photoshop",
+    category: "illustration",
   },
 
   // experiments
@@ -356,11 +357,10 @@ const items = [
   },
   {
     type: "image",
-    src: "/images/playground/experiments/spoonButler.webp",
-    alt: "Spoon Butler",
-    tool: "Metalwork, Fabric",
-    description: "A little welded friend to hold your sponge.",
-    category: "experiments",
+    src: "/images/playground/graphics/europa.webp",
+    alt: "Europa White Paper",
+    tool: "Figma",
+    category: "graphics",
   },
   {
     type: "image",
