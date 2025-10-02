@@ -126,7 +126,7 @@ export default function Home() {
         <p className="w-72 sm:w-80 md:w-[400px] font-mono text-sm leading-5 mt-36 sm:mt-[137px] animate-slidein opacity-0 [--slidein-delay:300ms]">
           IS A MULTIDISCIPLINARY DESIGNER DEDICATED TO CRAFTING DELIGHTFUL
           DIGITAL EXPERIENCES. <br /> <br />
-          SHE WORKS PRIMARILY IN BRAND/ART DIRECTION, PRODUCT, & INTERACTIVE
+          SHE WORKS MAINLY IN BRAND/ART DIRECTION, PRODUCT, & INTERACTIVE
           STORYTELLING.
         </p>
         <p className="text-[10px] mt-2 z-20 text-center font-mono text-gray-400 animate-slidein opacity-0 [--slidein-delay:700ms]">
