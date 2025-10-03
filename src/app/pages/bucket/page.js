@@ -509,6 +509,7 @@ export default function Playground() {
                           layout="responsive"
                           width={500}
                           height={500}
+                          load="lazy"
                         />
                       ) : (
                         <video
@@ -528,6 +529,7 @@ export default function Playground() {
                       layout="responsive"
                       width={500}
                       height={500}
+                      load="lazy"
                     />
                   ) : (
                     <video
