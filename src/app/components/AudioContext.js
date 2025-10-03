@@ -11,6 +11,18 @@ export function AudioProvider({ children }) {
       audio: "audios/Beats Lament the World.mp3",
     },
     {
+      image: "/images/songs/jai.webp",
+      name: "CRUSH (UNFINISHED)",
+      alt: "Crush",
+      audio: "audios/Crush.mp3",
+    },
+    {
+      image: "/images/songs/kryptogram.webp",
+      name: "HOW LONG HAVE YOU BEEN AWAY",
+      alt: "How Long",
+      audio: "audios/How Long Have You Been Away.mp3",
+    },
+    {
       image: "/images/songs/starry-night.webp",
       name: "STARRY NIGHT",
       alt: "Starry Night",
@@ -23,17 +35,23 @@ export function AudioProvider({ children }) {
       audio: "audios/TRACK UNO.mp3",
     },
     {
-      image: "/images/songs/jungle.webp",
-      name: "LET'S GO BACK",
-      alt: "Let's Go Back",
-      audio: "audios/Let's Go Back.mp3",
+      image: "/images/songs/MFDOOM.webp",
+      name: "LAVENDER BUDS",
+      alt: "Lavender Buds",
+      audio: "audios/Lavender Buds.mp3",
     },
-    {
-      image: "/images/songs/gypsy.webp",
-      name: "GYPSY",
-      alt: "Gypsy",
-      audio: "audios/Gypsy.mp3",
-    },
+    // {
+    //   image: "/images/songs/jungle.webp",
+    //   name: "LET'S GO BACK",
+    //   alt: "Let's Go Back",
+    //   audio: "audios/Let's Go Back.mp3",
+    // },
+    // {
+    //   image: "/images/songs/gypsy.webp",
+    //   name: "GYPSY",
+    //   alt: "Gypsy",
+    //   audio: "audios/Gypsy.mp3",
+    // },
     // {
     //   image: "/images/songs/butterflies.webp",
     //   name: "BUTTERFLIES",
