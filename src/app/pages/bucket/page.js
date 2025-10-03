@@ -414,7 +414,7 @@ export default function Playground() {
       className="overflow-hidden"
       onMouseMove={(e) => setMousePos({ x: e.clientX, y: e.clientY })}
     >
-      <div className="mx-20 flex flex-col sm:flex-row gap-12 mt-8">
+      <div className="mx-5 sm:mx-20 flex flex-col sm:flex-row gap-12 mt-8">
         <div className="hidden sm:flex flex-col justify-start gap-4 mb-4 font-mono text-xs min-w-max items-start text-left opacity-0 animate-slidein [--slidein-delay:400ms]">
           <h1 className="font-franklin text-5xl">FILTER</h1>
           <button
@@ -451,7 +451,7 @@ export default function Playground() {
 
         {/* Gallery */}
         <motion.div
-          className="container columns-2 md:columns-3 lg:columns-4 gap-x-2 sm:gap-x-5 w-[400px] sm:w-[1200px]  opacity-0 animate-slidein [--slidein-delay:700ms]"
+          className="container columns-2 md:columns-3 lg:columns-4 gap-x-2 sm:gap-x-5 w-[400px] sm:w-[1200px] opacity-0 animate-slidein [--slidein-delay:700ms]"
           variants={containerVariants}
           initial="hidden"
           animate="show"
