@@ -56,6 +56,16 @@ export default function Home() {
     };
   }, []);
 
+  // Play video on mount (muted for mobile autoplay)
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.muted = true;
+      videoRef.current.play().catch(() => {
+        console.log("Video autoplay blocked; will play on interaction");
+      });
+    }
+  }, []);
+
   // sync video with audio status
   useEffect(() => {
     if (videoRef.current) {
