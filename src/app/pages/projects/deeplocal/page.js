@@ -26,7 +26,7 @@ export default function StoryGraphPage() {
             {/* Project 1 */}
             <div className="flex flex-col justify-start items-center gap-2 p-6 hover:scale-105 transition-all ease-in-out bg-white rounded-lg border-gray-200 border">
               <Image
-                src="/images/projects/pixelroomui.webp"
+                src="/images/projects/pixelroomUI.webp"
                 alt="Pixelroom"
                 width={400}
                 height={400}
