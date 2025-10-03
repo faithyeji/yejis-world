@@ -14,7 +14,7 @@ const items = [
     tool: "TouchDesigner",
     description:
       "A real-time music visualizer that plays with hand & midi inputs!",
-    link: "https://drive.google.com/file/d/1DVNiTyK964iSHWizV1mqaYqbdLrnYjqL/view",
+    link: "https://www.figma.com/proto/RuDfBtR4W1SO2kExfFLcKm/PORTFOLIO-DECKS?page-id=0%3A1&node-id=2002-2026&viewport=1855%2C-623%2C0.06&t=OvjE92t08FnbLg1u-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=2002%3A2026&show-proto-sidebar=1",
     category: "motion",
   },
   // Illustration
@@ -108,6 +108,7 @@ const items = [
     description:
       "Limited-edition poster created to be sold at the PIJF. Grand Prize award-winner of their first poster competition!",
     category: "graphics",
+    link: "https://pittsburghjazzfest.org/poster-contest/",
   },
   {
     type: "image",

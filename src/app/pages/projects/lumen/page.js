@@ -1,4 +1,8 @@
 import CaseStudy from "@/app/components/CaseStudy";
+import TextWithImage from "@/app/components/TextWithMedia";
+import CenteredImageWithCaption from "@/app/components/CenteredImageWithCaption";
+import Image from "next/image";
+import Callout from "@/app/components/Callout";
 
 export default function LumenPage() {
   return (
@@ -7,103 +11,186 @@ export default function LumenPage() {
       headerImageAlt="Lumen project header"
       title="LUMEN"
       description={[
-        "Lumen is an AI-powered platform designed to consolidate scattered user feedback across the web into actionable insights. It was built in Lavalab (USC’s premier 8-week startup incubator) and awarded “Best Demo.”",
+        "Lumen is an AI-powered platform that consolidates scattered user feedback into actionable insights. Built in LavaLab, USC’s premier startup incubator, it won Best Demo from a panel of judges.",
       ]}
-      role={["Founding Designer"]}
-      timeline="2024"
-      disciplines={["Brand", "Motion", "Pitch Decks"]}
+      role={["Cofounder & Sole Designer"]}
+      timeline="2024 (8-Week Sprint)"
+      disciplines={["Brand", "Motion", "Pitch Decks", "Product Validation"]}
     >
-      <div className="space-y-6">
-        <div>
-          <section id="motion" data-section-title="Motion">
-            <div className="flex flex-wrap justify-between space-y-8">
-              <video
-                className="h-60 w-full rounded-lg object-cover transition ease-out"
-                src="/images/projects/lumenclips/highlight.webm"
-                autoPlay
-                muted
-                loop
-                playsInline
-              />
-              <div className="flex flex-col gap-10 w-[38%]">
-                <video
-                  className="h-fit rounded-lg object-cover transition ease-out"
-                  src="/images/projects/lumenclips/miss.webm"
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                />
-                <video
-                  className="h-fit rounded-lg object-cover transition ease-out"
-                  src="/images/projects/lumenclips/break.webm"
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                />
-                <video
-                  className="h-fit rounded-lg object-cover transition ease-out"
-                  src="/images/projects/lumenclips/3insights.webm"
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                />
-              </div>
-              <div className="flex flex-col gap-14 w-7/12">
-                <video
-                  className="h-fit rounded-lg object-cover transition ease-out"
-                  src="/images/projects/lumenclips/features.webm"
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                />
-                <video
-                  className="h-[24.5rem] w-fit rounded-lg object-cover transition ease-out"
-                  src="/images/projects/lumenclips/spotlight.webm"
-                  autoPlay
-                  muted
-                  loop
-                  playsInline
-                />
-              </div>
-            </div>
-          </section>
-
-          <a
-            href="https://accurate-camera-fa3.notion.site/Lumen-164d2970043580df97e8eb670fe641cd"
-            target="_blank"
-          >
-            <div className="bg-white-80 text-black py-3 px-5 rounded-3xl font-sans hover:bg-blue-400 hover:border-white transition duration-200 flex items-center w-fit gap-1 border-neutral-400 border mt-8">
-              <div>Click to learn more!</div>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="#000000"
-                viewBox="0 0 24 24"
-                className="w-4 h-4"
-              >
-                <g data-name="Layer 2">
-                  <g data-name="diagonal-arrow-right-up">
-                    <rect
-                      width="24"
-                      height="24"
-                      transform="rotate(180 12 12)"
-                      opacity="0"
-                    />
-                    <path d="M18 7.05a1 1 0 0 0-1-1L9 6a1 1 0 0 0 0 2h5.56l-8.27 8.29a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0L16 9.42V15a1 1 0 0 0 1 1 1 1 0 0 0 1-1z" />
-                  </g>
-                </g>
-              </svg>
-            </div>
-          </a>
-          {/* <h3 className="font-mono text-sm text-gray-500 uppercase mb-2">
-            Process
-          </h3>
-          <p className="text-gray-700 font-sans text-md">Blah Blah Blah</p> */}
+      {/* Background Section */}
+      <section id="background" data-section-title="Background">
+        <TextWithImage
+          title="BACKGROUND"
+          mediaSrc="/images/projects/lumen/comments.webp"
+          mediaAlt="Lumen Overview"
+        >
+          During my work on client-facing apps like The StoryGraph, I faced a
+          common struggle: user feedback is <strong>everywhere</strong>. Social
+          media, app store reviews, emails—it all can be a <em>mess</em> to sift
+          through. <br />
+          <br />
+          Even just 2 StoryGraph Instagram posts contained 300+ comments with
+          insightful feedback! This wasn't just my problem — my team had faced
+          the same struggles firsthand at their own workplaces, whether that was
+          at large companies or small startups.
+        </TextWithImage>
+      </section>
+      {/* Problem Section */}
+      <section id="problem" data-section-title="Problem" className="space-y-8">
+        <video
+          className="h-fit rounded-lg object-cover transition ease-out"
+          src="/images/projects/lumen/miss.webm"
+          autoPlay
+          muted
+          loop
+          playsInline
+          lazy="true"
+        />
+        <h1 className="w-full text-center font-mono text-xl text-gray-500 uppercase pt-16">
+          THE PROBLEM
+        </h1>
+        <Callout rounded="full">
+          <div>
+            Critical insights are <strong>everywhere</strong> — scattered,
+            unstructured, and time-consuming to consolidate. Our interviews with
+            5 industry professionals confirmed this leads to wasted time, money,
+            and resources.
+          </div>
+        </Callout>
+      </section>
+      {/* Concept Section */}
+      <section id="concepts" data-section-title="Concepts">
+        <CenteredImageWithCaption
+          imgSrc="/images/projects/lumen/moodboard.webp"
+          imgAlt="Moodboard"
+          caption="In my early concepts, I explored ways to surface key insights quickly while keeping the
+          interface simple and visually engaging — branding quickly surfaced as a core aspect of what could differentiate our platform and make the process of feedback consolidation more fun."
+        />
+      </section>
+      {/* Motion Section */}
+      <section id="motion" data-section-title="Motion & Storytelling">
+        <div className="flex flex-wrap justify-between space-y-8">
+          <video
+            className="h-60 w-full rounded-lg object-cover transition ease-out"
+            src="/images/projects/lumen/highlight.webm"
+            autoPlay
+            muted
+            loop
+            playsInline
+          />
+          <div className="flex flex-col gap-10 w-[38%]">
+            <video
+              className="h-fit rounded-lg object-cover transition ease-out"
+              src="/images/projects/lumen/miss.webm"
+              autoPlay
+              muted
+              loop
+              playsInline
+            />
+            <video
+              className="h-fit rounded-lg object-cover transition ease-out"
+              src="/images/projects/lumen/break.webm"
+              autoPlay
+              muted
+              loop
+              playsInline
+            />
+            <video
+              className="h-fit rounded-lg object-cover transition ease-out"
+              src="/images/projects/lumen/3insights.webm"
+              autoPlay
+              muted
+              loop
+              playsInline
+            />
+          </div>
+          <div className="flex flex-col gap-14 w-7/12">
+            <video
+              className="h-fit rounded-lg object-cover transition ease-out"
+              src="/images/projects/lumen/features.webm"
+              autoPlay
+              muted
+              loop
+              playsInline
+            />
+            <video
+              className="h-[24.5rem] w-fit rounded-lg object-cover transition ease-out"
+              src="/images/projects/lumen/spotlight.webm"
+              autoPlay
+              muted
+              loop
+              playsInline
+            />
+          </div>
         </div>
-      </div>
+        <Callout rounded="full">
+          Motion and animated storytelling were key to Lumen’s identity,
+          bringing the platform and pitch decks to life while communicating
+          functionality and problem-solving visually.
+        </Callout>
+      </section>
+      {/* Solution Section
+      <section id="solution" data-section-title="Solution">
+        <CenteredImageWithCaption
+          imgSrc="/images/projects/lumen/solution.webp"
+          imgAlt="Solution"
+          caption="Lumen organizes feedback across multiple channels into a unified platform, highlighting trends and insights for product teams."
+          title="OUR SOLUTION"
+        />
+        <TextWithImage
+          mediaSrc="/images/projects/lumen/dashboard.webp"
+          mediaAlt="Platform Interface"
+        >
+          While my primary impact was **branding, motion, and storytelling**, I
+          also contributed to **high-level product functionality**, including
+          dashboards, insight organization, and a simplified user flow for early
+          testers and judges.
+        </TextWithImage>
+      </section> */}
+      {/* Outcomes Section */}
+      {/* <section id="outcomes" data-section-title="Outcomes">
+        <CenteredImageWithCaption
+          title="OUTCOMES"
+          imgSrc="/images/projects/lumen/outcomes.webp"
+          imgAlt="Lumen Outcomes"
+          caption="Lumen won Best Demo from LavaLab judges and validated its concept with early users. Qualitative outcomes included clear problem validation, strong brand identity, and compelling storytelling through motion and pitch decks."
+        />
+      </section> */}
+      {/* Learnings Section */}
+      <section id="learnings" data-section-title="Learnings">
+        <div className="flex flex-col align-middle items-center">
+          <h1 className="w-full text-center mt-2 mb-8 font-mono text-xl text-gray-500 uppercase">
+            LEARNINGS
+          </h1>
+          <ul className="list-decimal list-inside space-y-4 text-left font-sans w-5/6">
+            <li>
+              <strong>Branding communicates functionality.</strong>
+              <br />
+              Strong motion and storytelling can make a platform feel real and
+              usable, even before extensive UI/UX.
+            </li>
+            <li>
+              <strong>Motion amplifies narrative.</strong>
+              <br />
+              Animations in pitch decks and demos engage audiences and
+              communicate complex ideas clearly.
+            </li>
+            <li>
+              <strong>Co-founder perspective is invaluable.</strong>
+              <br />
+              Leading design and validation provided insight into how branding,
+              storytelling, and product intersect in early-stage startups.
+            </li>
+            <li>
+              <strong>Qualitative validation matters.</strong>
+              <br />
+              Observing panel feedback, user reactions, and demo engagement
+              helped iterate messaging and presentation more than UI
+              refinements.
+            </li>
+          </ul>
+        </div>
+      </section>
     </CaseStudy>
   );
 }

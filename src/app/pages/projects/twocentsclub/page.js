@@ -1,99 +1,237 @@
 import CaseStudy from "@/app/components/CaseStudy";
+import TextWithImage from "@/app/components/TextWithMedia";
+import CenteredImageWithCaption from "@/app/components/CenteredImageWithCaption";
+import Callout from "@/app/components/Callout";
 import Image from "next/image";
 
-export default function TwoCentsPage() {
+export default function TwoCentsClubPage() {
   return (
     <CaseStudy
-      headerImage="/images/projects/tcc/tccslide.webp"
-      headerImageAlt="Two Cents Club header"
+      headerImage="/images/projects/tcc/landing.webp"
+      headerImageAlt="Two Cents Club project header"
       title="TWO CENTS CLUB"
       description={[
-        "What if your city was a campus? Two Cents Club is a community platform that helps young, post-graduate adults discover local, personalized experiences to learn new skills and connect with others.",
+        "Two Cents Club is a community platform that helps young, post-graduate adults discover local, personalized experiences to learn new skills and connect with others. As the founding designer, my role was to craft its brand, identity, and interactions to make the product whimsically fun.",
       ]}
-      role={["Founding Designer", "Art Director"]}
-      timeline="Ongoing (in-development)"
-      disciplines={["Graphic Design", "Brand", "Product", "UI/UX"]}
+      role={["Co-Founder, Brand & Product Designer"]}
+      timeline="Summer 2025 (June–August)"
+      disciplines={[
+        "Brand",
+        "Interaction",
+        "Community",
+        "Graphic Design",
+        "Visual Storytelling",
+      ]}
     >
-      <div className="space-y-6">
-        <div>
-          <div className="flex flex-wrap gap-8 items-center justify-center">
-            <video
-              className="h-full w-40 rounded-lg object-cover transition ease-out"
-              src="/images/projects/tcc/tcc.webm"
-              autoPlay
-              muted
-              loop
-              playsInline
-            />
-            <Image
-              src="/images/projects/tcc/subway.webp"
-              alt="2cc subway"
-              width={1000}
-              height={800}
-              priority
-              className="rounded-lg w-96 h-fit"
-            />
-            <Image
-              src="/images/projects/tcc/candles.webp"
-              alt="candles"
-              width={1000}
-              height={800}
-              priority
-              className="rounded-lg w-56 h-fit"
-            />
-            <Image
-              src="/images/projects/tcc/ethan.webp"
-              alt="ethan"
-              width={1000}
-              height={800}
-              priority
-              className="rounded-lg w-56 h-fit"
-            />
-            <Image
-              src="/images/projects/tcc/elizabeth.webp"
-              alt="elizabeth"
-              width={1000}
-              height={800}
-              priority
-              className="rounded-lg w-56 h-fit"
-            />
-            <Image
-              src="/images/projects/tcc/welcometcc.webp"
-              alt="welcome"
-              width={1000}
-              height={800}
-              priority
-              className="rounded-lg w-80 h-fit"
-            />
-          </div>
-
-          <a href="https://thetwocents.club/" target="_blank">
-            <div className="bg-white-80 text-black py-3 px-5 rounded-3xl font-sans hover:bg-blue-400 hover:border-white transition duration-200 flex items-center w-fit gap-1 border-neutral-400 border mt-8">
-              <div>
-                This app is currently in-development! Click for more details.
-              </div>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="#000000"
-                viewBox="0 0 24 24"
-                className="w-4 h-4"
-              >
-                <g data-name="Layer 2">
-                  <g data-name="diagonal-arrow-right-up">
-                    <rect
-                      width="24"
-                      height="24"
-                      transform="rotate(180 12 12)"
-                      opacity="0"
-                    />
-                    <path d="M18 7.05a1 1 0 0 0-1-1L9 6a1 1 0 0 0 0 2h5.56l-8.27 8.29a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0L16 9.42V15a1 1 0 0 0 1 1 1 1 0 0 0 1-1z" />
-                  </g>
-                </g>
-              </svg>
-            </div>
-          </a>
+      {/* Background */}
+      <section id="background" data-section-title="Background">
+        <TextWithImage
+          title="BACKGROUND"
+          mediaSrc="/images/projects/tcc/welcometcc.webp"
+          mediaAlt="Overview of Two Cents Club"
+        >
+          Two Cents Club started from a desire to recreate the curiosity-driven
+          community adults lose after graduating college.
+          <br />
+          <br />
+          As a founding member in a team of 4, my focus was on leading brand and
+          design — to make every interaction feel playful, welcoming, and part
+          of a cohesive world, while also building a community beyond users.
+        </TextWithImage>
+      </section>
+      <section
+        id="problem"
+        data-section-title="THE PROBLEM"
+        className="flex justify-center flex-col align-middle items-center mt-2"
+      >
+        <h1 className="w-full text-center mt-4 sm:mt-10 mb-10 font-mono text-xl text-gray-500 uppercase">
+          THE PROBLEM
+        </h1>
+        <div className="flex flex-wrap gap-8 items-start justify-center mb-12">
+          <Image
+            src="/images/projects/tcc/problem1.webp"
+            alt="Problem"
+            width={2000}
+            height={2000}
+            quality={100}
+            className="w-fit h-[17.5rem] rounded-lg mb-8"
+            priority
+          />
+          <Image
+            src="/images/projects/tcc/problem2.webp"
+            alt="Existing Solutions"
+            width={2000}
+            height={2000}
+            quality={100}
+            className="w-fit h-[17.5rem] rounded-lg mb-8"
+            priority
+          />
+          <Image
+            src="/images/projects/tcc/question.webp"
+            alt="How Can We"
+            width={2000}
+            height={1800}
+            quality={100}
+            className="w-[45rem] h-fit rounded-lg"
+            priority
+          />
         </div>
-      </div>
+      </section>
+      <h1 className="w-full text-center mt-4 sm:mt-10 font-mono text-xl text-gray-500 uppercase">
+        THE SOLUTION:
+      </h1>
+      <Image
+        src="/images/projects/tcc/jointheclub.webp"
+        alt="Join The Club"
+        width={800}
+        height={300}
+        className="rounded-lg"
+      />
+      <Callout>
+        The questions that guided my design for creating a product that was both
+        online and in-person: <br />
+        <br />
+        How do we make this feel universal but not like a tech company? How do
+        we add whimsy and fun without undermining credibility? How do we
+        highlight individuality within a modular community structure?
+      </Callout>
+      {/* Brand Philosophy */}
+      <section id="brand" data-section-title="Brand Philosophy">
+        <TextWithImage
+          title="BRAND PHILOSOPHY"
+          mediaSrc="/images/projects/tcc/subway.webp"
+          mediaAlt="Brand elements including typography and doodles"
+          mediaPosition="left"
+        >
+          Core principles guided every decision:
+          <ul className="pl-4 mt-2 mb-4 list-disc">
+            <li>
+              Childlike whimsy: bouncy motion, googly eyes, doodles,
+              annotations.
+            </li>
+            <li>
+              Friendly human-first approach: teachers and hosts feel like
+              friends.
+            </li>
+            <li>
+              Modular but personal: stickers, collages, interactive elements for
+              customization.
+            </li>
+            <li>
+              Accessible and approachable typography: NEUE MONTREAL Bold for
+              headings, Medium for body text.
+            </li>
+            <li>Avoid pretension: playful yet polished for adult audiences.</li>
+          </ul>
+          The goal: **transport members into a world of curiosity and
+          community**, where every touchpoint reinforces ritual, fun, and
+          belonging.
+        </TextWithImage>
+      </section>
+      {/* Host / Branding Graphics */}
+      <section id="hosts" data-section-title="Hosts & Graphics">
+        <CenteredImageWithCaption
+          imgSrc="/images/projects/tcc/punchcard.webp"
+          imgAlt="Punchcard for hosts"
+          caption="Graphics for hosts, including punchcard stickers received after workshops, templates, and identity elements to make interactions playful and personalized to each person."
+        />
+        <div className="flex flex-wrap gap-6 justify-center mt-20">
+          <Image
+            src="/images/projects/tcc/ethan.webp"
+            alt="Ethan Host Graphic"
+            width={300}
+            height={300}
+            className="rounded-lg"
+          />
+          <Image
+            src="/images/projects/tcc/elizabeth.webp"
+            alt="Elizabeth Host Graphic"
+            width={300}
+            height={300}
+            className="rounded-lg"
+          />
+          <Image
+            src="/images/projects/tcc/elizabeth2.webp"
+            alt="Elizabeth Host Graphic 2"
+            width={300}
+            height={300}
+            className="rounded-lg"
+          />
+        </div>
+      </section>
+      {/* Community Touchpoints */}
+      <section id="touchpoints" data-section-title="Community Touchpoints">
+        <CenteredImageWithCaption
+          imgSrc="/images/projects/tcc/slack.webp"
+          imgAlt="Slack workspace with branded channels"
+          caption="Slack channels like #homeroom, #recess, #book-club, and #app-updates reinforced brand and ritual in all digital touchpoints."
+        />
+        <div className="mt-14">
+          <Callout rounded="full">
+            Every interaction — digital or physical — helps members feel
+            immersed in the silly, child-like world of Two Cents.
+          </Callout>
+        </div>
+      </section>
+      {/* Outcomes */}
+      <section id="outcomes" data-section-title="Outcomes & Pilots">
+        <CenteredImageWithCaption
+          title="OUTCOMES + PILOT WORKSHOPS/PRODUCT"
+          imgSrc="/images/projects/tcc/outcomes.webp"
+          imgAlt="Workshop outcomes and community stats"
+          caption="50+ active members within 3 months, with 71% retention Month 2, 54% Month 3. So far, we've hosted a candle-making workshop, 8 weeks of a writing workshop, and a 4-week Philosophy of Physics course!"
+        />
+        <div className="flex flex-wrap gap-6 mt-20 justify-center">
+          <video
+            src="/images/projects/tcc/tcc.webm"
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="h-96 w-72 object-fit"
+          />
+          <Image
+            src="/images/projects/tcc/candles.webp"
+            alt="Candles Workshop"
+            width={300}
+            height={300}
+            className="rounded-lg"
+          />
+          <Image
+            src="/images/projects/tcc/candles2.webp"
+            alt="Candles Workshop"
+            width={300}
+            height={300}
+            className="rounded-lg"
+          />
+          <Image
+            src="/images/projects/tcc/candles3.webp"
+            alt="Candles Workshop"
+            width={300}
+            height={300}
+            className="rounded-lg"
+          />
+          <Image
+            src="/images/projects/tcc/candles4.webp"
+            alt="Candles Workshop"
+            width={300}
+            height={300}
+            className="rounded-lg"
+          />
+        </div>
+      </section>
+
+      {/* Reflection */}
+      <section id="reflection" data-section-title="Reflection">
+        <CenteredImageWithCaption
+          imgSrc="/images/projects/tcc/brainstorm.webp"
+          imgAlt="Reflections"
+          caption="Two Cents Club showed me that brand shapes experience everywhere—from
+          Slack to workshops. Whimsy, stickers, and playful interactions make
+          adults safe to explore, create, and connect, transforming routine
+          learning into a ritualized, immersive community."
+        />
+      </section>
     </CaseStudy>
   );
 }

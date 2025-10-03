@@ -2,6 +2,7 @@ import CaseStudy from "@/app/components/CaseStudy";
 import TextWithImage from "@/app/components/TextWithMedia";
 import CenteredImageWithCaption from "@/app/components/CenteredImageWithCaption";
 import Image from "next/image";
+import Callout from "@/app/components/Callout";
 
 export default function ClimateCentsPage() {
   return (
@@ -51,16 +52,16 @@ export default function ClimateCentsPage() {
 
       {/* Callout Section */}
       <section id="callout" data-section-title="HOW CAN WE...">
-        <div className="flex justify-center flex-col items-center mt-8">
-          <div className="py-6 px-10 border rounded-full border-gray-300 text-center w-4/5 font-sans">
-            <div className="font-mono text-gray-500 uppercase mb-2">
-              Code the Change x Climate Cents
-            </div>
+        <Callout rounded="full">
+          <div className="font-mono text-gray-500 uppercase mb-2">
+            Code the Change x Climate Cents
+          </div>
+          <div>
             How can a team of 8 student designers and developers create an
             engaging, interactive way for the LA community to stay informed and
             involved with Blue Sky LA’s projects?
           </div>
-        </div>
+        </Callout>
       </section>
 
       {/* Concepts Section */}
@@ -113,16 +114,16 @@ export default function ClimateCentsPage() {
 
       <section id="finaldemo" data-section-title="Live Demo">
         <div className="flex justify-center flex-col items-center">
-          <h1 className="w-full text-center mt-10 mb-8 font-mono text-xl text-gray-500 uppercase">
+          <h1 className="w-full text-center mt-10 mb-5 font-mono text-xl text-gray-500 uppercase">
             LIVE BUILD
           </h1>
-          <div className="py-6 px-10 border rounded-full border-gray-300 text-center w-4/5 font-sans">
+          <Callout rounded="full">
             From there, I led design to developer handoff directly to ensure
             both visual details weren't lost and new interactions were added —
             including motion in project clustering, an idea submission callout
             that links to an internal form, live heat map overlays, and a
             simpler map without buildings.
-          </div>
+          </Callout>
           <video
             className="h-auto w-full rounded-lg object-cover transition ease-out mt-8"
             src="/images/projects/climatecents.webm"

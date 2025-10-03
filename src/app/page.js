@@ -142,12 +142,14 @@ export default function Home() {
           STORYTELLING.
         </p>
         <div className="hidden md:block text-[10px] mt-2 z-20 text-center font-mono text-gray-400 animate-slidein opacity-0 [--slidein-delay:700ms]">
-          NOW {status == "playing" ? "PLAYING:" : "PAUSED:"} {currentSongTitle}
-        </div>{" "}
+          {status === "playing" ? "NOW PLAYING:" : "CLICK TO PLAY:"}{" "}
+          {currentSongTitle}
+        </div>
+
         <div className="animate-fadein mt-8 z-10 overflow-hidden md:hidden h-[200px] flex flex-col items-center justify-start relative">
           {/* NOW PLAYING */}
           <div className="absolute bottom-7 text-[10px] z-20 text-center font-mono text-gray-400 w-full">
-            NOW {status === "playing" ? "PLAYING:" : "PAUSED:"}{" "}
+            {status === "playing" ? "NOW PLAYING:" : "CLICK TO PLAY:"}{" "}
             {currentSongTitle}
           </div>
 
@@ -175,7 +177,7 @@ export default function Home() {
             />
             <Project
               title="Climate Cents"
-              type="ART DIRECTION, PRODUCT, UI DEV"
+              type="INTERACTION, PRODUCT, FRONTEND"
               videoSrc="/images/projects/climatecents.webm"
               link="/pages/projects/climatecents"
               description="Led development of an interactive map of nonprofit climate projects and weather data for the 2028 LA Olympics."
@@ -189,18 +191,18 @@ export default function Home() {
               description="Founding designer and creative director for a community platform for post-grad learning."
             />
             <Project
-              title="Fathead White Paper"
-              type="GRAPHIC, PRINT"
+              title='"Fathead" White Paper'
+              type="GRAPHIC, BRAND"
               imageSrc="/images/projects/fathead2.webp"
               link="/pages/projects/fathead"
-              description="186 pages of pure graphic design for a Cannes award-winning film's White Paper."
+              description="Created branding guidelines and 186 pages of pure graphic design for a Cannes award-winning film's publication."
             />
             <Project
               title="Lumen"
-              type="PRODUCT, MOTION, BRAND"
+              type="PRODUCT, MOTION, BRAND STORYTELLING"
               videoSrc="/images/projects/lumen.webm"
               link="/pages/projects/lumen"
-              description="Consolidating, organizing, and illuminating user feedback to highlight key insights."
+              description="Built a feedback tool in an 8-week startup incubator — designing animated pitch decks and interactive prototypes."
             />
             {/* <Project
               title="Encore"

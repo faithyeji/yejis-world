@@ -38,7 +38,7 @@ const ProjectPage = ({
             <div className="flex gap-16 text-sm pt-4">
               {role && role.length > 0 && (
                 <div>
-                  <div className="font-mono text-md text-gray-500 uppercase mb-1">
+                  <div className="font-mono text-lg text-blue-600 uppercase mb-1">
                     Role
                   </div>
                   <div className="text-gray-900 font-sans flex flex-col">
@@ -51,7 +51,7 @@ const ProjectPage = ({
 
               {timeline && (
                 <div>
-                  <div className="font-mono text-md text-gray-500 uppercase mb-1">
+                  <div className="font-mono text-lg text-blue-600 uppercase mb-1">
                     Timeline
                   </div>
                   <div className="text-gray-900 font-sans">{timeline}</div>
@@ -59,7 +59,7 @@ const ProjectPage = ({
               )}
               {disciplines.length > 0 && (
                 <div>
-                  <div className="font-mono text-md text-gray-500 uppercase mb-1">
+                  <div className="font-mono text-lg text-blue-600 uppercase mb-1">
                     Skills
                   </div>
                   <div className="flex font-sans text-sm flex-col text-gray-900">

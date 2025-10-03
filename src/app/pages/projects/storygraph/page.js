@@ -2,11 +2,12 @@ import CaseStudy from "@/app/components/CaseStudy";
 import TextWithImage from "@/app/components/TextWithMedia";
 import CenteredImageWithCaption from "@/app/components/CenteredImageWithCaption";
 import Image from "next/image";
+import Callout from "@/app/components/Callout";
 
 export default function StoryGraphPage() {
   return (
     <CaseStudy
-      headerImage="/images/projects/storygraph.webp"
+      headerImage="/images/projects/storygraph/revampfull.webp"
       headerImageAlt="The StoryGraph project header"
       title="THE STORY GRAPH"
       description={[
@@ -62,7 +63,7 @@ export default function StoryGraphPage() {
       </section>
       {/* Concept Section */}
       <section id="concept" data-section-title="V1: Concepts">
-        <h1 className="w-full text-center mt-10 mb-8 font-mono text-xl text-gray-500 uppercase">
+        <h1 className="w-full text-center mt-10 sm:mb-8 font-mono text-xl text-gray-500 uppercase">
           PHASE 1: CONCEPT REDESIGN
         </h1>
         <TextWithImage
@@ -93,41 +94,30 @@ export default function StoryGraphPage() {
         data-section-title="V2: OFFICIAL"
         className="flex justify-center flex-col align-middle items-center"
       >
-        <h1 className="w-full text-center mt-10 mb-5 font-mono text-xl text-gray-500 uppercase">
+        <h1 className="w-full text-center sm:mt-10 mb-5 font-mono text-xl text-gray-500 uppercase">
           PHASE 2: OFFICIAL REDESIGN
         </h1>
-        <div className="font-sans text-center w-full sm:w-4/5">
-          <div className="py-10 px-10 border rounded-md sm:rounded-full border-gray-300 mt-2 text-base">
-            <div>
-              Now that I was officially designing for them, I had to ask myself:
-            </div>
-            <div className="mt-4">
-              How could I revamp The StoryGraph’s experience by simplifying
-              navigation, surfacing hidden features, and ensuring accessibility,
-              while still respecting the limits of a one-woman dev team and
-              avoiding a full system overhaul?
-            </div>
+        <Callout>
+          <div>
+            Now that I was officially designing for them, I had to ask myself:
           </div>
-        </div>
-        <Image
-          src="/images/projects/storygraph/revamp.webp"
-          alt="Revamp"
-          width={3000}
-          height={3000}
-          quality={100}
-          className="w-3/5 h-fit rounded-lg mt-8"
-          priority
-        />
+          <div className="mt-4">
+            How could I revamp The StoryGraph’s experience by simplifying
+            navigation, surfacing hidden features, and ensuring accessibility,
+            while still respecting the limits of a one-woman dev team and
+            avoiding a full system overhaul?
+          </div>
+        </Callout>
       </section>
       <section
         id="process"
         data-section-title="PROCESS"
         className="flex justify-center flex-col align-middle items-center mt-2"
       >
-        <h1 className="w-full text-center mt-10 mb-10 font-mono text-xl text-gray-500 uppercase">
+        <h1 className="w-full text-center mt-4 sm:mt-10 mb-10 font-mono text-xl text-gray-500 uppercase">
           THE PROCESS
         </h1>
-        <div className="flex flex-wrap gap-8 items-start justify-center">
+        <div className="flex flex-wrap gap-8 items-start justify-center mb-12">
           <Image
             src="/images/projects/storygraph/1.webp"
             alt="Step 1"
@@ -184,11 +174,11 @@ export default function StoryGraphPage() {
           />
         </div>
 
-        <div className="font-sans text-center w-4/5 mt-20 mb-10">
-          <div className="py-6 px-10 border rounded-full border-gray-300 mt-2">
+        <div className="mb-16">
+          <Callout rounded="full">
             Following this process I developed to best suit their one-developer
             team and constraints, I...
-          </div>
+          </Callout>
         </div>
 
         <TextWithImage
@@ -230,15 +220,13 @@ export default function StoryGraphPage() {
 
       <hr className="border-t-1 border-gray-300 my-12 w-full" />
 
-      <div className="font-sans text-center w-4/5 mt-20 mb-10">
-        <div className="py-6 px-10 border rounded-md sm:rounded-full border-gray-300 mt-2">
-          Ultimately, this led to shipped, iterative page revamps! I refreshed
-          every page while also documenting my design rationale, accessibility
-          considerations, and interaction details — which streamlined
-          collaboration and reduced handoff friction for our small team serving
-          millions.
-        </div>
-      </div>
+      <Callout rounded="full">
+        Ultimately, this led to shipped, iterative page revamps! I refreshed
+        every page while also documenting my design rationale, accessibility
+        considerations, and interaction details — which streamlined
+        collaboration and reduced handoff friction for our small team serving
+        millions.
+      </Callout>
       <section id="outcomes" data-section-title="OUTCOMES">
         <CenteredImageWithCaption
           title="OUTCOMES"
