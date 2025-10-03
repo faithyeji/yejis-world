@@ -13,24 +13,14 @@ function CD() {
     useAudio();
   const currentSong = allSongs[currentSongIndex];
   const playing = status === "playing";
-  const audioRef = useRef(null);
 
   useEffect(() => {
     if (allSongs.length > 0) {
-      const randomIndex = Math.floor(Math.random() * allSongs.length);
-      setCurrentSongIndex(randomIndex);
+      setCurrentSongIndex((prev) =>
+        prev === null ? Math.floor(Math.random() * allSongs.length) : prev
+      );
     }
   }, []);
-
-  useEffect(() => {
-    if (audioRef.current) {
-      if (playing) {
-        audioRef.current.play();
-      } else {
-        audioRef.current.pause();
-      }
-    }
-  }, [playing, currentSongIndex]);
 
   const handleNextSong = () => {
     const nextIndex = (currentSongIndex + 1) % allSongs.length;
@@ -76,7 +66,7 @@ function CD() {
         onTap={() => {
           setStatus(status === "playing" ? "paused" : "playing");
         }}
-        className="size-[350px] lg:size-[425px] absolute left-1/2 z-20 flex origin-center select-none items-center justify-center overflow-hidden border-2 border-[#d3d3d3] bg-gray-200 shadow-[0_0_80px_-20px_rgba(0,0,0,0.3)]"
+        className="size-[350px] lg:size-[425px] absolute left-1/2 z-20 flex origin-center select-none items-center justify-center overflow-hidden border-2 border-[#d3d3d3] bg-gray-200 sm:shadow-[0_0_80px_-20px_rgba(0,0,0,0.2)]"
       >
         <AnimatePresence mode="wait">
           <motion.div
@@ -110,11 +100,11 @@ function CD() {
           <div className="size-[67px] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#e9e4ea]" />
           <div className="size-[60px] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border-[1px] border-[#c8c7c5] bg-[#f5f5f5] shadow-[0_0_24px_-12px_rgba(0,0,0,0.30)_inset]" />
         </motion.div>
-        <audio ref={audioRef} src={currentSong.audio} loop />
+        {/* <audio ref={audioRef} src={currentSong.audio} loop /> */}
       </motion.div>
 
       {/* arrows */}
-      <div className="absolute hidden lg:flex bottom-[0%] left-1/2 -translate-x-1/2 translate-y-[82px] space-x-[500px]">
+      <div className="absolute flex md:hidden lg:flex bottom-[0%] left-1/2 -translate-x-1/2 translate-y-[6px] lg:translate-y-[82px] space-x-[400px] lg:space-x-[500px]">
         <button
           onClick={handlePreviousSong}
           aria-label="previous"

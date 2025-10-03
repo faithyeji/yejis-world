@@ -7,6 +7,7 @@ import { Draggable } from "gsap/Draggable";
 import Project from "./components/Project";
 import { useEffect, useRef } from "react";
 import DraggableSticker from "./components/DraggableSticker";
+import AudioPlayer from "./components/AudioPlayer";
 
 export default function Home() {
   const photos = [
@@ -78,7 +79,7 @@ export default function Home() {
       <div className="animate-fadein delay-200">
         <Folder
           title="photos"
-          style="top-[41%] left-[25%]"
+          style="top-[400px] left-[25%]"
           content={photos}
           position="top-[110%] left-[8%] origin-[0%-30%]"
         />
@@ -96,7 +97,7 @@ export default function Home() {
           width={90}
           height={90}
           startX="66%"
-          startY="36%"
+          startY="325px"
           rotation={0}
         />
         <DraggableSticker
@@ -104,12 +105,12 @@ export default function Home() {
           alt="folder"
           width={60}
           height={60}
-          startX="31%"
-          startY="32%"
+          startX="30%"
+          startY="295px"
           rotation={0}
         />
       </div>
-      <div className="flex flex-col mt-7 md:mt-32 justify-center items-center text-center gap-2 text-neutral-600 relative">
+      <div className="flex flex-col mt-4 md:mt-32 justify-center items-center text-center gap-2 text-neutral-600 relative">
         {/* <h1 className="font-serif italic text-5xl text-blue-700">Yeji Seo</h1> */}
         <video
           ref={videoRef}
@@ -123,17 +124,30 @@ export default function Home() {
           <source src="/YejiNames2-hevc-safari.mp4" />
           <source src="/YejiNames2-vp9-chrome.webm" />
         </video>
-        <p className="w-72 sm:w-80 md:w-[400px] font-mono text-sm leading-5 mt-36 sm:mt-[137px] animate-slidein opacity-0 [--slidein-delay:300ms]">
+        <p className="w-72 sm:w-80 md:w-[400px] font-mono text-sm leading-5 mt-[137px] animate-slidein opacity-0 [--slidein-delay:300ms]">
           IS A MULTIDISCIPLINARY DESIGNER DEDICATED TO CRAFTING DELIGHTFUL
           DIGITAL EXPERIENCES. <br /> <br />
           SHE WORKS MAINLY IN BRAND/ART DIRECTION, PRODUCT, & INTERACTIVE
           STORYTELLING.
         </p>
-        <p className="text-[10px] mt-2 z-20 text-center font-mono text-gray-400 animate-slidein opacity-0 [--slidein-delay:700ms]">
+        <div className="hidden md:block text-[10px] mt-2 z-20 text-center font-mono text-gray-400 animate-slidein opacity-0 [--slidein-delay:700ms]">
           NOW {status == "playing" ? "PLAYING:" : "PAUSED:"} {currentSongTitle}
-        </p>{" "}
-        <div id="projects" className="rounded-lg mt-12">
-          <div className="flex flex-wrap mt-8 mb-16 sm:mt-7 md:mx-4 justify-center items-center text-center gap-2 sm:gap-5 w-fit text-neutral-600 opacity-0 animate-slidein [--slidein-delay:500ms]">
+        </div>{" "}
+        <div className="animate-fadein mt-8 z-10 overflow-hidden md:hidden h-[200px] flex flex-col items-center justify-start relative">
+          {/* NOW PLAYING */}
+          <div className="absolute bottom-7 text-[10px] z-20 text-center font-mono text-gray-400 w-full">
+            NOW {status === "playing" ? "PLAYING:" : "PAUSED:"}{" "}
+            {currentSongTitle}
+          </div>
+
+          <div className="bg-[linear-gradient(90deg,rgba(168,168,168,1)_0%,rgba(222,222,222,1)_27%,rgba(168,168,168,1)_100%)] opacity-25 drop-shadow-lg w-[400px] rounded-md h-1 z-30 pt-[0.1rem]"></div>
+
+          <div className="w-fit translate-y-[-150px] scale-75">
+            <CD />
+          </div>
+        </div>
+        <div id="projects" className="rounded-lg mt-0 md:mt-12">
+          <div className="flex flex-wrap mb-16 mt-7 md:mx-4 justify-center items-center text-center gap-2 sm:gap-5 w-fit text-neutral-600 opacity-0 animate-slidein [--slidein-delay:500ms]">
             <Project
               title="Deeplocal"
               type="ART DIRECTION, MOTION, UI/UX, GRAPHIC"
@@ -143,7 +157,7 @@ export default function Home() {
             />
             <Project
               title="The StoryGraph"
-              type="PRODUCT, UI/U X, BRAND"
+              type="PRODUCT, UI/UX, BRAND"
               imageSrc="/images/projects/storygraph.webp"
               link="/pages/projects/storygraph"
               description="Worked as the sole UX designer revamping a book-sharing platform with 4 million users."

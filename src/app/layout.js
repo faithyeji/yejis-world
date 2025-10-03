@@ -7,6 +7,7 @@ import "./globals.css";
 
 import Navbar from "./components/Navbar";
 import { AudioProvider } from "./components/AudioContext";
+import AudioPlayer from "./components/AudioPlayer";
 
 const newsreader = Newsreader({
   subsets: ["latin"],
@@ -38,20 +39,21 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <AudioProvider>
-      <html lang="en" className="scroll-smooth overflow-y-scroll">
-        <head>
-          <link rel="icon" href="/favicon.ico" />
-        </head>
-        <body
-          className={`${elza.variable} ${newsreader.variable} ${dmMono.variable} ${franklin.variable} antialiased`}
-        >
+    <html lang="en" className="scroll-smooth overflow-y-scroll">
+      <head>
+        <link rel="icon" href="/favicon.ico" />
+      </head>
+      <body
+        className={`${elza.variable} ${newsreader.variable} ${dmMono.variable} ${franklin.variable} antialiased`}
+      >
+        <AudioProvider>
+          <AudioPlayer /> {/* global audio */}
           <Navbar />
           {children}
           <Analytics />
           <SpeedInsights />
-        </body>
-      </html>
-    </AudioProvider>
+        </AudioProvider>
+      </body>
+    </html>
   );
 }
