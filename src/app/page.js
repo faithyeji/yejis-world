@@ -131,9 +131,10 @@ export default function Home() {
           autoPlay
           preload="auto"
           className="absolute top-0 animate-slidein opacity-0 [--slidein-delay:100ms]"
-          poster="/images/fallback.jpg"
-          src="/YejiNames2-vp9-chrome.webm"
-        />
+        >
+          <source src="/YejiNames2-hevc-safari.mp4" />{" "}
+          <source src="/YejiNames2-vp9-chrome.webm" />{" "}
+        </video>
         <p className="w-72 sm:w-80 md:w-[400px] font-mono text-sm leading-5 mt-[137px] animate-slidein opacity-0 [--slidein-delay:300ms]">
           IS A MULTIDISCIPLINARY DESIGNER DEDICATED TO CRAFTING DELIGHTFUL
           DIGITAL EXPERIENCES. <br /> <br />
