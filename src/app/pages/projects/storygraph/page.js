@@ -96,8 +96,8 @@ export default function StoryGraphPage() {
         <h1 className="w-full text-center mt-10 mb-5 font-mono text-xl text-gray-500 uppercase">
           PHASE 2: OFFICIAL REDESIGN
         </h1>
-        <div className="font-sans text-center w-4/5">
-          <div className="py-6 px-10 border rounded-full border-gray-300 mt-2">
+        <div className="font-sans text-center w-full sm:w-4/5">
+          <div className="py-10 px-10 border rounded-md sm:rounded-full border-gray-300 mt-2 text-base">
             <div>
               Now that I was officially designing for them, I had to ask myself:
             </div>
@@ -231,7 +231,7 @@ export default function StoryGraphPage() {
       <hr className="border-t-1 border-gray-300 my-12 w-full" />
 
       <div className="font-sans text-center w-4/5 mt-20 mb-10">
-        <div className="py-6 px-10 border rounded-full border-gray-300 mt-2">
+        <div className="py-6 px-10 border rounded-md sm:rounded-full border-gray-300 mt-2">
           Ultimately, this led to shipped, iterative page revamps! I refreshed
           every page while also documenting my design rationale, accessibility
           considerations, and interaction details — which streamlined
@@ -298,7 +298,7 @@ export default function StoryGraphPage() {
             width={2000}
             height={2000}
             quality={100}
-            className="w-fit h-60 rounded-lg mb-8"
+            className="w-80 h-full rounded-lg mb-8"
             priority
           />
         </div>

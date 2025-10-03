@@ -1,9 +1,10 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import "./playground.css";
+import PlaygroundVideo from "@/app/components/PlaygroundVideo";
 
 const items = [
   {
@@ -405,6 +406,13 @@ export default function Playground() {
   const [hoveredItem, setHoveredItem] = useState(null);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [selectedItem, setSelectedItem] = useState(null);
+  const [isDesktop, setIsDesktop] = useState(false);
+
+  useEffect(() => {
+    if (window.matchMedia("(min-width: 768px)").matches) {
+      setIsDesktop(true);
+    }
+  }, []);
 
   const filteredItems =
     filter === "all" ? items : items.filter((item) => item.category === filter);
@@ -512,14 +520,7 @@ export default function Playground() {
                           load="lazy"
                         />
                       ) : (
-                        <video
-                          src={item.src}
-                          autoPlay
-                          loop
-                          muted
-                          playsInline
-                          className="w-full"
-                        />
+                        <PlaygroundVideo src={item.src} className="w-full" />
                       )}
                     </a>
                   ) : item.type === "image" ? (
@@ -532,14 +533,7 @@ export default function Playground() {
                       load="lazy"
                     />
                   ) : (
-                    <video
-                      src={item.src}
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                      className="w-full"
-                    />
+                    <PlaygroundVideo src={item.src} className="w-full" />
                   )}
                 </div>
               </motion.div>
@@ -602,13 +596,7 @@ export default function Playground() {
                     className="h-[670px] w-auto object-contain rounded"
                   />
                 ) : (
-                  <video
-                    src={selectedItem.src}
-                    controls
-                    autoPlay
-                    muted
-                    className="max-h-[750px] w-auto object-contain rounded"
-                  />
+                  <PlaygroundVideo src={item.src} className="w-full" />
                 )}
               </motion.div>
             </motion.div>

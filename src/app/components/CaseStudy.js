@@ -110,7 +110,7 @@ const CaseStudy = ({
             </div>
 
             {/* Project Details */}
-            <div className="flex flex-wrap justify-center gap-20 text-sm pt-4 mt-8">
+            <div className="flex flex-wrap justify-center gap-10 sm:gap-20 text-sm pt-4 mt-8">
               {role && role.length > 0 && (
                 <div>
                   <div className="font-mono text-md text-gray-500 uppercase mb-1">
