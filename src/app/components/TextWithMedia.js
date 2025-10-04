@@ -5,12 +5,11 @@ export default function TextWithMedia({
   children,
   mediaSrc,
   mediaAlt,
-  mediaPosition = "right", // "left" | "right"
+  mediaPosition = "right",
 }) {
   if (!mediaSrc) {
     return (
       <div className="grid grid-cols-1 items-center justify-items-center gap-6">
-        {/* Text only */}
         <div className="flex flex-col mt-4 w-[90%] items-center">
           <h3 className="font-mono text-xl text-gray-500 uppercase mb-2 leading-6 text-left w-full">
             {title}
@@ -27,25 +26,26 @@ export default function TextWithMedia({
 
   return (
     <div
-      className={`grid grid-cols-1 lg:grid-cols-2 items-center justify-items-center gap-8`}
+      className={`
+        grid grid-cols-1 lg:grid-cols-2 
+        items-stretch justify-items-stretch gap-8
+      `}
     >
-      {/* Text column */}
       <div
-        className={`flex flex-col w-[90%] items-center ${
+        className={`flex flex-col w-[90%] mx-auto justify-center h-full ${
           mediaPosition === "left" ? "lg:order-2" : ""
         }`}
       >
         <h3 className="font-mono text-xl text-gray-500 uppercase pt-8 mb-2 leading-6 text-left w-full">
           {title}
         </h3>
-        <div className="text-gray-700 font-sans mt-2 text-sm text-left w-full">
+        <div className="text-gray-700 font-sans mt-2 text-[0.9rem] text-left w-full">
           {children}
         </div>
       </div>
 
-      {/* Media column */}
       <div
-        className={`w-full ${
+        className={`w-full h-full flex items-center justify-center ${
           mediaPosition === "left" ? "lg:order-1" : "lg:order-2"
         }`}
       >
@@ -56,17 +56,15 @@ export default function TextWithMedia({
             loop
             muted
             playsInline
-            className="w-full h-fit rounded-lg"
-          >
-            Your browser does not support the video tag.
-          </video>
+            className="w-full h-full object-cover rounded-lg"
+          />
         ) : (
           <Image
             src={mediaSrc}
             alt={mediaAlt || "Media"}
             width={500}
             height={400}
-            className="w-full h-fit rounded-lg drop-shadow-lg"
+            className="w-full h-full object-cover rounded-lg drop-shadow-lg"
             priority
           />
         )}

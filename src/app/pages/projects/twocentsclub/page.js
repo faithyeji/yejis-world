@@ -11,7 +11,7 @@ export default function TwoCentsClubPage() {
       headerImageAlt="Two Cents Club project header"
       title="TWO CENTS CLUB"
       description={[
-        "Two Cents Club is a community platform that helps young, post-graduate adults discover local, personalized experiences to learn new skills and connect with others. As the founding designer, my role was to craft its brand, identity, and interactions to make the product whimsically fun.",
+        "Two Cents Club is a community platform that helps post-graduate adults discover local, personalized experiences to learn new skills and connect with others. As the founding designer, my role was to craft 2CC's brand identity and interactions to make the product whimsically fun.",
       ]}
       role={["Co-Founder, Brand & Product Designer"]}
       timeline="Summer 2025 (June–August)"
@@ -103,29 +103,30 @@ export default function TwoCentsClubPage() {
           mediaAlt="Brand elements including typography and doodles"
           mediaPosition="left"
         >
-          Core principles guided every decision:
+          Core principles shaped every choice:
           <ul className="pl-4 mt-2 mb-4 list-disc">
             <li>
-              Childlike whimsy: bouncy motion, googly eyes, doodles,
-              annotations.
+              <strong>Childlike whimsy:</strong> bouncy motion, googly eyes,
+              doodles.
             </li>
             <li>
-              Friendly human-first approach: teachers and hosts feel like
-              friends.
+              <strong>Human-first:</strong> teachers and hosts feel like
+              friends, rather than pros.
             </li>
             <li>
-              Modular but personal: stickers, collages, interactive elements for
-              customization.
+              <strong>Modular yet personal:</strong> stickers, collages,
+              interactive details.
             </li>
             <li>
-              Accessible and approachable typography: NEUE MONTREAL Bold for
-              headings, Medium for body text.
+              <strong>Accessible, approachable typography:</strong> a bold and
+              rounded sans serif make the tone friendly and open.
             </li>
-            <li>Avoid pretension: playful yet polished for adult audiences.</li>
+            <li>
+              <strong>Playful yet polished</strong> — never pretentious.
+            </li>
           </ul>
-          The goal: **transport members into a world of curiosity and
-          community**, where every touchpoint reinforces ritual, fun, and
-          belonging.
+          The goal: immerse members in curiosity and community, where every
+          detail builds ritual, joy, and belonging.
         </TextWithImage>
       </section>
       {/* Host / Branding Graphics */}
@@ -164,7 +165,7 @@ export default function TwoCentsClubPage() {
         <CenteredImageWithCaption
           imgSrc="/images/projects/tcc/slack.webp"
           imgAlt="Slack workspace with branded channels"
-          caption="Slack channels like #homeroom, #recess, #book-club, and #app-updates reinforced brand and ritual in all digital touchpoints."
+          caption="Even small details like themed internal Slack channels could reinforce our brand and ritual in all digital touchpoints!"
         />
         <div className="mt-14">
           <Callout rounded="full">
@@ -179,7 +180,7 @@ export default function TwoCentsClubPage() {
           title="OUTCOMES + PILOT WORKSHOPS/PRODUCT"
           imgSrc="/images/projects/tcc/outcomes.webp"
           imgAlt="Workshop outcomes and community stats"
-          caption="50+ active members within 3 months, with 71% retention Month 2, 54% Month 3. So far, we've hosted a candle-making workshop, 8 weeks of a writing workshop, and a 4-week Philosophy of Physics course!"
+          caption="50+ active members within 3 months, with 71% retention. Month 2, 54% Month 3. So far, we've hosted a candle-making workshop, 8 weeks of a writing workshop, and a 4-week Philosophy of Physics course!"
         />
         <div className="flex flex-wrap gap-6 mt-20 justify-center">
           <video

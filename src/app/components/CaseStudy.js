@@ -50,7 +50,7 @@ const CaseStudy = ({
     <div className="min-h-screen">
       <div className="flex mt-8">
         {/* Table of Contents */}
-        <aside className="hidden md:block sticky top-32 md:left-[5rem] lg:left-[8rem] h-fit w-[8rem] flex-shrink-0 self-start animate-slidein opacity-0 [--slidein-delay:200ms]">
+        <aside className="hidden md:block sticky top-32 md:left-[5rem] lg:left-[7rem] h-fit w-[8rem] flex-shrink-0 self-start animate-slidein opacity-0 [--slidein-delay:200ms]">
           {/* Back Button */}
           <div className="mb-6">
             <Link
@@ -83,7 +83,7 @@ const CaseStudy = ({
         </aside>
 
         {/* Main Content */}
-        <main className="flex md:ml-[7rem] lg:ml-[10rem] justify-center max-w-7xl mx-auto min-h-screen">
+        <main className="flex md:ml-[7rem] lg:ml-[10rem] md:mr-20 justify-center max-w-7xl mx-auto min-h-screen">
           {/* Header Section */}
           <div className="bg-white rounded-md drop-shadow-md pt-10 pb-12 px-10 sm:px-20 animate-slidein opacity-0 [--slidein-delay:100ms] mb-20">
             {description && (

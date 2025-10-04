@@ -173,14 +173,14 @@ export default function Home() {
               type="PRODUCT, UI/UX, BRAND"
               imageSrc="/images/projects/storygraph.webp"
               link="/pages/projects/storygraph"
-              description="Worked as the sole UX designer revamping a book-sharing platform with 4 million users."
+              description="Worked as the sole product designer revamping a book-sharing platform with 4 million users."
             />
             <Project
-              title="Climate Cents"
-              type="INTERACTION, PRODUCT, FRONTEND"
-              videoSrc="/images/projects/climatecents.webm"
-              link="/pages/projects/climatecents"
-              description="Led development of an interactive map of nonprofit climate projects and weather data for the 2028 LA Olympics."
+              title="Lumen"
+              type="PRODUCT, MOTION, BRAND STORYTELLING"
+              videoSrc="/images/projects/lumen.webm"
+              link="/pages/projects/lumen"
+              description="Built a feedback tool in an 8-week startup incubator — designing animated pitch decks and interactive prototypes."
             />
 
             <Project
@@ -198,12 +198,13 @@ export default function Home() {
               description="Created branding guidelines and 186 pages of pure graphic design for a Cannes award-winning film's publication."
             />
             <Project
-              title="Lumen"
-              type="PRODUCT, MOTION, BRAND STORYTELLING"
-              videoSrc="/images/projects/lumen.webm"
-              link="/pages/projects/lumen"
-              description="Built a feedback tool in an 8-week startup incubator — designing animated pitch decks and interactive prototypes."
+              title="Climate Cents"
+              type="INTERACTION, PRODUCT, FRONTEND"
+              videoSrc="/images/projects/climatecents.webm"
+              link="/pages/projects/climatecents"
+              description="Led development of an interactive map of nonprofit climate projects and weather data for the 2028 LA Olympics."
             />
+
             {/* <Project
               title="Encore"
               type="UI/UX DESIGN (TEAM)"

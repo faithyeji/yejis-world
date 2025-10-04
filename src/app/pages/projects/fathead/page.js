@@ -14,6 +14,34 @@ export default function FatheadPage() {
       timeline="2023-2024"
       disciplines={["Graphic Design", "Publication Design", "Brand"]}
     >
+      <div className="w-full flex justify-center mb-6">
+        <a
+          href="https://drive.google.com/file/d/1WfWgL6jatDaOm4jOPPUI4FIm1luHpora/view"
+          target="_blank"
+        >
+          <div className="bg-white-80 text-black py-3 px-5 rounded-3xl font-sans hover:bg-blue-400 hover:border-white transition duration-200 flex items-center w-fit gap-1 border-neutral-400 border">
+            <div>See full publication here.</div>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="#000000"
+              viewBox="0 0 24 24"
+              className="w-4 h-4"
+            >
+              <g data-name="Layer 2">
+                <g data-name="diagonal-arrow-right-up">
+                  <rect
+                    width="24"
+                    height="24"
+                    transform="rotate(180 12 12)"
+                    opacity="0"
+                  />
+                  <path d="M18 7.05a1 1 0 0 0-1-1L9 6a1 1 0 0 0 0 2h5.56l-8.27 8.29a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0L16 9.42V15a1 1 0 0 0 1 1 1 1 0 0 0 1-1z" />
+                </g>
+              </g>
+            </svg>
+          </div>
+        </a>
+      </div>
       <div className="space-y-6">
         <div className="">
           <Image
@@ -24,34 +52,14 @@ export default function FatheadPage() {
             priority
             className="w-full h-fit"
           />
-        </div>
-        <div>
-          <a
-            href="https://drive.google.com/file/d/1WfWgL6jatDaOm4jOPPUI4FIm1luHpora/view"
-            target="_blank"
-          >
-            <div className="bg-white-80 text-black py-3 px-5 rounded-3xl font-sans hover:bg-blue-400 hover:border-white transition duration-200 flex items-center w-fit gap-1 border-neutral-400 border">
-              <div>See full publication here.</div>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="#000000"
-                viewBox="0 0 24 24"
-                className="w-4 h-4"
-              >
-                <g data-name="Layer 2">
-                  <g data-name="diagonal-arrow-right-up">
-                    <rect
-                      width="24"
-                      height="24"
-                      transform="rotate(180 12 12)"
-                      opacity="0"
-                    />
-                    <path d="M18 7.05a1 1 0 0 0-1-1L9 6a1 1 0 0 0 0 2h5.56l-8.27 8.29a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0L16 9.42V15a1 1 0 0 0 1 1 1 1 0 0 0 1-1z" />
-                  </g>
-                </g>
-              </svg>
-            </div>
-          </a>
+          <Image
+            src="/images/projects/fathead/magazines2.webp"
+            alt="magazine 2"
+            width={3000}
+            height={1000}
+            priority
+            className="w-full h-fit"
+          />
         </div>
       </div>
     </ProjectPage>

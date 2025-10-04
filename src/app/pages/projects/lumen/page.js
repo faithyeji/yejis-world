@@ -64,29 +64,62 @@ export default function LumenPage() {
           imgSrc="/images/projects/lumen/moodboard.webp"
           imgAlt="Moodboard"
           caption="In my early concepts, I explored ways to surface key insights quickly while keeping the
-          interface simple and visually engaging — branding quickly surfaced as a core aspect of what could differentiate our platform and make the process of feedback consolidation more fun."
+          interface simple and visually engaging — branding quickly surfaced as a core aspect of what could differentiate our platform in making feedback consolidation more fun."
         />
+      </section>
+      {/* Solution Section */}
+      <section
+        id="solution"
+        data-section-title="Our Solution"
+        className="space-y-8 w-full"
+      >
+        <h1 className="text-center font-mono text-xl text-gray-500 uppercase pt-24">
+          Our Solution
+        </h1>
+        <video
+          className="h-60 w-full rounded-lg object-cover transition ease-out"
+          src="/images/projects/lumen/highlight.webm"
+          autoPlay
+          muted
+          loop
+          playsInline
+        />
+        {/* <Callout rounded="full">
+          <div>
+            Critical insights are <strong>everywhere</strong> — scattered,
+            unstructured, and time-consuming to consolidate. Our interviews with
+            5 industry professionals confirmed this leads to wasted time, money,
+            and resources.
+          </div>
+        </Callout> */}
+      </section>
+      <section
+        id="walkthrough"
+        data-section-title="Walkthrough"
+        className="space-y-8 w-full"
+      >
+        <h1 className="text-center font-mono text-xl text-gray-500 uppercase pt-24">
+          Walkthrough
+        </h1>
+        {/* <TextWithImage
+          mediaSrc="/images/projects/lumen/comments.webp"
+          mediaAlt="Lumen Overview"
+        >
+          During my work on client-facing apps like The StoryGraph, I faced a
+          common struggle: user feedback is <strong>everywhere</strong>. Social
+          media, app store reviews, emails—it all can be a <em>mess</em> to sift
+          through. <br />
+          <br />
+          Even just 2 StoryGraph Instagram posts contained 300+ comments with
+          insightful feedback! This wasn't just my problem — my team had faced
+          the same struggles firsthand at their own workplaces, whether that was
+          at large companies or small startups.
+        </TextWithImage> */}
       </section>
       {/* Motion Section */}
       <section id="motion" data-section-title="Motion & Storytelling">
         <div className="flex flex-wrap justify-between space-y-8">
-          <video
-            className="h-60 w-full rounded-lg object-cover transition ease-out"
-            src="/images/projects/lumen/highlight.webm"
-            autoPlay
-            muted
-            loop
-            playsInline
-          />
           <div className="flex flex-col gap-10 w-[38%]">
-            <video
-              className="h-fit rounded-lg object-cover transition ease-out"
-              src="/images/projects/lumen/miss.webm"
-              autoPlay
-              muted
-              loop
-              playsInline
-            />
             <video
               className="h-fit rounded-lg object-cover transition ease-out"
               src="/images/projects/lumen/break.webm"
@@ -123,11 +156,13 @@ export default function LumenPage() {
             />
           </div>
         </div>
-        <Callout rounded="full">
-          Motion and animated storytelling were key to Lumen’s identity,
-          bringing the platform and pitch decks to life while communicating
-          functionality and problem-solving visually.
-        </Callout>
+        <div className="mt-10">
+          <Callout rounded="full">
+            Motion and animated storytelling were key to Lumen’s identity,
+            bringing the platform and pitch decks to life while communicating
+            functionality and problem-solving visually.
+          </Callout>
+        </div>
       </section>
       {/* Solution Section
       <section id="solution" data-section-title="Solution">
