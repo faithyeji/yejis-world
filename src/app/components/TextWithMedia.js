@@ -56,7 +56,7 @@ export default function TextWithMedia({
             loop
             muted
             playsInline
-            className="w-full h-full object-cover rounded-lg"
+            className="w-full h-full object-contain rounded-lg"
           />
         ) : (
           <Image
@@ -64,7 +64,7 @@ export default function TextWithMedia({
             alt={mediaAlt || "Media"}
             width={500}
             height={400}
-            className="w-full h-full object-cover rounded-lg drop-shadow-lg"
+            className="w-full h-full object-contain rounded-lg drop-shadow-lg"
             priority
           />
         )}

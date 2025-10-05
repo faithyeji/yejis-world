@@ -181,7 +181,7 @@ const items = [
     tool: "Photoshop",
     category: "graphics",
     description:
-      "Branding for a conceptual themed ingredient boxes for meal prepping.",
+      "Branding for conceptual, themed ingredient boxes for meal prepping.",
     link: "https://drive.google.com/file/d/17aE9YrmXyC0wIIRWRKhH2Baf9mz08TOm/view?usp=sharing",
   },
   {
