@@ -146,7 +146,7 @@ export default function Home() {
           {currentSongTitle}
         </div>
 
-        <div className="animate-fadein mt-8 z-10 overflow-hidden md:hidden h-[200px] flex flex-col items-center justify-start relative">
+        <div className="animate-fadein mt-[34px] z-10 overflow-hidden md:hidden h-[200px] flex flex-col items-center justify-start relative">
           {/* NOW PLAYING */}
           <div className="absolute bottom-7 text-[10px] z-20 text-center font-mono text-gray-400 w-full">
             {status === "playing" ? "NOW PLAYING:" : "CLICK TO PLAY:"}{" "}
@@ -166,21 +166,21 @@ export default function Home() {
               type="ART DIRECTION, MOTION, UI/UX, GRAPHIC"
               videoSrc="/images/projects/DL.webm"
               link="/pages/projects/deeplocal"
-              description="Concepting/designing fun creative tech projects for Google, Microsoft, and Netflix experiential activations."
+              description="Concepting/designing fun creative tech projects for Google, Microsoft, & Netflix experiential activations."
             />
             <Project
               title="The StoryGraph"
               type="PRODUCT, UI/UX, BRAND"
               imageSrc="/images/projects/storygraph.webp"
               link="/pages/projects/storygraph"
-              description="Worked as the sole product designer revamping a book-sharing platform with 4 million users."
+              description="The sole product designer revamping a book-sharing platform with 4 million users."
             />
             <Project
               title="Lumen"
               type="PRODUCT, MOTION, BRAND STORYTELLING"
               videoSrc="/images/projects/lumen.webm"
               link="/pages/projects/lumen"
-              description="Built a feedback tool in an 8-week startup incubator — designing animated pitch decks and interactive prototypes."
+              description="Built a feedback tool in an 8-week startup incubator — designing animated pitch decks & interactive prototypes."
             />
 
             <Project
@@ -188,21 +188,28 @@ export default function Home() {
               type="BRAND, PRODUCT, GRAPHIC"
               imageSrc="/images/projects/tcc.webp"
               link="/pages/projects/twocentsclub"
-              description="Founding designer and creative director for a community platform for post-grad learning."
+              description="Founding designer & creative director for a community platform for post-grad learning."
             />
             <Project
               title='"Fathead" White Paper'
               type="GRAPHIC, BRAND"
               imageSrc="/images/projects/fathead2.webp"
               link="/pages/projects/fathead"
-              description="Created branding guidelines and 186 pages of pure graphic design for a Cannes award-winning film's publication."
+              description="Created branding guidelines & 186 pages of graphic design for a Cannes award-winning film's publication."
             />
+            {/* <Project
+              title="SeeSaw Murals"
+              type="ART DIRECTION, BRAND"
+              imageSrc="/images/projects/seesaw.webp"
+              link="/pages/projects/storygraph"
+              description="Founded a nonprofit making murals for the Los Angeles Fire Department, community homes, and local LA cafés."
+            /> */}
             <Project
               title="Climate Cents"
               type="INTERACTION, PRODUCT, FRONTEND"
               videoSrc="/images/projects/climatecents.webm"
               link="/pages/projects/climatecents"
-              description="Led development of an interactive map of nonprofit climate projects and weather data for the 2028 LA Olympics."
+              description="Led development of an interactive map of nonprofit climate projects & weather data for the 2028 LA Olympics."
             />
 
             {/* <Project
