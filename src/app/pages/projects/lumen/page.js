@@ -102,10 +102,21 @@ export default function LumenPage() {
           Walkthrough
         </h1>
         <CenteredImageWithCaption
-          imgSrc="/images/projects/lumen/moodboard.webp"
-          imgAlt="Moodboard"
+          imgSrc="/images/projects/lumen/walkthrough/walkthrough1.png"
+          imgAlt="Walkthrough"
           caption="Lumen automatically scrapes the web and social media platforms like Instagram and X for relevant user feedback."
         ></CenteredImageWithCaption>
+        <CenteredImageWithCaption
+          imgSrc="/images/projects/lumen/walkthrough/walkthrough2.png"
+          imgAlt="Walkthrough"
+          caption="Users can also submit direct feedback through an in-app integration with any platform."
+        ></CenteredImageWithCaption>
+        <CenteredImageWithCaption
+          imgSrc="/images/projects/lumen/walkthrough/walkthrough3.png"
+          imgAlt="Walkthrough"
+          caption="From there, all feedback is collected into Lumen’s main dashboard and automatically analyzed."
+        ></CenteredImageWithCaption>
+
         {/* <TextWithImage
           mediaSrc="/images/projects/lumen/comments.webp"
           mediaAlt="Lumen Overview"
@@ -120,9 +131,46 @@ export default function LumenPage() {
           the same struggles firsthand at their own workplaces, whether that was
           at large companies or small startups.
         </TextWithImage> */}
+        {/* <h1 className="text-center font-mono text-xl text-gray-500 uppercase pt-24">
+          Features
+        </h1> */}
+        <div className="pt-16 flex flex-col gap-8">
+          <TextWithImage
+            title="📚 Organized Feedback"
+            mediaSrc="/images/projects/lumen/walkthrough/walkthrough4.png"
+            mediaAlt="Lumen Overview"
+          >
+            All feedback (both scraped and directly submitted) is sortable by
+            type, source, and recency—depending on what you’re looking for.
+          </TextWithImage>
+          <TextWithImage
+            title="💡 Insights"
+            mediaSrc="/images/projects/lumen/walkthrough/walkthrough5.png"
+            mediaAlt="Lumen Overview"
+            mediaPosition="left"
+          >
+            Similar thoughts are consolidated into insights to see an organized
+            view of what’s most important to users.
+          </TextWithImage>
+          <TextWithImage
+            mediaSrc="/images/projects/lumen/walkthrough/walkthrough6.png"
+            mediaAlt="Lumen Overview"
+          >
+            Clicking into each insight opens each piece of individual feedback
+            it’s composed of, with each linked to the original posting location.
+          </TextWithImage>
+          <CenteredImageWithCaption
+            imgSrc="/images/projects/lumen/walkthrough/walkthrough7.png"
+            imgAlt="Lumen Outcomes"
+            caption="Save feedback for later, or file it away by bookmarking & archiving!"
+          />
+        </div>
       </section>
       {/* Motion Section */}
       <section id="motion" data-section-title="Motion & Storytelling">
+        <h1 className="text-center font-mono text-xl text-gray-500 uppercase pt-24 mb-4">
+          Motion
+        </h1>
         <div className="flex flex-wrap justify-between space-y-8">
           <div className="flex flex-col gap-10 w-[38%]">
             <video
@@ -197,7 +245,7 @@ export default function LumenPage() {
       </section> */}
       {/* Learnings Section */}
       <section id="learnings" data-section-title="Learnings">
-        <div className="flex flex-col align-middle items-center">
+        <div className="flex flex-col align-middle items-center mb-8">
           <h1 className="w-full text-center mt-2 mb-8 font-mono text-xl text-gray-500 uppercase">
             LEARNINGS
           </h1>
@@ -209,26 +257,35 @@ export default function LumenPage() {
               usable, even before extensive UI/UX.
             </li>
             <li>
-              <strong>Motion amplifies narrative.</strong>
+              <strong>Clean, simple designs = happy developers.</strong>
               <br />
-              Animations in pitch decks and demos engage audiences and
-              communicate complex ideas clearly.
+              More isn’t always better! Oftentimes the simplest UI ends up being
+              the most modular and scalable.
             </li>
             <li>
-              <strong>Co-founder perspective is invaluable.</strong>
+              <strong>
+                Being a designer goes beyond just thinking about visuals.
+              </strong>
               <br />
-              Leading design and validation provided insight into how branding,
-              storytelling, and product intersect in early-stage startups.
+              My work on this project spanned so many roles and disciplines,
+              including copywriting and pitch development.
             </li>
             <li>
-              <strong>Qualitative validation matters.</strong>
+              <strong>Always stay receptive to change.</strong>
               <br />
-              Observing panel feedback, user reactions, and demo engagement
-              helped iterate messaging and presentation more than UI
-              refinements.
+              Putting so much time into your designs often means it’s hard to
+              let go of what’s not working. However, it’s only through an open
+              mind that can properly listen to and integrate user feedback you
+              receive that you can ultimately make the best product for
+              everyone.
             </li>
           </ul>
         </div>
+        <CenteredImageWithCaption
+          imgSrc="/images/projects/lumen/team.png"
+          imgAlt="Team"
+          caption="Special thanks to my lovely team—Jerry, Atty, and Naysa—for all the late-night grind sessions and your tireless work :)"
+        />
       </section>
     </CaseStudy>
   );
