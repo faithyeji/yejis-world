@@ -13,7 +13,7 @@ export default function TwoCentsClubPage() {
       description={[
         "Two Cents Club is a community platform that helps post-graduate adults discover local, personalized experiences to learn new skills and connect with others. As the founding designer, my role was to craft 2CC's brand identity and interactions to make the product whimsically fun.",
       ]}
-      role={["Co-Founder, Brand & Product Designer"]}
+      role={["Co-Founder", "Lead Brand & Product"]}
       timeline="Summer 2025 (June–August)"
       disciplines={[
         "Brand",
@@ -54,7 +54,7 @@ export default function TwoCentsClubPage() {
             width={2000}
             height={2000}
             quality={100}
-            className="w-fit h-[17.5rem] rounded-lg mb-8"
+            className="w-[45rem] h-fit rounded-lg mb-8"
             priority
           />
           <Image
@@ -63,7 +63,7 @@ export default function TwoCentsClubPage() {
             width={2000}
             height={2000}
             quality={100}
-            className="w-fit h-[17.5rem] rounded-lg mb-8"
+            className="w-[45rem] h-fit rounded-lg mb-8"
             priority
           />
           <Image
@@ -77,23 +77,33 @@ export default function TwoCentsClubPage() {
           />
         </div>
       </section>
-      <h1 className="w-full text-center mt-4 sm:mt-10 font-mono text-xl text-gray-500 uppercase">
-        THE SOLUTION:
-      </h1>
-      <Image
-        src="/images/projects/tcc/jointheclub.webp"
-        alt="Join The Club"
-        width={800}
-        height={300}
-        className="rounded-lg"
-      />
+      <div className="pb-8">
+        <h1 className="w-full text-center font-mono text-xl text-gray-500 uppercase">
+          THE SOLUTION:
+        </h1>
+        <CenteredImageWithCaption
+          imgSrc="/images/projects/tcc/jointheclub.webp"
+          imgAlt="Join the Club"
+          caption="A platform connecting community members to local classes and enabling
+        anyone to teach, blending playful digital tools with in-person
+        workshops that foster real connection."
+        ></CenteredImageWithCaption>
+      </div>
+
       <Callout>
         The questions that guided my design for creating a product that was both
         online and in-person: <br />
         <br />
-        How do we make this feel universal but not like a tech company? How do
-        we add whimsy and fun without undermining credibility? How do we
-        highlight individuality within a modular community structure?
+        <ul>
+          <li>
+            How do we make this feel universal but not like a tech company?
+          </li>
+          <li>How do we add whimsy and fun without undermining credibility?</li>
+          <li>
+            How do we highlight individuality within a modular community
+            structure?
+          </li>
+        </ul>
       </Callout>
       {/* Brand Philosophy */}
       <section id="brand" data-section-title="Brand Philosophy">
@@ -180,7 +190,7 @@ export default function TwoCentsClubPage() {
           title="OUTCOMES + PILOT WORKSHOPS/PRODUCT"
           imgSrc="/images/projects/tcc/outcomes.webp"
           imgAlt="Workshop outcomes and community stats"
-          caption="50+ active members within 3 months, with 71% retention. Month 2, 54% Month 3. So far, we've hosted a candle-making workshop, 8 weeks of a writing workshop, and a 4-week Philosophy of Physics course!"
+          caption="50+ active members within 3 months, with 71% retention. So far, we've hosted a candle-making workshop, 8 weeks of a writing workshop, and a 4-week Philosophy of Physics course!"
         />
         <div className="flex flex-wrap gap-6 mt-20 justify-center">
           <video

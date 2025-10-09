@@ -26,8 +26,8 @@ export default function LumenPage() {
         >
           During my work on client-facing apps like The StoryGraph, I faced a
           common struggle: user feedback is <strong>everywhere</strong>. Social
-          media, app store reviews, emails—it all can be a <em>mess</em> to sift
-          through. <br />
+          media, app store reviews, emails — it all can be a <em>mess</em> to
+          sift through. <br />
           <br />
           Even just 2 StoryGraph Instagram posts contained 300+ comments with
           insightful feedback! This wasn't just my problem — my team had faced
@@ -64,7 +64,7 @@ export default function LumenPage() {
           imgSrc="/images/projects/lumen/moodboard.webp"
           imgAlt="Moodboard"
           caption="In my early concepts, I explored ways to surface key insights quickly while keeping the
-          interface simple and visually engaging — branding quickly surfaced as a core aspect of what could differentiate our platform in making feedback consolidation more fun."
+          interface simple and visually engaging. Branding quickly surfaced as a core aspect of what could differentiate our platform in making feedback consolidation more fun."
         />
       </section>
       {/* Solution Section */}
@@ -101,6 +101,11 @@ export default function LumenPage() {
         <h1 className="text-center font-mono text-xl text-gray-500 uppercase pt-24">
           Walkthrough
         </h1>
+        <CenteredImageWithCaption
+          imgSrc="/images/projects/lumen/moodboard.webp"
+          imgAlt="Moodboard"
+          caption="Lumen automatically scrapes the web and social media platforms like Instagram and X for relevant user feedback."
+        ></CenteredImageWithCaption>
         {/* <TextWithImage
           mediaSrc="/images/projects/lumen/comments.webp"
           mediaAlt="Lumen Overview"
@@ -159,8 +164,7 @@ export default function LumenPage() {
         <div className="mt-10">
           <Callout rounded="full">
             Motion and animated storytelling were key to Lumen’s identity,
-            bringing the platform and pitch decks to life while communicating
-            functionality and problem-solving visually.
+            bringing the platform and pitch decks to life!
           </Callout>
         </div>
       </section>
