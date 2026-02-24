@@ -40,6 +40,8 @@ export default {
       animation: {
         slidein: "slidein 1s ease var(--slidein-delay, 0) forwards",
         fadein: "fadein 1s ease",
+        "slidein-paused": "none",
+        "fadein-paused": "none",
       },
     },
   },

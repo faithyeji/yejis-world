@@ -44,12 +44,12 @@ const Navbar = () => {
             [WORK]
           </Link>
           <Link
-            href="/pages/bucket"
+            href="/pages/playground"
             className={`inline-flex px-1 pt-1 transition-colors duration-200 relative z-[100] ${isActive(
-              "/pages/bucket"
+              "/pages/playground"
             )}`}
           >
-            [BUCKET]
+            [PLAYGROUND]
           </Link>
           <Link
             href="/pages/about"

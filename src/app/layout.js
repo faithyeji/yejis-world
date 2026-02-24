@@ -8,6 +8,8 @@ import "./globals.css";
 import Navbar from "./components/Navbar";
 import { AudioProvider } from "./components/AudioContext";
 import AudioPlayer from "./components/AudioPlayer";
+import LoadingOverlay from "./components/LoadingOverlay";
+import { LoadingProvider } from "./components/LoadingContext";
 
 const newsreader = Newsreader({
   subsets: ["latin"],
@@ -46,13 +48,16 @@ export default function RootLayout({ children }) {
       <body
         className={`${elza.variable} ${newsreader.variable} ${dmMono.variable} ${franklin.variable} antialiased`}
       >
-        <AudioProvider>
-          <AudioPlayer /> {/* global audio */}
-          <Navbar />
-          {children}
-          <Analytics />
-          <SpeedInsights />
-        </AudioProvider>
+        <LoadingProvider>
+          <LoadingOverlay />
+          <AudioProvider>
+            <AudioPlayer /> {/* global audio */}
+            <Navbar />
+            {children}
+            <Analytics />
+            <SpeedInsights />
+          </AudioProvider>
+        </LoadingProvider>
       </body>
     </html>
   );

@@ -8,6 +8,7 @@ import Project from "./components/Project";
 import { useEffect, useRef } from "react";
 import DraggableSticker from "./components/DraggableSticker";
 import AudioPlayer from "./components/AudioPlayer";
+import { useLoading } from "./components/LoadingContext";
 
 export default function Home() {
   const photos = [
@@ -161,13 +162,20 @@ export default function Home() {
         </div>
         <div id="projects" className="rounded-lg mt-0 md:mt-12">
           <div className="flex flex-wrap mb-16 mt-7 md:mx-4 justify-center items-center text-center gap-2 sm:gap-5 w-fit text-neutral-600 opacity-0 animate-slidein [--slidein-delay:500ms]">
-            <Project
-              title="Deeplocal"
-              type="ART DIRECTION, MOTION, UI/UX, GRAPHIC"
-              videoSrc="/images/projects/DL.webm"
-              link="/pages/projects/deeplocal"
-              description="Concepting/designing fun creative tech projects for Google, Microsoft, & Netflix experiential activations."
+            {/* <Project
+              title="Wabi"
+              type="GRAPHIC, BRAND"
+              imageSrc="/images/projects/wabi.webp"
+              link="/pages/projects/wabi"
+              description="Add a short description for Wabi."
             />
+            <Project
+              title="Fragile"
+              type="GRAPHIC, BRAND"
+              imageSrc="/images/projects/fragile.webp"
+              link="/pages/projects/fragile"
+              description="Add a short description for Fragile."
+            /> */}
             <Project
               title="The StoryGraph"
               type="PRODUCT, UI/UX, BRAND"
@@ -182,7 +190,13 @@ export default function Home() {
               link="/pages/projects/lumen"
               description="Built a feedback tool in an 8-week startup incubator — designing animated pitch decks & interactive prototypes."
             />
-
+                        <Project
+              title='"Fathead" White Paper'
+              type="GRAPHIC, BRAND"
+              imageSrc="/images/projects/fathead2.webp"
+              link="/pages/projects/fathead"
+              description="Created branding guidelines & 186 pages of graphic design for a Cannes award-winning film's publication."
+            />
             <Project
               title="Two Cents Club"
               type="BRAND, PRODUCT, GRAPHIC"
@@ -191,12 +205,13 @@ export default function Home() {
               description="Founding designer & creative director for a community platform for post-grad learning."
             />
             <Project
-              title='"Fathead" White Paper'
-              type="GRAPHIC, BRAND"
-              imageSrc="/images/projects/fathead2.webp"
-              link="/pages/projects/fathead"
-              description="Created branding guidelines & 186 pages of graphic design for a Cannes award-winning film's publication."
+              title="Deeplocal"
+              type="ART DIRECTION, MOTION, UI/UX, GRAPHIC"
+              videoSrc="/images/projects/DL.webm"
+              link="/pages/projects/deeplocal"
+              description="Concepting/designing fun creative tech projects for Google, Microsoft, & Netflix experiential activations."
             />
+
             {/* <Project
               title="SeeSaw Murals"
               type="ART DIRECTION, BRAND"
