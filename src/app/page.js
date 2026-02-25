@@ -183,14 +183,7 @@ export default function Home() {
               link="/pages/projects/storygraph"
               description="The sole product designer revamping a book-sharing platform with 4 million users."
             />
-            <Project
-              title="Lumen"
-              type="PRODUCT, MOTION, BRAND STORYTELLING"
-              videoSrc="/images/projects/lumen.webm"
-              link="/pages/projects/lumen"
-              description="Built a feedback tool in an 8-week startup incubator — designing animated pitch decks & interactive prototypes."
-            />
-                        <Project
+             <Project
               title='"Fathead" White Paper'
               type="GRAPHIC, BRAND"
               imageSrc="/images/projects/fathead2.webp"
@@ -198,9 +191,16 @@ export default function Home() {
               description="Created branding guidelines & 186 pages of graphic design for a Cannes award-winning film's publication."
             />
             <Project
+              title="Lumen"
+              type="PRODUCT, MOTION, BRAND STORYTELLING"
+              videoSrc="/images/projects/lumen.webm"
+              link="/pages/projects/lumen"
+              description="Built a feedback tool in an 8-week startup incubator — designing animated pitch decks & interactive prototypes."
+            />
+            <Project
               title="Two Cents Club"
               type="BRAND, PRODUCT, GRAPHIC"
-              imageSrc="/images/projects/tcc.webp"
+              imageSrc="/images/projects/twocents.webp"
               link="/pages/projects/twocentsclub"
               description="Founding designer & creative director for a community platform for post-grad learning."
             />
