@@ -217,7 +217,7 @@ export default function Playground() {
                     className="h-[670px] w-auto object-contain rounded"
                   />
                 ) : (
-                  <PlaygroundVideo src={selectedItem.src} className="w-full" />
+                  <PlaygroundVideo src={selectedItem.src} className="max-h-[670px] max-w-[90vw] w-auto object-contain rounded" />
                 )}
               </motion.div>
             </motion.div>
