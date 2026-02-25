@@ -128,6 +128,7 @@ export const playgroundItems = [
     src: "/images/playground/graphics/seesawreel.webm",
     alt: "SeeSaw Murals Promo",
     tool: "After Effects, Photoshop",
+    link: "https://www.instagram.com/seesawla/",
     category: "motion",
   },
   {
@@ -327,6 +328,7 @@ export const playgroundItems = [
     description: "A dance-music-art experimental project - in collaboration with Eileen Mou :)",
     tool: "After Effects, Photoshop, Illustrator, Figma",
     category: "motion",
+    link: "https://www.instagram.com/lfo.labs/",
   },
   {
     type: "image",
@@ -334,6 +336,7 @@ export const playgroundItems = [
     alt: "Wabi World",
     tool: "Figma, Photoshop",
     category: "graphics",
+    link: "https://www.instagram.com/gotwabi/",
   },
   {
     type: "image",
