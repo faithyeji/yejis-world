@@ -6,16 +6,12 @@ export default function WabiPage() {
       headerImage="/images/projects/wabi.webp"
       headerImageAlt="Wabi project header"
       title="WABI"
-      description={[
-        "Add your project description here.",
-      ]}
-      role={["Role TBD"]}
-      timeline="TBD"
-      disciplines={["Graphic Design", "Brand"]}
+      description={[""]}
+      role={["Contract Brand Designer"]}
+      // timeline="TBD"
+      disciplines={["Graphic Design", "Brand", "Copywriting", ""]}
     >
-      <div className="space-y-6">
-        {/* Add project images to public/images/projects/wabi/ and use <Image> here */}
-      </div>
+      <div className="space-y-6 font-sans">loading... coming soon :p</div>
     </ProjectPage>
   );
 }

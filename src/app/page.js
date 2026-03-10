@@ -162,14 +162,21 @@ export default function Home() {
         </div>
         <div id="projects" className="rounded-lg mt-0 md:mt-12">
           <div className="flex flex-wrap mb-16 mt-7 md:mx-4 justify-center items-center text-center gap-2 sm:gap-5 w-fit text-neutral-600 opacity-0 animate-slidein [--slidein-delay:500ms]">
-            {/* <Project
+            <Project
               title="Wabi"
-              type="GRAPHIC, BRAND"
+              type="ART DIRECTION, BRAND, GROWTH"
+              imageSrc="/images/projects/wabi2.webp"
+              link="/pages/projects/wabi"
+              description="Running brand and art direction for Wabi's social media and experiential activations!"
+            />
+            {/* <Project
+              title="LFO Labs"
+              type="GRAPHIC, BRAND, MOTION"
               imageSrc="/images/projects/wabi.webp"
               link="/pages/projects/wabi"
               description="Add a short description for Wabi."
-            />
-            <Project
+            /> */}
+            {/* <Project
               title="Fragile"
               type="GRAPHIC, BRAND"
               imageSrc="/images/projects/fragile.webp"
@@ -183,7 +190,7 @@ export default function Home() {
               link="/pages/projects/storygraph"
               description="The sole product designer revamping a book-sharing platform with 4 million users."
             />
-             <Project
+            <Project
               title='"Fathead" White Paper'
               type="GRAPHIC, BRAND"
               imageSrc="/images/projects/fathead2.webp"
