@@ -12,11 +12,11 @@ export default function About() {
             className="absolute -rotate-6 left-10 top-10 group-hover:opacity-100 group-hover:-translate-y-20 transition ease-out"
           />
           <Image
-            src="/images/yejipolaroid.webp"
-            width={300}
-            height={500}
-            alt="Yeji Polaroid"
-            className="-rotate-3 hover:scale-[1.02] hover:rotate-2 transition ease object-contain"
+            src="/images/receiptme.webp"
+            width={150}
+            height={300}
+            alt="Yeji Receipt"
+            className="-rotate-3 hover:scale-[1.02] hover:rotate-2 transition ease object-contain drop-shadow-md"
           />
         </div>
 
