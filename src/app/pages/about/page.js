@@ -66,13 +66,13 @@ export default function About() {
                 Iovine and Young Academy
               </a>
               .<br />
-              Also building fun things @{" "}
+              Also designing fun things @{" "}
               <a
                 href="https://www.deeplocal.com/"
                 target="_blank"
                 className="underline"
               >
-                Deeplocal
+                Wabi
               </a>
               .
             </p>
