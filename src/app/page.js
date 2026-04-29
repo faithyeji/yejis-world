@@ -208,7 +208,7 @@ export default function Home() {
               title="Two Cents Club"
               type="BRAND, PRODUCT, GRAPHIC"
               imageSrc="/images/projects/twocents.webp"
-              link="/pages/projects/twocentsclub"
+              link="https://www.instagram.com/thetwocentsclub/"
               description="Founding designer & creative director for a community platform for post-grad learning."
             />
             <Project
