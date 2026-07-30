@@ -66,15 +66,7 @@ export default function About() {
                 Iovine and Young Academy
               </a>
               .<br />
-              Also designing fun things @{" "}
-              <a
-                href="https://www.deeplocal.com/"
-                target="_blank"
-                className="underline"
-              >
-                Wabi
-              </a>
-              .
+              Also leading art and brand direction @ Whim / Hardware Nation. .
             </p>
             <p className="animate-slidein opacity-0 [--slidein-delay:700ms]">
               <span className="font-mono text-md text-blue-500">
