@@ -1,109 +1,34 @@
-import Image from "next/image";
+import PaintedStreet from "../../components/paintedStreet/PaintedStreet";
+
 export default function About() {
   return (
     <main className="overflow-hidden">
-      <div className="flex flex-col sm:flex-row mt-2 sm:mt-20 justify-center items-center sm:items-start text-center gap-8 sm:gap-12 text-neutral-600">
-        <div className="relative group h-fit mt-8 opacity-0 animate-slidein [--slidein-delay:200ms]">
-          <Image
-            src="/images/elmo.webp"
-            width={100}
-            height={300}
-            alt="Elmo"
-            className="absolute -rotate-6 left-10 top-10 group-hover:opacity-100 group-hover:-translate-y-20 transition ease-out"
-          />
-          <Image
-            src="/images/receiptme.webp"
-            width={150}
-            height={300}
-            alt="Yeji Receipt"
-            className="-rotate-3 hover:scale-[1.02] hover:rotate-2 transition ease object-contain drop-shadow-md"
-          />
+      <div className="relative z-20 px-8 lg:px-12 pt-6 sm:pt-12 flex justify-center pointer-events-none">
+        <div className="pointer-events-auto flex flex-col gap-4 w-full max-w-[52rem] font-serif text-neutral-600 text-base sm:text-lg leading-[1.3] text-center">
+          <p className="animate-slidein opacity-0 [--slidein-delay:200ms]">
+            Yeji Seo is a designer passionate in creating and learning in
+            intersections. Whether that means painting a wall or coding an app
+            from scratch myself, she&apos;s guided by a desire to make any
+            experience she touches feel human and fun.
+          </p>
+          <p className="animate-slidein opacity-0 [--slidein-delay:350ms]">
+            Outside of work, you can find her:{" "}
+            <a href="https://www.instagram.com/seoyemilk/" target="_blank" className="underline">
+              sketching
+            </a>
+            , DJing, or saying hello to the pigeons.{" "}
+            <a href="mailto:faithyejiseo@gmail.com" target="_blank" className="underline">
+              Email
+            </a>
+          </p>
+          <p className="text-[10px] font-mono text-gray-400 animate-slidein opacity-0 [--slidein-delay:500ms]">
+            A blank wall, come back soon to see how it fills :)
+          </p>
         </div>
-
-        <div className="flex flex-col font-serif gap-4 mb-20 sm:mt-6 w-8/12 sm:w-1/3 text-center sm:text-left">
-          <h1 className="font-serif text-2xl leading-tight animate-slidein opacity-0 [--slidein-delay:200ms]">
-            {" "}
-            Hi, welcome to my world!
-          </h1>
-          <div className="flex flex-col gap-6 text-base sm:text-lg leading-[1.3]">
-            <p className="animate-slidein opacity-0 [--slidein-delay:400ms]">
-              At heart, I'm a designer passionate in creating and learning.
-              Whether that means painting a wall or coding an app from scratch
-              myself, I'm guided by a desire to make any experience I touch feel
-              human and fun!
-            </p>
-            <p className="animate-slidein opacity-0 [--slidein-delay:500ms]">
-              Outside of work though, you can find me:{" "}
-              <a
-                href="https://www.instagram.com/seoyemilk/"
-                target="_blank"
-                className="underline"
-              >
-                sketching
-              </a>
-              , starting another book, Letterboxd logging the latest film I
-              watched, trying to DJ, or drinking soymilk. Reach me by email{" "}
-              <a
-                href="mailto:faithyejiseo@gmail.com"
-                target="_blank"
-                className="underline"
-              >
-                here!
-              </a>
-            </p>
-            <p className="animate-slidein opacity-0 [--slidein-delay:600ms]">
-              <span className="font-serif text-lg text-blue-500">
-                Current adventure:
-              </span>
-              <br />
-              Leading art and brand direction @ Whim / Hardware Nation.
-            </p>
-            <p className="animate-slidein opacity-0 [--slidein-delay:700ms]">
-              <span className="font-serif text-lg text-blue-500">
-                My philosophies:
-              </span>
-              <br />
-              <span className="font-mono text-xs mr-1 text-neutral-500">
-                [01]
-              </span>{" "}
-              never losing childish wonder—always learning!
-              <br />
-              <span className="font-mono text-xs mr-1 text-neutral-500">
-                [02]
-              </span>{" "}
-              working and studying in intersections.
-              <br />
-              <span className="font-mono text-xs mr-1 text-neutral-500">
-                [03]
-              </span>{" "}
-              trying to leave things better than I found them.
-            </p>
-          </div>
-        </div>
+      </div>
+      <div className="relative z-0 -mt-4 sm:-mt-8">
+        <PaintedStreet />
       </div>
     </main>
   );
 }
-
-// {/* Logos */}
-// <div className="ml-auto space-x-4 hidden sm:flex">
-//   <a href="https://www.linkedin.com/in/faithyejiseo/" target="_blank">
-//     <Image
-//       src="/logos/linkedin.svg"
-//       alt="LinkedIn"
-//       width={20}
-//       height={20}
-//     />
-//   </a>
-//   <a href="https://www.instagram.com/seoyemilk/" target="_blank">
-//     <Image
-//       src="/logos/insta.svg"
-//       alt="Insta"
-//       width={20}
-//       height={20}
-//     />
-//   </a>
-//   <a href="https://x.com/seoyemilk" target="_blank">
-//     <Image src="/logos/xlogo.svg" alt="X" width={20} height={20} />
-//   </a>
-// </div>

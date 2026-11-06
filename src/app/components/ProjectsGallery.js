@@ -8,9 +8,9 @@ import { createPortal } from "react-dom";
 export const projects = [
   {
     title: "Hardware Nation",
-    tags: ["Brand", "Editorial", "Motion"],
+    tags: ["Brand", "Social"],
     description:
-      "Visual identity for an editorial publication and dinner series celebrating the physical world.",
+      "Created the full visual world for an editorial publication and media outlet bringing together leading hardware founders.",
     media: [
       "/images/projects/hwn/poster.webp",
       "/images/projects/hwn/teaser.mp4",
@@ -18,17 +18,17 @@ export const projects = [
       "/images/projects/hwn/dinner-poster.webp",
       "/images/projects/hwn/ces-dinner.webp",
       "/images/projects/hwn/dinner-film.mp4",
-      "/images/projects/hwn/tdih.webp",
+      "/images/projects/hwn/site.mp4",
       "/images/projects/hwn/wellness.mp4",
       "/images/projects/hwn/brighter.mp4",
       "/images/projects/hwn/under250.webp",
       "/images/projects/hwn/hyperice.mp4",
-      "/images/projects/hwn/site.mp4",
+      "/images/projects/hwn/tdih.webp",
     ],
   },
   {
     title: "LFO Labs",
-    tags: ["Visual", "Motion", "Events"],
+    tags: ["Visual", "Motion", "Experiential"],
     description:
       "An experimental studio merging dance, design, and DJ performance, made with Eileen Mou.",
     link: "https://www.instagram.com/lfo.labs/",
@@ -51,7 +51,7 @@ export const projects = [
   },
   {
     title: "Wabi",
-    tags: ["Art Direction", "Brand", "Social"],
+    tags: ["Brand", "Social", "Experiential"],
     description:
       "Led art direction, copy, and design for Wabi's social and experiential campaigns.",
     link: "https://www.instagram.com/wabimaxxing/",
@@ -78,8 +78,42 @@ export const projects = [
     ],
   },
   {
+    title: "Whim",
+    tags: ["Brand", "Web"],
+    description:
+      "Site design and brand direction for a Series B company powering hardware rentals for leading brands like Tonal, Insta360, and KEH.",
+    link: "https://www.whim.com",
+    linkLabel: "Site ↗",
+    media: [
+      "/images/projects/whim/logo-v2.mp4",
+      "/images/projects/whim/home-hero.webp",
+      "/images/projects/whim/site-design.webp",
+      "/images/projects/whim/try-it.webp",
+      "/images/projects/whim/try-on-whim.webp",
+    ],
+  },
+  {
+    title: "Deeplocal",
+    tags: ["Experiential", "Motion", "UI/UX"],
+    description: [
+      "Designed creative tech for Google, Netflix, and Microsoft brand activations.",
+      "(NDA)",
+    ],
+    media: [
+      // "/images/projects/DL.webm", (skull animation, hidden)
+      "/images/projects/deeplocal/pixelroom-render.mp4",
+      "/images/projects/deeplocal/pixelroom-sketches.webp",
+      "/images/projects/deeplocal/pixelroom-print.webp",
+      // "/images/projects/deeplocal.webp",
+      "/images/projects/netflix.webp",
+      "/images/projects/ec1.webp",
+      // "/images/projects/cloud.webp",
+      // "/images/projects/pixelroom.webp",
+      // "/images/projects/pixelroomUI.webp",
+    ],
+  },
+  {
     title: "Scrap Studio",
-    tags: ["Freelance", "Web", "Music Tech"],
     description:
       "Personal freelance and music tech work.",
     media: [
@@ -93,7 +127,9 @@ export const projects = [
     title: "The StoryGraph",
     tags: ["Product", "UI/UX"],
     description:
-      "Revamped a reading platform for 4 million users as its sole product designer.",
+      "Revamped a reading platform for 4 million users as its sole product designer. Winner of a 2025 App Store Award.",
+    link: "https://www.apple.com/lu/newsroom/2025/12/apple-unveils-the-winners-of-the-2025-app-store-awards/",
+    linkLabel: "App Store Award ↗",
     media: [
       "/images/projects/storygraph/revampfull.webp",
       "/images/projects/storygraph/concept.webm",
@@ -109,7 +145,7 @@ export const projects = [
     title: '"Fathead" White Paper',
     tags: ["Graphic", "Editorial"],
     description:
-      "Designed brand guidelines and 186 pages for a Cannes award-winning film.",
+      "Designed the full book and visual identity for a Cannes award-winning film.",
     media: [
       "/images/projects/fatheadkid.webp",
       "/images/projects/fathead/magazines.webp",
@@ -132,26 +168,6 @@ export const projects = [
       "/images/projects/lumen/highlight.webm",
       "/images/projects/lumen/spotlight.webm",
       "/images/projects/lumen/miss.webm",
-    ],
-  },
-  {
-    title: "Deeplocal",
-    tags: ["Experiential", "Motion", "UI/UX"],
-    description: [
-      "Designed creative tech for Google, Netflix, and Microsoft brand activations.",
-      "(NDA)",
-    ],
-    media: [
-      // "/images/projects/DL.webm", (skull animation, hidden)
-      "/images/projects/deeplocal/pixelroom-render.mp4",
-      "/images/projects/deeplocal/pixelroom-sketches.webp",
-      "/images/projects/deeplocal/pixelroom-print.webp",
-      // "/images/projects/deeplocal.webp",
-      "/images/projects/netflix.webp",
-      "/images/projects/ec1.webp",
-      "/images/projects/cloud.webp",
-      "/images/projects/pixelroom.webp",
-      "/images/projects/pixelroomUI.webp",
     ],
   },
 ];
