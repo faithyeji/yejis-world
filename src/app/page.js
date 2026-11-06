@@ -157,7 +157,7 @@ export default function Home() {
         </video>
         <p className="w-72 sm:w-80 md:w-[400px] font-serif text-lg md:text-[1.35rem] leading-[1.3] mt-[138px] md:mt-[160px] animate-slidein opacity-0 [--slidein-delay:300ms]">
           is a multidisciplinary brand designer based in NYC. She
-          specializes in brand/art direction, product, & interactive
+          specializes in art direction &amp; interactive, human-centered
           storytelling.
         </p>
         <div className="text-[10px] mt-2 z-20 text-center font-mono text-gray-400 animate-slidein opacity-0 [--slidein-delay:700ms]">
@@ -178,10 +178,13 @@ export default function Home() {
       </div>
       <div
         id="projects"
-        className="mb-[200px] w-full opacity-0 animate-slidein [--slidein-delay:500ms]"
+        className="mb-16 md:mb-20 w-full opacity-0 animate-slidein [--slidein-delay:500ms]"
       >
         <ProjectsGallery />
       </div>
+      <footer className="pb-10 text-center font-mono text-[10px] text-neutral-400">
+        Made with love
+      </footer>
     </main>
   );
 }

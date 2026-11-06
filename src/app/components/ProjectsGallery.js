@@ -23,6 +23,7 @@ export const projects = [
       "/images/projects/hwn/brighter.mp4",
       "/images/projects/hwn/under250.webp",
       "/images/projects/hwn/hyperice.mp4",
+      "/images/projects/hwn/site.mp4",
     ],
   },
   {
@@ -136,8 +137,10 @@ export const projects = [
   {
     title: "Deeplocal",
     tags: ["Experiential", "Motion", "UI/UX"],
-    description:
+    description: [
       "Designed creative tech for Google, Netflix, and Microsoft brand activations.",
+      "(NDA)",
+    ],
     media: [
       // "/images/projects/DL.webm", (skull animation, hidden)
       "/images/projects/deeplocal/pixelroom-render.mp4",
