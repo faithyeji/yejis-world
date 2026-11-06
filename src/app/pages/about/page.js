@@ -7,8 +7,8 @@ export default function About() {
         <div className="pointer-events-auto flex flex-col gap-4 w-full max-w-[52rem] font-serif text-neutral-600 text-base sm:text-lg leading-[1.3] text-center">
           <p className="animate-slidein opacity-0 [--slidein-delay:200ms]">
             Yeji Seo is a designer passionate in creating and learning in
-            intersections. Whether that means painting a wall or coding an app
-            from scratch myself, she&apos;s guided by a desire to make any
+            intersections. Whether that means painting a wall or coding an app,
+            she&apos;s guided by a desire to make any
             experience she touches feel human and fun.
           </p>
           <p className="animate-slidein opacity-0 [--slidein-delay:350ms]">
@@ -16,13 +16,11 @@ export default function About() {
             <a href="https://www.instagram.com/seoyemilk/" target="_blank" className="underline">
               sketching
             </a>
-            , DJing, or saying hello to the pigeons.{" "}
+            , DJing, or saying hello to the pigeons. Email her{" "}
             <a href="mailto:faithyejiseo@gmail.com" target="_blank" className="underline">
-              Email
+              here
             </a>
-          </p>
-          <p className="text-[10px] font-mono text-gray-400 animate-slidein opacity-0 [--slidein-delay:500ms]">
-            A blank wall, come back soon to see how it fills :)
+            !
           </p>
         </div>
       </div>
