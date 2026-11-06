@@ -61,14 +61,30 @@ export default function Home() {
     };
   }, []);
 
-  // Play video on mount (muted for mobile autoplay)
+  // Play video on mount. iOS only autoplays when the `muted`/`playsinline`
+  // *attributes* are present (React sets muted as a property only), and Low
+  // Power Mode blocks autoplay entirely — so also start it on the first touch.
   useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.muted = true;
-      videoRef.current.play().catch(() => {
-        console.log("Video autoplay blocked; will play on interaction");
-      });
-    }
+    const v = videoRef.current;
+    if (!v) return;
+    v.muted = true;
+    v.defaultMuted = true;
+    v.setAttribute("muted", "");
+    v.setAttribute("playsinline", "");
+    v.setAttribute("webkit-playsinline", "");
+    const tryPlay = () => v.paused && v.play().catch(() => {});
+    tryPlay();
+    const onFirstTouch = () => {
+      tryPlay();
+      window.removeEventListener("touchstart", onFirstTouch);
+      window.removeEventListener("pointerdown", onFirstTouch);
+    };
+    window.addEventListener("touchstart", onFirstTouch, { passive: true });
+    window.addEventListener("pointerdown", onFirstTouch);
+    return () => {
+      window.removeEventListener("touchstart", onFirstTouch);
+      window.removeEventListener("pointerdown", onFirstTouch);
+    };
   }, []);
 
   // keep the name video looping regardless of music state; retry once the
@@ -122,6 +138,9 @@ export default function Home() {
           playsInline
           autoPlay
           preload="auto"
+          controls={false}
+          disablePictureInPicture
+          disableRemotePlayback
           // skip the ~1.4s still hold at the start of the file, on first play and every loop
           onLoadedMetadata={(e) => {
             if (e.currentTarget.currentTime < NAME_VIDEO_START)
@@ -131,7 +150,7 @@ export default function Home() {
             e.currentTarget.currentTime = NAME_VIDEO_START;
             e.currentTarget.play().catch(() => {});
           }}
-          className="absolute top-0 w-[260px] md:w-[300px] h-auto mix-blend-multiply animate-slidein opacity-0 [--slidein-delay:100ms]"
+          className="name-video absolute top-0 w-[260px] md:w-[300px] h-auto mix-blend-multiply pointer-events-none animate-slidein opacity-0 [--slidein-delay:100ms]"
         >
           <source src="/YejiNames2-hevc-safari.mp4" />{" "}
           <source src="/YejiNames2-vp9-chrome.webm" />{" "}

@@ -143,3 +143,11 @@ body.content-loaded nav {
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
+
+/* never show iOS's big play button over the name video */
+.name-video::-webkit-media-controls,
+.name-video::-webkit-media-controls-start-playback-button,
+.name-video::-webkit-media-controls-overlay-play-button {
+  display: none !important;
+  -webkit-appearance: none;
+}

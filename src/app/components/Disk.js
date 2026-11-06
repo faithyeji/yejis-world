@@ -41,10 +41,20 @@ function CD({ entered = true }) {
         animate={
           !entered
             ? { rotate: 0, y: -60, opacity: 0 }
+            : playing
+            ? {
+                // nudge down, then spin slowly while the song plays
+                rotate: 360,
+                y: 14,
+                opacity: 1,
+                transition: {
+                  rotate: { ease: "linear", duration: 20, repeat: Infinity },
+                  y: { type: "spring", stiffness: 260, damping: 22 },
+                },
+              }
             : {
-                // no continuous spin: a small turn + nudge down while playing
-                rotate: playing ? 24 : 0,
-                y: playing ? 14 : 0,
+                rotate: 0,
+                y: 0,
                 opacity: 1,
                 transition: introDone
                   ? { type: "spring", stiffness: 260, damping: 22 }
