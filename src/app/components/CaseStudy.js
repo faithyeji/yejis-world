@@ -55,7 +55,7 @@ const CaseStudy = ({
           <div className="mb-6">
             <Link
               href="/#projects"
-              className="text-gray-600 hover:text-blue-600 font-mono text-sm uppercase"
+              className="text-gray-600 hover:text-blue-600 font-mono text-sm"
             >
               ← Back
             </Link>
@@ -68,7 +68,7 @@ const CaseStudy = ({
               <li key={sec.id}>
                 <a
                   href={`#${sec.id}`}
-                  className={`font-mono uppercase text-sm transition-all duration-300 inline-block ${
+                  className={`font-mono text-sm transition-all duration-300 inline-block ${
                     activeId === sec.id
                       ? "text-blue-600 translate-x-2"
                       : "text-gray-700"
@@ -114,7 +114,7 @@ const CaseStudy = ({
             <div className="flex flex-wrap justify-center gap-8 lg:gap-20 text-sm pt-4 mt-8">
               {role && role.length > 0 && (
                 <div>
-                  <div className="font-mono text-lg text-blue-600 uppercase mb-1">
+                  <div className="font-mono text-lg text-blue-600 mb-1">
                     Role
                   </div>
                   <div className="text-gray-900 font-sans flex flex-col">
@@ -126,7 +126,7 @@ const CaseStudy = ({
               )}
               {timeline && (
                 <div>
-                  <div className="font-mono text-lg text-blue-600  uppercase mb-1">
+                  <div className="font-mono text-lg text-blue-600 mb-1">
                     Timeline
                   </div>
                   <div className="text-gray-900 font-sans">{timeline}</div>
@@ -134,7 +134,7 @@ const CaseStudy = ({
               )}
               {disciplines.length > 0 && (
                 <div>
-                  <div className="font-mono text-lg text-blue-600 uppercase mb-1">
+                  <div className="font-mono text-lg text-blue-600 mb-1">
                     Skills
                   </div>
                   <div className="flex flex-col font-sans text-gray-900 text-sm">

@@ -2,6 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Bookish Off-White — used as font-serif */
+@font-face {
+  font-family: "Bookish Off-White";
+  src: url("/fonts/Bookish-OffWhite.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -14,6 +23,9 @@
   }
 }
 
+/* Page grid: faint 10px grid + crosshairs every 200px.
+   Vertical crosshairs sit at 50% + n*200px, horizontal at n*200px from the top.
+   ProjectsGallery snaps its rows/edges to these (see GRID in that file). */
 body {
   background: linear-gradient(-90deg, rgba(0, 0, 0, 0.02) 1px, transparent 1px),
     linear-gradient(rgba(0, 0, 0, 0.02) 1px, transparent 1px),
@@ -36,9 +48,44 @@ body {
     linear-gradient(rgba(170, 170, 170, 0.3) 1px, transparent 1px), #f8f8f8;
   background-size: 10px 10px, 10px 10px, 200px 200px, 200px 200px, 200px 200px,
     200px 200px, 200px 200px, 200px 200px;
-  background-position: calc(50% + 5px) 0, calc(50% + 5px) 0, calc(50% + 100px) 0,
-    calc(50% + 100px) 0, calc(50% + 100px) 0, calc(50% + 100px) 0,
-    calc(50% + 100px) 0, calc(50% + 100px) 0;
+  background-position: calc(50% + 5px) var(--grid-y, 0px),
+    calc(50% + 5px) var(--grid-y, 0px), calc(50% + 100px) var(--grid-y, 0px),
+    calc(50% + 100px) var(--grid-y, 0px), calc(50% + 100px) var(--grid-y, 0px),
+    calc(50% + 100px) var(--grid-y, 0px), calc(50% + 100px) var(--grid-y, 0px),
+    calc(50% + 100px) var(--grid-y, 0px);
+}
+
+/* HvD Fabrikat Mono (trial) — used as font-mono */
+@font-face {
+  font-family: "Fabrikat Mono";
+  src: url("/fonts/FabrikatMono-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Fabrikat Mono";
+  src: url("/fonts/FabrikatMono-Italic.woff2") format("woff2");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+.font-mono {
+  letter-spacing: -0.05em;
+  text-transform: uppercase;
+}
+
+/* Tailwind resets text-transform on buttons/inputs — let them inherit the caps */
+.font-mono button,
+.font-mono input,
+.font-mono select {
+  text-transform: inherit;
+}
+
+/* Bookish Off-White tracking */
+.font-serif {
+  letter-spacing: -0.05em;
 }
 
 img {
@@ -88,4 +135,11 @@ body.content-loaded .animate-fadein {
 body.content-loaded nav {
   opacity: 1;
   transition: opacity 0.5s ease;
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
 }

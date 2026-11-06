@@ -1,32 +1,48 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
-export default function PlaygroundVideo({ src, className = "" }) {
-  const [canAutoPlay, setCanAutoPlay] = useState(false);
+// Lazy video: only loads once near the viewport, plays while visible.
+export default function PlaygroundVideo({
+  src,
+  className = "",
+  width,
+  height,
+  eager = false,
+  onReady,
+}) {
+  const ref = useRef(null);
+  const [near, setNear] = useState(eager);
 
   useEffect(() => {
-    const isDesktop = window.matchMedia("(min-width: 768px)").matches;
-    setCanAutoPlay(isDesktop);
+    const el = ref.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setNear(true);
+          el.play?.().catch(() => {});
+        } else {
+          el.pause?.();
+        }
+      },
+      { rootMargin: "300px 0px" }
+    );
+    io.observe(el);
+    return () => io.disconnect();
   }, []);
-
-  useEffect(() => {
-    if (canAutoPlay) {
-      document.querySelectorAll("video[data-autoplay]").forEach((vid) => {
-        vid.play().catch(() => {});
-      });
-    }
-  }, [canAutoPlay]);
 
   return (
     <video
-      key={canAutoPlay ? `${src}-auto` : `${src}-noauto`}
-      src={src}
+      ref={ref}
+      src={near ? src : undefined}
+      width={width}
+      height={height}
       loop
       muted
       playsInline
-      preload="auto"
-      autoPlay={canAutoPlay}
-      data-autoplay
+      autoPlay={near}
+      preload={near ? "auto" : "none"}
+      onLoadedData={onReady}
       className={className}
     />
   );

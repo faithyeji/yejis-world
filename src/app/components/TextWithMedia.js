@@ -11,7 +11,7 @@ export default function TextWithMedia({
     return (
       <div className="grid grid-cols-1 items-center justify-items-center gap-6">
         <div className="flex flex-col mt-4 w-[90%] items-center">
-          <h3 className="font-mono text-xl text-gray-500 uppercase mb-2 leading-6 text-left w-full">
+          <h3 className="font-mono text-xl text-gray-500 mb-2 leading-6 text-left w-full">
             {title}
           </h3>
           <div className="text-gray-700 font-sans text-sm mt-2 text-left w-full">
@@ -36,7 +36,7 @@ export default function TextWithMedia({
           mediaPosition === "left" ? "lg:order-2" : ""
         }`}
       >
-        <h3 className="font-mono text-xl text-gray-500 uppercase pt-8 mb-2 leading-6 text-left w-full">
+        <h3 className="font-mono text-xl text-gray-500 pt-8 mb-2 leading-6 text-left w-full">
           {title}
         </h3>
         <div className="text-gray-700 font-sans mt-2 text-[0.9rem] text-left w-full">

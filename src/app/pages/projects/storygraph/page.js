@@ -63,8 +63,8 @@ export default function StoryGraphPage() {
       </section>
       {/* Concept Section */}
       <section id="concept" data-section-title="V1: Concepts">
-        <h1 className="w-full text-center mt-10 sm:mb-8 font-mono text-xl text-gray-500 uppercase">
-          PHASE 1: CONCEPT REDESIGN
+        <h1 className="w-full text-center mt-10 sm:mb-8 font-mono text-xl text-gray-500">
+          Phase 1: concept redesign
         </h1>
         <TextWithImage
           mediaSrc="/images/projects/storygraph/concept.webm"
@@ -94,8 +94,8 @@ export default function StoryGraphPage() {
         data-section-title="V2: OFFICIAL"
         className="flex justify-center flex-col align-middle items-center"
       >
-        <h1 className="w-full text-center sm:mt-10 mb-5 font-mono text-xl text-gray-500 uppercase">
-          PHASE 2: OFFICIAL REDESIGN
+        <h1 className="w-full text-center sm:mt-10 mb-5 font-mono text-xl text-gray-500">
+          Phase 2: official redesign
         </h1>
         <Callout>
           <div>
@@ -114,8 +114,8 @@ export default function StoryGraphPage() {
         data-section-title="PROCESS"
         className="flex justify-center flex-col align-middle items-center mt-2"
       >
-        <h1 className="w-full text-center mt-4 sm:mt-10 mb-10 font-mono text-xl text-gray-500 uppercase">
-          THE PROCESS
+        <h1 className="w-full text-center mt-4 sm:mt-10 mb-10 font-mono text-xl text-gray-500">
+          The process
         </h1>
         <div className="flex flex-wrap gap-8 items-start justify-center mb-12">
           <Image
@@ -242,8 +242,8 @@ export default function StoryGraphPage() {
       {/* Learnings Section */}
       <section id="learnings" data-section-title="Learnings">
         <div className="flex flex-col align-middle items-center mb-12">
-          <h1 className="w-full text-center mt-2 mb-8 font-mono text-xl text-gray-500 uppercase">
-            LEARNINGS
+          <h1 className="w-full text-center mt-2 mb-8 font-mono text-xl text-gray-500">
+            Learnings
           </h1>
           <ul className="list-decimal list-inside space-y-4 text-left font-sans w-5/6">
             <li>

@@ -13,8 +13,8 @@ export default {
       },
       fontFamily: {
         sans: ["var(--font-elza)"],
-        serif: ["var(--font-newsreader)"],
-        mono: ["var(--font-dmMono)"],
+        serif: ["\"Bookish Off-White\"", "Bookish", "var(--font-newsreader)", "serif"],
+        mono: ["\"Fabrikat Mono\"", "var(--font-dmMono)", "monospace"],
         franklin: ["var(--font-franklin)"],
       },
       keyframes: {

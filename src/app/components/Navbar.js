@@ -24,7 +24,7 @@ const Navbar = () => {
 
   return (
     <nav className="w-full mt-5">
-      <div className="w-full mx-auto px-8 flex justify-between items-center h-16">
+      <div className="w-full mx-auto px-8 lg:px-12 flex justify-between items-center h-16">
         <div className="flex-shrink-0 mt-2 ml-2">
           <Link href="/" aria-label="home" className="relative z-[100]">
             <GooglyEye />
@@ -41,7 +41,7 @@ const Navbar = () => {
               "/pages/projects"
             )}`}
           >
-            [WORK]
+            [Work]
           </Link>
           <Link
             href="/pages/playground"
@@ -49,7 +49,7 @@ const Navbar = () => {
               "/pages/playground"
             )}`}
           >
-            [PLAYGROUND]
+            [Playground]
           </Link>
           <Link
             href="/pages/about"
@@ -57,7 +57,7 @@ const Navbar = () => {
               "/pages/about"
             )}`}
           >
-            [ABOUT]
+            [About]
           </Link>
         </div>
       </div>

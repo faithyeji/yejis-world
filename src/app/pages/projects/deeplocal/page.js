@@ -33,7 +33,7 @@ export default function StoryGraphPage() {
                 className="w-full h-72 object-cover rounded-lg"
                 priority
               />
-              <h1 className="font-serif italic text-xl text-center mt-4">
+              <h1 className="font-serif italic text-xl leading-tight text-center mt-4">
                 Google Pixelroom Exhibit
               </h1>
               <p className="text-center text-sm text-gray-600">
@@ -53,7 +53,7 @@ export default function StoryGraphPage() {
                 className="w-full h-72 object-cover rounded-lg"
                 priority
               />
-              <h1 className="font-serif italic text-xl text-center mt-4">
+              <h1 className="font-serif italic text-xl leading-tight text-center mt-4">
                 Netflix Replay
               </h1>
               <p className="text-center text-sm text-gray-600">
@@ -72,7 +72,7 @@ export default function StoryGraphPage() {
                 className="w-full h-72 object-cover rounded-lg"
                 priority
               />
-              <h1 className="font-serif italic text-xl text-center mt-4">
+              <h1 className="font-serif italic text-xl leading-tight text-center mt-4">
                 Google Cloud Construction
               </h1>
               <p className="text-center text-sm text-gray-600">
@@ -92,7 +92,7 @@ export default function StoryGraphPage() {
                 className="w-full h-72 object-cover rounded-lg"
                 priority
               />
-              <h1 className="font-serif italic text-xl text-center mt-4">
+              <h1 className="font-serif italic text-xl leading-tight text-center mt-4">
                 Microsoft x Epic Showcase
               </h1>
               <p className="text-center text-sm text-gray-600">

@@ -2,19 +2,13 @@
 
 import { createContext, useContext, useEffect, useState } from "react";
 import { allSongs } from "./AudioContext";
-import { playgroundItems } from "@/app/pages/playground/items";
 
 const LoadingContext = createContext();
 
-// Collect all CD (song) images and playground images we want ready before reveal
-const cdImageUrls = allSongs.map((song) => song.image);
-const playgroundImageUrls = playgroundItems
-  .filter((item) => item.type === "image")
-  .map((item) => item.src);
-
-const criticalImageUrls = Array.from(
-  new Set([...cdImageUrls, ...playgroundImageUrls])
-);
+// Only the CD (song) art is needed before reveal. Playground media now
+// reserves its own space (known dimensions) and lazy-loads, so it no longer
+// blocks — or double-downloads on — every page load.
+const criticalImageUrls = Array.from(new Set(allSongs.map((song) => song.image)));
 
 export function LoadingProvider({ children }) {
   const [isLoading, setIsLoading] = useState(true);

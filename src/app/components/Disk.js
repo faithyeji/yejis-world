@@ -3,16 +3,17 @@
 import { motion, MotionConfig, AnimatePresence } from "framer-motion";
 import { useAudio } from "./AudioContext";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 
 const transition = { type: "spring", bounce: 0, duration: 0.4 };
 
-function CD() {
+function CD({ entered = true }) {
   const { currentSongIndex, setCurrentSongIndex, status, setStatus, allSongs } =
     useAudio();
   const currentSong = allSongs[currentSongIndex];
   const playing = status === "playing";
+  const [introDone, setIntroDone] = useState(false);
 
   useEffect(() => {
     if (allSongs.length > 0) {
@@ -34,32 +35,23 @@ function CD() {
   };
 
   return (
-    <div className="relative h-[225px] w-[700px]">
+    <div className="relative h-[350px] lg:h-[425px] w-[700px]">
       <motion.div
-        initial={{ rotate: 0, x: "-50%", borderRadius: 250 }}
+        initial={{ rotate: 0, y: -60, opacity: 0, x: "-50%", borderRadius: 250 }}
         animate={
-          playing
-            ? {
-                rotate: 360,
-                y: [0, -45],
-                transition: {
-                  rotate: {
-                    ease: "linear",
-                    duration: 20,
-                    repeat: Infinity,
-                  },
-                  y: {
-                    duration: 0.2,
-                    ease: "easeIn",
-                  },
-                },
-              }
+          !entered
+            ? { rotate: 0, y: -60, opacity: 0 }
             : {
-                rotate: 0,
-                y: 0,
-                transition: { duration: 0.5 },
+                // no continuous spin: a small turn + nudge down while playing
+                rotate: playing ? 24 : 0,
+                y: playing ? 14 : 0,
+                opacity: 1,
+                transition: introDone
+                  ? { type: "spring", stiffness: 260, damping: 22 }
+                  : { duration: 1, delay: 0.4, ease: [0.22, 1, 0.36, 1] },
               }
         }
+        onAnimationComplete={() => entered && setIntroDone(true)}
         whileHover={{
           scale: 1.03,
         }}
@@ -68,27 +60,26 @@ function CD() {
         }}
         className="size-[350px] lg:size-[425px] absolute left-1/2 z-20 flex origin-center select-none items-center justify-center overflow-hidden border-2 border-[#d3d3d3] bg-gray-200 sm:shadow-[0_0_80px_-20px_rgba(0,0,0,0.2)]"
       >
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={currentSongIndex}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.25 }}
-            className="absolute inset-0 rounded-full overflow-hidden"
+        {/* All covers stay mounted and stacked; switching songs just crossfades
+            opacity, so nothing re-mounts or re-downloads mid-transition. */}
+        {allSongs.map((song, i) => (
+          <div
+            key={song.image}
+            className="absolute inset-0 rounded-full overflow-hidden transition-opacity duration-300 ease-out"
+            style={{ opacity: i === currentSongIndex ? 1 : 0 }}
+            aria-hidden={i !== currentSongIndex}
           >
             <Image
-              src={currentSong.image}
-              alt={currentSong.alt}
+              src={song.image}
+              alt={song.alt}
               className="pointer-events-none select-none object-cover"
-              style={{ objectFit: "cover" }}
               loading="eager"
-              priority
+              priority={i === currentSongIndex}
               fill
-              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              sizes="(min-width: 1024px) 425px, 350px"
             />
-          </motion.div>
-        </AnimatePresence>
+          </div>
+        ))}
 
         <motion.div className="absolute left-1/2 top-1/2 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center">
           <div className="size-[480px] absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-full border-[0.1px] border-white bg-transparent opacity-35" />
@@ -104,7 +95,11 @@ function CD() {
       </motion.div>
 
       {/* arrows */}
-      <div className="absolute flex md:hidden lg:flex bottom-[0%] left-1/2 -translate-x-1/2 translate-y-[6px] lg:translate-y-[82px] space-x-[400px] lg:space-x-[500px]">
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: entered ? 1 : 0 }}
+        transition={{ duration: 0.6, delay: 1.2 }}
+        className="absolute flex top-[28%] left-1/2 -translate-x-1/2 -translate-y-1/2 space-x-[360px] sm:space-x-[400px] lg:space-x-[500px]">
         <button
           onClick={handlePreviousSong}
           aria-label="previous"
@@ -146,7 +141,7 @@ function CD() {
             />
           </svg>
         </button>
-      </div>
+      </motion.div>
       <div />
     </div>
   );

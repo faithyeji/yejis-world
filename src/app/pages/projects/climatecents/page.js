@@ -53,7 +53,7 @@ export default function ClimateCentsPage() {
       {/* Callout Section */}
       <section id="callout" data-section-title="HOW CAN WE...">
         <Callout rounded="full">
-          <div className="font-mono text-gray-500 uppercase mb-2">
+          <div className="font-mono text-gray-500 mb-2">
             Code the Change x Climate Cents
           </div>
           <div>
@@ -114,8 +114,8 @@ export default function ClimateCentsPage() {
 
       <section id="finaldemo" data-section-title="Live Demo">
         <div className="flex justify-center flex-col items-center">
-          <h1 className="w-full text-center mt-10 mb-5 font-mono text-xl text-gray-500 uppercase">
-            LIVE BUILD
+          <h1 className="w-full text-center mt-10 mb-5 font-mono text-xl text-gray-500">
+            Live build
           </h1>
           <Callout rounded="full">
             From there, I led design to developer handoff directly to ensure
@@ -138,8 +138,8 @@ export default function ClimateCentsPage() {
       {/* Learnings Section */}
       <section id="learnings" data-section-title="Learnings">
         <div className="flex flex-col align-middle items-center">
-          <h1 className="w-full text-center mt-2 mb-8 font-mono text-xl text-gray-500 uppercase">
-            LEARNINGS
+          <h1 className="w-full text-center mt-2 mb-8 font-mono text-xl text-gray-500">
+            Learnings
           </h1>
           <ul className="list-decimal list-inside space-y-4 text-left font-sans w-5/6">
             <li>

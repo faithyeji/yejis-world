@@ -46,8 +46,8 @@ export default function LumenPage() {
           playsInline
           lazy="true"
         />
-        <h1 className="w-full text-center font-mono text-xl text-gray-500 uppercase pt-16">
-          THE PROBLEM
+        <h1 className="w-full text-center font-mono text-xl text-gray-500 pt-16">
+          The problem
         </h1>
         <Callout rounded="full">
           <div>
@@ -73,7 +73,7 @@ export default function LumenPage() {
         data-section-title="Our Solution"
         className="space-y-8 w-full"
       >
-        <h1 className="text-center font-mono text-xl text-gray-500 uppercase pt-24">
+        <h1 className="text-center font-mono text-xl text-gray-500 pt-24">
           Our Solution
         </h1>
         <video
@@ -98,7 +98,7 @@ export default function LumenPage() {
         data-section-title="Walkthrough"
         className="space-y-8 w-full"
       >
-        <h1 className="text-center font-mono text-xl text-gray-500 uppercase pt-24">
+        <h1 className="text-center font-mono text-xl text-gray-500 pt-24">
           Walkthrough
         </h1>
         <CenteredImageWithCaption
@@ -131,7 +131,7 @@ export default function LumenPage() {
           the same struggles firsthand at their own workplaces, whether that was
           at large companies or small startups.
         </TextWithImage> */}
-        {/* <h1 className="text-center font-mono text-xl text-gray-500 uppercase pt-24">
+        {/* <h1 className="text-center font-mono text-xl text-gray-500 pt-24">
           Features
         </h1> */}
         <div className="pt-16 flex flex-col gap-8">
@@ -168,7 +168,7 @@ export default function LumenPage() {
       </section>
       {/* Motion Section */}
       <section id="motion" data-section-title="Motion & Storytelling">
-        <h1 className="text-center font-mono text-xl text-gray-500 uppercase pt-24 mb-4">
+        <h1 className="text-center font-mono text-xl text-gray-500 pt-24 mb-4">
           Motion
         </h1>
         <div className="flex flex-wrap justify-between space-y-8">
@@ -246,8 +246,8 @@ export default function LumenPage() {
       {/* Learnings Section */}
       <section id="learnings" data-section-title="Learnings">
         <div className="flex flex-col align-middle items-center mb-8">
-          <h1 className="w-full text-center mt-2 mb-8 font-mono text-xl text-gray-500 uppercase">
-            LEARNINGS
+          <h1 className="w-full text-center mt-2 mb-8 font-mono text-xl text-gray-500">
+            Learnings
           </h1>
           <ul className="list-decimal list-inside space-y-4 text-left font-sans w-5/6">
             <li>

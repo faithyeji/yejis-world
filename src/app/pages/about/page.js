@@ -20,12 +20,12 @@ export default function About() {
           />
         </div>
 
-        <div className="flex flex-col font-sans gap-4 mb-20 sm:mt-6 w-8/12 sm:w-1/3 text-center sm:text-left">
-          <h1 className="font-serif italic text-2xl animate-slidein opacity-0 [--slidein-delay:200ms]">
+        <div className="flex flex-col font-serif gap-4 mb-20 sm:mt-6 w-8/12 sm:w-1/3 text-center sm:text-left">
+          <h1 className="font-serif text-2xl leading-tight animate-slidein opacity-0 [--slidein-delay:200ms]">
             {" "}
             Hi, welcome to my world!
           </h1>
-          <div className="flex flex-col gap-6 text-sm sm:text-base">
+          <div className="flex flex-col gap-6 text-base sm:text-lg leading-[1.3]">
             <p className="animate-slidein opacity-0 [--slidein-delay:400ms]">
               At heart, I'm a designer passionate in creating and learning.
               Whether that means painting a wall or coding an app from scratch
@@ -52,25 +52,15 @@ export default function About() {
               </a>
             </p>
             <p className="animate-slidein opacity-0 [--slidein-delay:600ms]">
-              <span className="font-mono text-md text-blue-500">
-                CURRENT ADVENTURE:
+              <span className="font-serif text-lg text-blue-500">
+                Current adventure:
               </span>
               <br />
-              Studying integrated Design, Computer Science, and Entrepreneurship
-              at USC's{" "}
-              <a
-                href="https://iovine-young.usc.edu/"
-                target="_blank"
-                className="underline"
-              >
-                Iovine and Young Academy
-              </a>
-              .<br />
-              Also leading art and brand direction @ Whim / Hardware Nation. .
+              Leading art and brand direction @ Whim / Hardware Nation.
             </p>
             <p className="animate-slidein opacity-0 [--slidein-delay:700ms]">
-              <span className="font-mono text-md text-blue-500">
-                MY PHILOSOPHIES:
+              <span className="font-serif text-lg text-blue-500">
+                My philosophies:
               </span>
               <br />
               <span className="font-mono text-xs mr-1 text-neutral-500">

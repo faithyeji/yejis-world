@@ -44,8 +44,8 @@ export default function TwoCentsClubPage() {
         data-section-title="THE PROBLEM"
         className="flex justify-center flex-col align-middle items-center mt-2"
       >
-        <h1 className="w-full text-center mt-4 sm:mt-10 mb-10 font-mono text-xl text-gray-500 uppercase">
-          THE PROBLEM
+        <h1 className="w-full text-center mt-4 sm:mt-10 mb-10 font-mono text-xl text-gray-500">
+          The problem
         </h1>
         <div className="flex flex-wrap gap-8 items-start justify-center mb-12">
           <Image
@@ -78,8 +78,8 @@ export default function TwoCentsClubPage() {
         </div>
       </section>
       <div className="pb-8">
-        <h1 className="w-full text-center font-mono text-xl text-gray-500 uppercase">
-          THE SOLUTION:
+        <h1 className="w-full text-center font-mono text-xl text-gray-500">
+          The solution:
         </h1>
         <CenteredImageWithCaption
           imgSrc="/images/projects/tcc/jointheclub.webp"

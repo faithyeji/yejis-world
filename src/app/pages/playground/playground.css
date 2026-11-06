@@ -1,19 +1,14 @@
-.container {
+.pg-grid {
   margin-bottom: 40px;
 }
 
-.container .box {
+.pg-grid .box {
   width: 100%;
   margin-bottom: 10px;
-  break-inside: avoid;
 }
 
-.container .box img {
-  max-width: 100%;
-  border-radius: 15px;
-}
-
-.container .box video {
-  max-width: 100%;
-  border-radius: 15px;
+@media (min-width: 640px) {
+  .pg-grid .box {
+    margin-bottom: 20px;
+  }
 }

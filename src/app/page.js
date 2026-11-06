@@ -4,11 +4,14 @@ import Folder from "./components/Folder";
 import CD from "./components/Disk";
 import { useAudio } from "./components/AudioContext";
 import { Draggable } from "gsap/Draggable";
-import Project from "./components/Project";
+import ProjectsGallery from "./components/ProjectsGallery";
 import { useEffect, useRef } from "react";
 import DraggableSticker from "./components/DraggableSticker";
 import AudioPlayer from "./components/AudioPlayer";
 import { useLoading } from "./components/LoadingContext";
+
+// seconds of static hold to skip at the start of the name video
+const NAME_VIDEO_START = 1.1;
 
 export default function Home() {
   const photos = [
@@ -33,6 +36,7 @@ export default function Home() {
   const { allSongs, currentSongIndex, status } = useAudio();
   const currentSongTitle = allSongs[currentSongIndex]?.name || "Nothing";
   const videoRef = useRef(null);
+  const { isLoaded } = useLoading();
 
   // hash navigation
   useEffect(() => {
@@ -67,30 +71,19 @@ export default function Home() {
     }
   }, []);
 
-  // sync video with audio status
+  // keep the name video looping regardless of music state; retry once the
+  // page reveal finishes (some browsers block play() while hidden)
   useEffect(() => {
-    if (videoRef.current) {
-      if (status === "playing") {
-        videoRef.current.play();
-      } else {
-        videoRef.current.pause();
-      }
-    }
-  }, [status]);
+    const v = videoRef.current;
+    if (v && v.paused) v.play().catch(() => {});
+  }, [status, isLoaded]);
 
   return (
     <main className="overflow-hidden h-full w-full">
-      <div className="w-full justify-center items-center absolute top-0 h-[300px] mx-auto translate-x-1/2 origin-center overflow-y-hidden pt-12 animate-slidein opacity-0 [--slidein-delay:200ms] z-10 hidden md:flex">
-        <div className="flex flex-col justify-center items-center">
-          <div className="mt-3 pb-2 w-fit -translate-y-[250px] lg:-translate-y-[300px] transition">
-            <CD />
-          </div>
-        </div>
-      </div>
       <div className="animate-fadein delay-200">
         <Folder
           title="photos"
-          style="top-[400px] left-[25%]"
+          style="top-[310px] left-[25%]"
           content={photos}
           position="top-[110%] left-[8%] origin-[0%-30%]"
         />
@@ -108,7 +101,7 @@ export default function Home() {
           width={90}
           height={90}
           startX="66%"
-          startY="325px"
+          startY="235px"
           rotation={0}
         />
         <DraggableSticker
@@ -117,132 +110,58 @@ export default function Home() {
           width={60}
           height={60}
           startX="30%"
-          startY="295px"
+          startY="205px"
           rotation={0}
         />
       </div>
-      <div className="flex flex-col mt-4 md:mt-32 justify-center items-center text-center gap-2 text-neutral-600 relative">
+      <div className="flex flex-col mt-0 md:mt-10 justify-center items-center text-center gap-2 text-neutral-600 relative">
         {/* <h1 className="font-serif italic text-5xl text-blue-700">Yeji Seo</h1> */}
         <video
           ref={videoRef}
-          width="240"
-          loop
           muted
           playsInline
           autoPlay
           preload="auto"
-          className="absolute top-0 animate-slidein opacity-0 [--slidein-delay:100ms]"
+          // skip the ~1.4s still hold at the start of the file, on first play and every loop
+          onLoadedMetadata={(e) => {
+            if (e.currentTarget.currentTime < NAME_VIDEO_START)
+              e.currentTarget.currentTime = NAME_VIDEO_START;
+          }}
+          onEnded={(e) => {
+            e.currentTarget.currentTime = NAME_VIDEO_START;
+            e.currentTarget.play().catch(() => {});
+          }}
+          className="absolute top-0 w-[260px] md:w-[300px] h-auto mix-blend-multiply animate-slidein opacity-0 [--slidein-delay:100ms]"
         >
           <source src="/YejiNames2-hevc-safari.mp4" />{" "}
           <source src="/YejiNames2-vp9-chrome.webm" />{" "}
         </video>
-        <p className="w-72 sm:w-80 md:w-[400px] font-mono text-sm leading-5 mt-[137px] animate-slidein opacity-0 [--slidein-delay:300ms]">
-          IS A MULTIDISCIPLINARY DESIGNER DEDICATED TO CRAFTING DELIGHTFUL
-          DIGITAL EXPERIENCES. <br /> <br />
-          SHE WORKS MAINLY IN BRAND/ART DIRECTION, PRODUCT, & INTERACTIVE
-          STORYTELLING.
+        <p className="w-72 sm:w-80 md:w-[400px] font-serif text-lg md:text-[1.35rem] leading-[1.3] mt-[138px] md:mt-[160px] animate-slidein opacity-0 [--slidein-delay:300ms]">
+          is a multidisciplinary brand designer based in NYC. She
+          specializes in brand/art direction, product, & interactive
+          storytelling.
         </p>
-        <div className="hidden md:block text-[10px] mt-2 z-20 text-center font-mono text-gray-400 animate-slidein opacity-0 [--slidein-delay:700ms]">
-          {status === "playing" ? "NOW PLAYING:" : "CLICK TO PLAY:"}{" "}
+        <div className="text-[10px] mt-2 z-20 text-center font-mono text-gray-400 animate-slidein opacity-0 [--slidein-delay:700ms]">
+          {status === "playing" ? "Now playing:" : "Click to play:"}{" "}
           {currentSongTitle}
         </div>
 
-        <div className="animate-fadein mt-[34px] z-10 overflow-hidden md:hidden h-[200px] flex flex-col items-center justify-start relative">
-          {/* NOW PLAYING */}
-          <div className="absolute bottom-7 text-[10px] z-20 text-center font-mono text-gray-400 w-full">
-            {status === "playing" ? "NOW PLAYING:" : "CLICK TO PLAY:"}{" "}
-            {currentSongTitle}
-          </div>
-
-          <div className="bg-[linear-gradient(90deg,rgba(168,168,168,1)_0%,rgba(222,222,222,1)_27%,rgba(168,168,168,1)_100%)] opacity-25 drop-shadow-lg w-[400px] rounded-md h-1 z-30 pt-[0.1rem]"></div>
-
-          <div className="w-fit translate-y-[-150px] scale-75">
-            <CD />
+        {/* Disc: spins down and in below the header text once the page has loaded */}
+        <div
+          className="mt-6 md:mt-8 z-10 h-[140px] sm:h-[158px] lg:h-[213px]"
+          // clip only the bottom: the first project's line cuts the disc in half
+          style={{ clipPath: "inset(-200vh -100vw 0 -100vw)" }}
+        >
+          <div className="flex justify-center origin-top scale-[0.8] sm:scale-90 lg:scale-100">
+            <CD entered={isLoaded} />
           </div>
         </div>
-        <div id="projects" className="rounded-lg mt-0 md:mt-12">
-          <div className="flex flex-wrap mb-16 mt-7 md:mx-4 justify-center items-center text-center gap-2 sm:gap-5 w-fit text-neutral-600 opacity-0 animate-slidein [--slidein-delay:500ms]">
-            <Project
-              title="Wabi"
-              type="ART DIRECTION, BRAND, GROWTH"
-              imageSrc="/images/projects/wabi2.webp"
-              link="/pages/projects/wabi"
-              description="Running brand and art direction for Wabi's social media and experiential activations!"
-            />
-            {/* <Project
-              title="LFO Labs"
-              type="GRAPHIC, BRAND, MOTION"
-              imageSrc="/images/projects/wabi.webp"
-              link="/pages/projects/wabi"
-              description="Add a short description for Wabi."
-            /> */}
-            {/* <Project
-              title="Fragile"
-              type="GRAPHIC, BRAND"
-              imageSrc="/images/projects/fragile.webp"
-              link="/pages/projects/fragile"
-              description="Add a short description for Fragile."
-            /> */}
-            <Project
-              title="The StoryGraph"
-              type="PRODUCT, UI/UX, BRAND"
-              imageSrc="/images/projects/storygraph.webp"
-              link="/pages/projects/storygraph"
-              description="The sole product designer revamping a book-sharing platform with 4 million users."
-            />
-            <Project
-              title='"Fathead" White Paper'
-              type="GRAPHIC, BRAND"
-              imageSrc="/images/projects/fathead2.webp"
-              link="/pages/projects/fathead"
-              description="Created branding guidelines & 186 pages of graphic design for a Cannes award-winning film's publication."
-            />
-            <Project
-              title="Lumen"
-              type="PRODUCT, MOTION, BRAND STORYTELLING"
-              videoSrc="/images/projects/lumen.webm"
-              link="/pages/projects/lumen"
-              description="Built a feedback tool in an 8-week startup incubator — designing animated pitch decks & interactive prototypes."
-            />
-            <Project
-              title="Two Cents Club"
-              type="BRAND, PRODUCT, GRAPHIC"
-              imageSrc="/images/projects/twocents.webp"
-              link="https://www.instagram.com/thetwocentsclub/"
-              description="Founding designer & creative director for a community platform for post-grad learning."
-            />
-            <Project
-              title="Deeplocal"
-              type="ART DIRECTION, MOTION, UI/UX, GRAPHIC"
-              videoSrc="/images/projects/DL.webm"
-              link="/pages/projects/deeplocal"
-              description="Concepting/designing fun creative tech projects for Google, Microsoft, & Netflix experiential activations."
-            />
-
-            {/* <Project
-              title="SeeSaw Murals"
-              type="ART DIRECTION, BRAND"
-              imageSrc="/images/projects/seesaw.webp"
-              link="/pages/projects/storygraph"
-              description="Founded a nonprofit making murals for the Los Angeles Fire Department, community homes, and local LA cafés."
-            /> */}
-            <Project
-              title="Climate Cents"
-              type="INTERACTION, PRODUCT, FRONTEND"
-              videoSrc="/images/projects/climatecents.webm"
-              link="/pages/projects/climatecents"
-              description="Led development of an interactive map of nonprofit climate projects & weather data for the 2028 LA Olympics."
-            />
-
-            {/* <Project
-              title="Encore"
-              type="UI/UX DESIGN (TEAM)"
-              imageSrc="/images/projects/encore2.webp"
-              link="/pages/projects/encore"
-              description="Designing a space for aspiring musicians to find community and support."
-            /> */}
-          </div>
-        </div>
+      </div>
+      <div
+        id="projects"
+        className="mb-[200px] w-full opacity-0 animate-slidein [--slidein-delay:500ms]"
+      >
+        <ProjectsGallery />
       </div>
     </main>
   );

@@ -9,7 +9,7 @@ export default function CenteredImageWithCaption({
   return (
     <div className="grid place-items-center">
       <div className="flex flex-col items-center font-sans text-sm w-full">
-        <h3 className="font-mono text-xl text-gray-500 uppercase mb-4">
+        <h3 className="font-mono text-xl text-gray-500 mb-4">
           {title}
         </h3>
         <Image
