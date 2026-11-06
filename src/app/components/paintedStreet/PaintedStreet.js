@@ -1,10 +1,12 @@
 "use client";
 import dynamic from "next/dynamic";
 import { Suspense, useCallback, useEffect, useRef, useState } from "react";
-import { useLoading } from "../LoadingContext";
+import { preload } from "react-dom";
+import { MODEL_URL } from "./model";
 
-// three.js only loads once the section is close to the viewport
-const StreetCanvas = dynamic(() => import("./StreetCanvas"), { ssr: false });
+// three.js is split into its own chunk; we start downloading it (and the model) right away
+const loadCanvas = () => import("./StreetCanvas");
+const StreetCanvas = dynamic(loadCanvas, { ssr: false });
 
 export default function PaintedStreet() {
   const wrapRef = useRef(null);
@@ -18,23 +20,27 @@ export default function PaintedStreet() {
   const [ready, setReady] = useState(false);
   const [progress, setProgress] = useState(0);
   const [isTouch, setIsTouch] = useState(false);
-  const { isLoaded } = useLoading(); // don't compete with the page's intro reveal
+  // download the model in parallel with the JS instead of after it
+  preload(MODEL_URL, { as: "fetch", crossOrigin: "anonymous" });
 
   useEffect(() => {
     setIsTouch(window.matchMedia("(pointer: coarse)").matches);
     const el = wrapRef.current;
     if (!el) return;
-    const near = new IntersectionObserver(([e]) => e.isIntersecting && setMounted(true), { rootMargin: "800px 0px" });
+    loadCanvas();
+    setMounted(true);
     const visible = new IntersectionObserver(([e]) => setActive(e.isIntersecting), { threshold: 0 });
-    near.observe(el); visible.observe(el);
-    return () => { near.disconnect(); visible.disconnect(); };
+    visible.observe(el);
+    return () => visible.disconnect();
   }, []);
 
   const onProgress = useCallback((f) => {
     const stepped = f >= 1 ? 1 : Math.floor(f * 20) / 20;
     setProgress((p) => (p === stepped ? p : stepped));
   }, []);
-  const onReady = useCallback(() => setReady(true), []);
+  const onReady = useCallback(() => {
+    setTimeout(() => setReady(true), 120); // let the first frames draw, then fade the scene in
+  }, []);
 
   // pointer -> uv (GL convention: y up)
   const toUv = (e) => {
@@ -101,15 +107,12 @@ export default function PaintedStreet() {
           progress < 1 ? "md:cursor-none" : ""
         }`}
       >
-        {mounted && isLoaded && (
+        {mounted && (
           <Suspense fallback={null}>
+            <div className={`absolute inset-0 transition-opacity duration-700 ${ready ? "opacity-100" : "opacity-0"}`}>
             <StreetCanvas active={active} pointer={pointer} controls={controls} onProgress={onProgress} onReady={onReady} />
+            </div>
           </Suspense>
-        )}
-        {!ready && (
-          <div className="absolute inset-0 flex items-center justify-center font-mono text-[0.65rem] text-neutral-400">
-            Sketching&hellip;
-          </div>
         )}
         {/* brush cursor */}
         <div

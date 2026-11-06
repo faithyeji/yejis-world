@@ -6,7 +6,7 @@ import { RoomEnvironment } from "three/examples/jsm/environments/RoomEnvironment
 import { useEffect, useMemo, useRef } from "react";
 import { brushFrag, brushVert, compositeFrag, fullscreenVert } from "./shaders";
 
-const MODEL = "/models/storefront.glb";
+import { MODEL_URL as MODEL } from "./model";
 const PAPER = new THREE.Color("#f8f7f4");
 const INK = new THREE.Color("#2a2730");
 const GRID_W = 48, GRID_H = 27;        // coarse coverage grid used to auto-finish the painting
@@ -28,6 +28,33 @@ function Storefront({ onReady }) {
         if (o.material?.map) o.material.map.anisotropy = 8;
       }
     });
+    // The pigeon is tiny, so depth-edge outlines swamp it. Keep it out of the depth buffer
+    // (drawn last so it still sits on top correctly) and give it its own thin ink outline:
+    // a slightly inflated, back-facing copy that follows the rig.
+    // There's a sub-pixel gap between the threshold strip and the first row of sidewalk slabs;
+    // the dark joint underneath aliased into a dashed line. Slide the threshold over it.
+    const threshold = scene.getObjectByName("Threshold");
+    if (threshold && !threshold.userData.nudged) { threshold.position.z += 0.012; threshold.userData.nudged = true; }
+    const pigeonMeshes = [];
+    scene.getObjectByName("Pigeon")?.traverse((o) => o.isMesh && pigeonMeshes.push(o));
+    const hullMat = new THREE.MeshBasicMaterial({ color: "#2a2730", side: THREE.BackSide, depthWrite: false });
+    hullMat.onBeforeCompile = (sh) => {
+      sh.vertexShader = sh.vertexShader.replace(
+        "#include <project_vertex>",
+        "transformed += normalize(objectNormal) * 0.0045;\n#include <project_vertex>"
+      );
+    };
+    for (const o of pigeonMeshes) {
+      o.material = o.material.clone();
+      o.material.depthWrite = false;
+      o.renderOrder = 5;
+      const hull = o.isSkinnedMesh ? new THREE.SkinnedMesh(o.geometry, hullMat) : new THREE.Mesh(o.geometry, hullMat);
+      if (o.isSkinnedMesh) hull.bind(o.skeleton, o.bindMatrix);
+      hull.position.copy(o.position); hull.quaternion.copy(o.quaternion); hull.scale.copy(o.scale);
+      hull.renderOrder = 4;
+      hull.frustumCulled = false;
+      o.parent.add(hull);
+    }
     const tpl = scene.getObjectByName("Leaf_Template");
     if (tpl) tpl.visible = false;
     onReady?.();
@@ -167,7 +194,7 @@ function Lights() {
         intensity={2.6}
         color="#fff1dc"
         castShadow
-        shadow-mapSize={[2048, 2048]}
+        shadow-mapSize={[1024, 1024]}
         shadow-bias={-0.0004}
         shadow-normalBias={0.02}
         shadow-camera-left={-10}
@@ -375,3 +402,6 @@ export default function StreetCanvas({ active, pointer, controls, onProgress, on
     </Canvas>
   );
 }
+
+// start fetching + parsing the model as soon as this chunk loads
+useGLTF.preload(MODEL);
