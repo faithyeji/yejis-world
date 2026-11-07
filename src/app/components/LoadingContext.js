@@ -8,7 +8,9 @@ const LoadingContext = createContext();
 // Only the CD (song) art is needed before reveal. Playground media now
 // reserves its own space (known dimensions) and lazy-loads, so it no longer
 // blocks — or double-downloads on — every page load.
-const criticalImageUrls = Array.from(new Set(allSongs.map((song) => song.image)));
+const criticalImageUrls = Array.from(
+  new Set(["/YejiNames2-poster.webp", ...allSongs.map((song) => song.image)])
+);
 
 export function LoadingProvider({ children }) {
   const [isLoading, setIsLoading] = useState(true);

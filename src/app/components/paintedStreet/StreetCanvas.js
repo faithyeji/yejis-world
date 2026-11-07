@@ -4,7 +4,7 @@ import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import { useAnimations, useGLTF } from "@react-three/drei";
 import { RoomEnvironment } from "three/examples/jsm/environments/RoomEnvironment.js";
 import { useEffect, useMemo, useRef } from "react";
-import { brushFrag, brushVert, compositeFrag, fullscreenVert } from "./shaders";
+import { brushFrag, brushVert, compositeFrag, fieldsFrag, fullscreenVert } from "./shaders";
 
 import { MODEL_URL as MODEL } from "./model";
 const PAPER = new THREE.Color("#f8f7f4");
@@ -47,6 +47,9 @@ function Storefront({ onReady }) {
     for (const o of pigeonMeshes) {
       o.material = o.material.clone();
       o.material.depthWrite = false;
+      // without depth writes a double-sided material can draw its own back faces over the
+      // front ones (unlit -> black pigeon), so only draw the front
+      o.material.side = THREE.FrontSide;
       o.renderOrder = 5;
       const hull = o.isSkinnedMesh ? new THREE.SkinnedMesh(o.geometry, hullMat) : new THREE.Mesh(o.geometry, hullMat);
       if (o.isSkinnedMesh) hull.bind(o.skeleton, o.bindMatrix);
@@ -227,6 +230,25 @@ function PaintCompositor({ pointer, controls, onProgress }) {
     []
   );
 
+  // static noise/stroke/bounds fields, baked once per resize (see fieldsFrag)
+  const fieldRTs = useMemo(
+    () => [0, 1, 2].map(() => new THREE.WebGLRenderTarget(1, 1, { type: THREE.UnsignedByteType, depthBuffer: false })),
+    []
+  );
+  const fields = useMemo(() => {
+    const mat = new THREE.ShaderMaterial({
+      vertexShader: fullscreenVert,
+      fragmentShader: fieldsFrag,
+      depthTest: false,
+      depthWrite: false,
+      uniforms: { uRes: { value: new THREE.Vector2(1, 1) }, uDpr: { value: 1 }, uWhich: { value: 0 } },
+    });
+    const m = new THREE.Mesh(new THREE.PlaneGeometry(2, 2), mat);
+    m.frustumCulled = false;
+    const s = new THREE.Scene(); s.add(m);
+    return { scene: s, mat };
+  }, []);
+
   const quad = useMemo(() => {
     const mat = new THREE.ShaderMaterial({
       vertexShader: fullscreenVert,
@@ -239,6 +261,9 @@ function PaintCompositor({ pointer, controls, onProgress }) {
         tColor: { value: sceneRT.texture },
         tDepth: { value: sceneRT.depthTexture },
         tMask: { value: maskRT.texture },
+        tFieldA: { value: fieldRTs[0].texture },
+        tFieldB: { value: fieldRTs[1].texture },
+        tFieldC: { value: fieldRTs[2].texture },
         uRes: { value: new THREE.Vector2(1, 1) },
         uNear: { value: 0.1 },
         uFar: { value: 100 },
@@ -255,7 +280,7 @@ function PaintCompositor({ pointer, controls, onProgress }) {
     m.frustumCulled = false;
     const s = new THREE.Scene(); s.add(m);
     return { scene: s, mat };
-  }, [sceneRT, maskRT]);
+  }, [sceneRT, maskRT, fieldRTs]);
 
   const brush = useMemo(() => {
     const mat = new THREE.ShaderMaterial({
@@ -282,7 +307,7 @@ function PaintCompositor({ pointer, controls, onProgress }) {
   }, []);
   const orthoCam = useMemo(() => new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1), []);
 
-  const state = useRef({ last: null, grid: new Uint8Array(GRID_W * GRID_H), painted: 0, finishing: false, done: false, needsClear: true });
+  const state = useRef({ needsFields: true, last: null, grid: new Uint8Array(GRID_W * GRID_H), painted: 0, finishing: false, done: false, needsClear: true });
 
   // sizes
   useEffect(() => {
@@ -292,14 +317,18 @@ function PaintCompositor({ pointer, controls, onProgress }) {
     const mw = 384, mh = Math.max(1, Math.round(384 / (size.width / size.height)));
     maskRT.setSize(mw, mh);
     state.current.needsClear = true;
+    fieldRTs.forEach((rt) => rt.setSize(w, h));
+    fields.mat.uniforms.uRes.value.set(w, h);
+    fields.mat.uniforms.uDpr.value = dpr;
+    state.current.needsFields = true;
     quad.mat.uniforms.uRes.value.set(w, h);
     quad.mat.uniforms.uPx.value = Math.max(0.6, dpr * 0.5);
     quad.mat.uniforms.uDpr.value = dpr;
     brush.mat.uniforms.uAspect.value = size.width / size.height;
-  }, [size.width, size.height, dpr, sceneRT, maskRT, quad, brush]); // not `size`: its top/left change on scroll
+  }, [size.width, size.height, dpr, sceneRT, maskRT, quad, brush, fieldRTs, fields]); // not `size`: its top/left change on scroll
 
   useEffect(() => { const prev = gl.autoClear; gl.autoClear = false; return () => { gl.autoClear = prev; }; }, [gl]);
-  useEffect(() => () => { sceneRT.dispose(); maskRT.dispose(); }, [sceneRT, maskRT]);
+  useEffect(() => () => { sceneRT.dispose(); maskRT.dispose(); fieldRTs.forEach((rt) => rt.dispose()); }, [sceneRT, maskRT, fieldRTs]);
 
   // reset / paint-all controls from the DOM
   useEffect(() => {
@@ -367,6 +396,17 @@ function PaintCompositor({ pointer, controls, onProgress }) {
       }
     }
 
+    // static fields: only after a resize
+    if (s.needsFields) {
+      for (let i = 0; i < 3; i++) {
+        fields.mat.uniforms.uWhich.value = i;
+        gl.setRenderTarget(fieldRTs[i]);
+        gl.render(fields.scene, orthoCam);
+      }
+      gl.setRenderTarget(null);
+      s.needsFields = false;
+    }
+
     // 2) scene -> texture
     gl.setRenderTarget(sceneRT);
     gl.setClearColor(0x000000, 0);
@@ -389,7 +429,7 @@ export default function StreetCanvas({ active, pointer, controls, onProgress, on
   return (
     <Canvas
       frameloop={active ? "always" : "never"}
-      dpr={[1, 1.75]}
+      dpr={[1, 1.5]}
       shadows
       camera={{ fov: 36, near: 0.3, far: 60, position: [-1.6, 2.9, 11.2] }}
       gl={{ antialias: false, alpha: true, premultipliedAlpha: true, powerPreference: "high-performance" }}

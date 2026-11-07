@@ -6,12 +6,14 @@ import { useAudio } from "./components/AudioContext";
 import { Draggable } from "gsap/Draggable";
 import ProjectsGallery from "./components/ProjectsGallery";
 import { useEffect, useRef } from "react";
+import { preload } from "react-dom";
 import DraggableSticker from "./components/DraggableSticker";
 import AudioPlayer from "./components/AudioPlayer";
 import { useLoading } from "./components/LoadingContext";
 
 // seconds of static hold to skip at the start of the name video
 const NAME_VIDEO_START = 1.1;
+const NAME_POSTER = "/YejiNames2-poster.webp";
 
 export default function Home() {
   const photos = [
@@ -36,6 +38,9 @@ export default function Home() {
   const { allSongs, currentSongIndex, status } = useAudio();
   const currentSongTitle = allSongs[currentSongIndex]?.name || "Nothing";
   const videoRef = useRef(null);
+  const introDone = useRef(false);
+  // first frame of the name video: shows instantly while the video itself downloads
+  preload(NAME_POSTER, { as: "image", fetchPriority: "high" });
   const { isLoaded } = useLoading();
 
   // hash navigation
@@ -72,8 +77,7 @@ export default function Home() {
     v.setAttribute("muted", "");
     v.setAttribute("playsinline", "");
     v.setAttribute("webkit-playsinline", "");
-    const tryPlay = () => v.paused && v.play().catch(() => {});
-    tryPlay();
+    const tryPlay = () => introDone.current && v.paused && v.play().catch(() => {});
     const onFirstTouch = () => {
       tryPlay();
       window.removeEventListener("touchstart", onFirstTouch);
@@ -87,12 +91,23 @@ export default function Home() {
     };
   }, []);
 
-  // keep the name video looping regardless of music state; retry once the
-  // page reveal finishes (some browsers block play() while hidden)
+  // Hold the name on its first frame until its slide-in has fully finished, then start the
+  // video (slide-in: 100ms delay + 1s animation once the page reveal begins).
+  useEffect(() => {
+    if (!isLoaded) return;
+    const t = setTimeout(() => {
+      introDone.current = true;
+      const v = videoRef.current;
+      if (v && v.paused) v.play().catch(() => {});
+    }, 1150);
+    return () => clearTimeout(t);
+  }, [isLoaded]);
+
+  // keep the name video looping regardless of music state
   useEffect(() => {
     const v = videoRef.current;
-    if (v && v.paused) v.play().catch(() => {});
-  }, [status, isLoaded]);
+    if (introDone.current && v && v.paused) v.play().catch(() => {});
+  }, [status]);
 
   return (
     <main className="overflow-hidden h-full w-full">
@@ -136,8 +151,8 @@ export default function Home() {
           ref={videoRef}
           muted
           playsInline
-          autoPlay
           preload="auto"
+          poster={NAME_POSTER}
           controls={false}
           disablePictureInPicture
           disableRemotePlayback

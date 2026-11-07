@@ -26,11 +26,91 @@ export const fullscreenVert = /* glsl */ `
   void main() { vUv = uv; gl_Position = vec4(position.xy, 0.0, 1.0); }
 `;
 
+// Static per-pixel fields (noise, brush strokes, painted bounds, paper). They only depend on
+// screen position, so they're rendered once per resize into three small textures instead of
+// being recomputed every frame (this was most of the per-frame cost).
+export const fieldsFrag = /* glsl */ `
+  precision highp float;
+  uniform vec2 uRes;
+  uniform float uDpr;
+  uniform int uWhich;
+  varying vec2 vUv;
+  ${NOISE}
+  // Straight brush strokes in a few directions (shallow, diagonal, steep), patched together
+  // by soft low-frequency masks so the direction changes from area to area without swirling.
+  vec2 rot(vec2 p, float a) { float c = cos(a), s = sin(a); return vec2(p.x * c + p.y * s, p.y * c - p.x * s); }
+  vec3 strokeWeights(vec2 p) {
+    float wB = smoothstep(0.38, 0.62, fbm(p * 1.4 + 41.0));
+    float wC = smoothstep(0.45, 0.65, fbm(p * 2.1 + 77.0)) * 0.8;
+    return vec3((1.0 - wB) * (1.0 - wC), wB * (1.0 - wC), wC);
+  }
+  const vec3 STROKE_ANG = vec3(0.12, 0.5, 0.85);   // radians: ~7, ~29, ~49 degrees
+
+
+  void main() {
+    vec2 uv = vUv;
+    vec2 fp = gl_FragCoord.xy / uDpr;
+    if (uWhich == 0) {
+      // A: pencil wobble (xy) + mask warp (zw), raw fbm in 0..1
+      gl_FragColor = vec4(fbm(uv * 6.0 + 1.7), fbm(uv * 6.0 + 5.3), fbm(uv * 6.0), fbm(uv * 6.0 + 4.0));
+      return;
+    }
+    vec3 sw = strokeWeights(uv);
+    float band = 0.0, bristle = 0.0, drag = 0.0;
+    for (int k = 0; k < 3; k++) {
+      float a = k == 0 ? 0.12 : (k == 1 ? 0.5 : 0.85);
+      float w = k == 0 ? sw.x : (k == 1 ? sw.y : sw.z);
+      vec2 r = rot(uv, a);
+      vec2 suv = r + vec2(0.0, (fbm(uv * vec2(1.5, 3.0) + 2.0) - 0.5) * 0.06);
+      band += w * fbm(vec2(suv.x * 1.6, suv.y * 34.0) + 31.0 + float(k) * 7.0);
+      bristle += w * fbm(vec2(suv.x * 9.0, suv.y * 210.0) + 47.0 + float(k) * 5.0);
+      drag += w * (fbm(vec2(r.x * 2.2, r.y * 140.0) + 5.0 + float(k) * 3.0) * 0.6
+                 + fbm(vec2(r.x * 6.0, r.y * 320.0) + 19.0 + float(k) * 3.0) * 0.4);
+    }
+    if (uWhich == 1) {
+      // B: mask-edge bumps, painted bounds (incl. streaky opacity), pencil bounds
+      float bumps = (fbm(uv * 9.0 + 1.3) - 0.5) * 0.28 + (fbm(uv * 26.0 + 7.1) - 0.5) * 0.12;
+      float edgeBumps = (fbm(uv * 10.0 + 5.0) - 0.5) * 0.14 + (fbm(uv * 30.0 + 9.0) - 0.5) * 0.06;
+      vec2 cc = (uv - vec2(0.5, 0.47)) / vec2(0.30, 0.36);
+      float core = pow(pow(abs(cc.x), 3.0) + pow(abs(cc.y), 3.0), 1.0 / 3.0);
+      core += (fbm(uv * vec2(2.6, 3.4) + 11.0) - 0.5) * 0.3;
+      float edgeIn = (1.0 - core) + edgeBumps * 0.6 + (band - 0.45) * 0.3;
+      float tc = clamp((edgeIn + 0.06) / 0.26, 0.0, 1.0);
+      float body = tc * tc * (3.0 - 2.0 * tc);
+      float dry = 1.0 - clamp((edgeIn + 0.04) / 0.24, 0.0, 1.0);
+      body *= mix(1.0, smoothstep(0.3 + 0.3 * dry, 0.72, bristle + 0.25), dry * 0.8);
+      float out_ = max(-edgeIn, 0.0);
+      float tail = 0.55 * exp(-out_ * mix(2.5, 6.5, fbm(uv * 3.0 + 61.0)));
+      tail *= mix(0.45, 1.0, band) * mix(0.6, 1.0, bristle);
+      float fillVis = max(body, tail) * (0.9 + 0.1 * smoothstep(0.25, 0.75, drag));
+      vec2 cl = (uv - vec2(0.5, 0.48)) / vec2(0.43, 0.41);
+      float lshape = pow(pow(abs(cl.x), 3.0) + pow(abs(cl.y), 3.0), 1.0 / 3.0);
+      lshape += (fbm(uv * vec2(2.6, 3.4) + 17.0) - 0.5) * 0.3;
+      float li = (1.0 - lshape) + edgeBumps + (band - 0.45) * 0.2;
+      float tl = clamp((li + 0.1) / 0.2, 0.0, 1.0);
+      gl_FragColor = vec4((bumps + 0.25) / 0.5, fillVis, tl * tl * (3.0 - 2.0 * tl), 1.0);
+      return;
+    }
+    // C: watercolour wash - pigment multiplier and how much paper shows through
+    float bloom = fbm(uv * 4.5 + 3.7) * 0.6 + fbm(uv * 13.0 + 8.1) * 0.4;
+    float pool = smoothstep(0.08, 0.3, abs(fbm(uv * 7.0 + 1.0) - 0.5));
+    float tooth = fbm(fp * 0.55) * 0.65 + fbm(fp * 1.7 + 5.0) * 0.35;
+    float colMul = (0.9 + 0.2 * bloom) * (1.0 - 0.07 * (1.0 - pool));
+    float paperMix = 1.0 - (1.0 - (0.03 + 0.05 * (1.0 - bloom)))
+                         * (1.0 - smoothstep(0.55, 0.85, tooth) * 0.22)
+                         * (1.0 - (1.0 - smoothstep(0.3, 0.7, drag)) * 0.05);
+    gl_FragColor = vec4((colMul - 0.8) / 0.4, paperMix / 0.4, 0.0, 1.0);
+  }
+`;
+
 export const compositeFrag = /* glsl */ `
   precision highp float;
   uniform sampler2D tColor;
   uniform sampler2D tDepth;
   uniform sampler2D tMask;
+  uniform sampler2D tFieldA;
+  uniform sampler2D tFieldB;
+  uniform sampler2D tFieldC;
   uniform vec2 uRes;          // drawing-buffer size in px
   uniform float uNear, uFar;
   uniform float uPx;          // line thickness in px (scaled by dpr)
@@ -42,45 +122,12 @@ export const compositeFrag = /* glsl */ `
   uniform vec3 uInk;          // pencil colour (display space)
   varying vec2 vUv;
 
-  ${NOISE}
-
+  float hash(vec2 p) { return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453123); }
   float linDepth(vec2 uv) {
     float z = texture2D(tDepth, uv).x * 2.0 - 1.0;
     return (2.0 * uNear * uFar) / (uFar + uNear - z * (uFar - uNear));
   }
   float lum(vec3 c) { return dot(c, vec3(0.299, 0.587, 0.114)); }
-
-  // Gaussian-splat-like flakes: one per cell, jittered, randomly rotated and stretched,
-  // present with probability density. Returns coverage 0..1 with a crisp edge.
-  float splats(vec2 p, float cell, float maxR, float density, float seed) {
-    vec2 g = p / cell;
-    vec2 i = floor(g);
-    float cov = 0.0;
-    for (int y = -1; y <= 1; y++) for (int x = -1; x <= 1; x++) {
-      vec2 c = i + vec2(float(x), float(y));
-      if (hash(c + seed) > density) continue;
-      vec2 ctr = c + 0.5 + (vec2(hash(c + seed + 1.7), hash(c + seed + 4.3)) - 0.5) * 0.9;
-      float ang = hash(c + seed + 2.9) * 3.14159;
-      float stretch = mix(1.0, 3.2, hash(c + seed + 6.1));
-      float r = mix(0.3, 1.0, hash(c + seed + 9.1)) * maxR;
-      vec2 d = (g - ctr) * cell;
-      vec2 q = vec2(cos(ang) * d.x + sin(ang) * d.y, -sin(ang) * d.x + cos(ang) * d.y);
-      q.x /= stretch;
-      float e = length(q) / r;
-      cov = max(cov, 1.0 - smoothstep(0.45, 1.0, e));
-    }
-    return cov;
-  }
-
-  // Straight brush strokes in a few directions (shallow, diagonal, steep), patched together
-  // by soft low-frequency masks so the direction changes from area to area without swirling.
-  vec2 rot(vec2 p, float a) { float c = cos(a), s = sin(a); return vec2(p.x * c + p.y * s, p.y * c - p.x * s); }
-  vec3 strokeWeights(vec2 p) {
-    float wB = smoothstep(0.38, 0.62, fbm(p * 1.4 + 41.0));
-    float wC = smoothstep(0.45, 0.65, fbm(p * 2.1 + 77.0)) * 0.8;
-    return vec3((1.0 - wB) * (1.0 - wC), wB * (1.0 - wC), wC);
-  }
-  const vec3 STROKE_ANG = vec3(0.12, 0.5, 0.85);   // radians: ~7, ~29, ~49 degrees
 
   vec3 aces(vec3 x) {
     x *= uExposure;
@@ -116,112 +163,44 @@ export const compositeFrag = /* glsl */ `
 
   void main() {
     vec2 uv = vUv;
+    vec4 fA = texture2D(tFieldA, uv);
+    vec4 fB = texture2D(tFieldB, uv);
+    vec4 fC = texture2D(tFieldC, uv);
 
-    // hand-drawn wobble + a second, slightly offset pass = sketchy doubled pencil lines
-    vec2 wob = (vec2(fbm(uv * 6.0 + 1.7), fbm(uv * 6.0 + 5.3)) - 0.5) * 0.0018;
-    float e1 = edgeAt(uv + wob, uPx);
-    float e2 = 0.0;  // single crisp line
-    float ink = clamp(max(e1, e2), 0.0, 1.0) * 0.85;
+    // hand-drawn wobble on the pencil line
+    vec2 wob = (fA.xy - 0.5) * 0.0018;
+    float ink = clamp(edgeAt(uv + wob, uPx), 0.0, 1.0) * 0.85;
     ink *= 0.85 + 0.15 * hash(floor(gl_FragCoord.xy));                  // light grain
 
     float rawDepth = texture2D(tDepth, uv).x;
     float solid = 1.0 - step(0.99999, rawDepth);                         // 0 where there is only sky
 
     // --- painted colour: watercolour on cold-press paper ---------------------
-    vec2 fp = gl_FragCoord.xy / uDpr;
-    // soft wash: average a few jittered taps so photo-texture detail melts into pigment
     vec2 px = 1.6 / uRes * uDpr;
-    vec2 smear = (vec2(fbm(uv * vec2(60.0, 24.0)), fbm(uv * vec2(24.0, 60.0) + 3.0)) - 0.5) * 0.002;
-    vec3 col = toDisplay(texture2D(tColor, uv + smear).rgb) * 0.4
-             + toDisplay(texture2D(tColor, uv + smear + px * vec2( 1.3,  0.6)).rgb) * 0.15
-             + toDisplay(texture2D(tColor, uv + smear + px * vec2(-1.1,  0.9)).rgb) * 0.15
-             + toDisplay(texture2D(tColor, uv + smear + px * vec2( 0.7, -1.4)).rgb) * 0.15
-             + toDisplay(texture2D(tColor, uv + smear + px * vec2(-0.9, -1.0)).rgb) * 0.15;
+    vec3 col = toDisplay(texture2D(tColor, uv).rgb) * 0.4
+             + toDisplay(texture2D(tColor, uv + px * vec2( 1.3,  0.6)).rgb) * 0.15
+             + toDisplay(texture2D(tColor, uv + px * vec2(-1.1,  0.9)).rgb) * 0.15
+             + toDisplay(texture2D(tColor, uv + px * vec2( 0.7, -1.4)).rgb) * 0.15
+             + toDisplay(texture2D(tColor, uv + px * vec2(-0.9, -1.0)).rgb) * 0.15;
     float g = lum(col);
     col = mix(vec3(g), col, 1.28);                                        // saturated pigment
-    // blotchy, uneven washes: pigment pools in some areas and thins in others
-    float bloom = fbm(uv * 4.5 + 3.7) * 0.6 + fbm(uv * 13.0 + 8.1) * 0.4;
-    col *= 0.9 + 0.2 * bloom;
-    col = mix(col, uPaper, 0.03 + 0.05 * (1.0 - bloom));                 // paper shows through the thin parts
-    // pigment settles darker along colour edges (watercolour edge-darkening)
-    float pool = smoothstep(0.08, 0.3, abs(fbm(uv * 7.0 + 1.0) - 0.5));
-    col *= 1.0 - 0.07 * (1.0 - pool);
-    // cold-press paper: tooth catches less pigment on its peaks
-    float tooth = fbm(fp * 0.55) * 0.65 + fbm(fp * 1.7 + 5.0) * 0.35;
-    float grain = hash(floor(fp));
-    col = mix(col, uPaper, smoothstep(0.55, 0.85, tooth) * 0.22);
-    col *= 0.97 + 0.05 * grain;
-    vec3 painted = mix(col, col * 0.55, ink * 0.25);                      // pencil faintly under the wash
+    col *= 0.8 + fC.x * 0.4;                                              // blotchy wash + pooling
+    col = mix(col, uPaper, fC.y * 0.4);                                   // paper tooth / thin areas / drag
+    col *= 0.97 + 0.05 * hash(floor(gl_FragCoord.xy / uDpr));
+    vec3 paint = mix(col, col * 0.55, ink * 0.25);                        // pencil faintly under the wash
 
-    // --- sketch: paper + faint tone + pencil ---
-    vec3 sketch = uPaper * (1.0 - 0.09 * (1.0 - g) * solid);
-    sketch = mix(sketch, uInk, ink);
-
-    // --- splat-edged reveal -------------------------------------------------------
-    // Clean, connected paint with a randomly bumpy outline (like the boundary of a gaussian
-    // splat capture): the mask is perturbed by smooth noise and thresholded with a short,
-    // soft ramp, so the edge goes translucent -> page rather than breaking into grey specks.
+    // --- splat-edged reveal from the brush mask ---------------------------------
     float reveal = uReveal;
     if (uUseMask > 0.5) {
-      vec2 warp = (vec2(fbm(uv * 6.0), fbm(uv * 6.0 + 4.0)) - 0.5) * 0.03;
-      float m = texture2D(tMask, uv + warp).r;
-      if (m > 0.004) {
-        float bumps = (fbm(uv * 9.0 + 1.3) - 0.5) * 0.28 + (fbm(uv * 26.0 + 7.1) - 0.5) * 0.12;
-        reveal = max(reveal, smoothstep(0.3, 0.42, m + bumps));
-      }
+      float m = texture2D(tMask, uv + (fA.zw - 0.5) * 0.03).r;
+      if (m > 0.004) reveal = max(reveal, smoothstep(0.3, 0.42, m + fB.x * 0.5 - 0.25));
     }
-
-    // --- painted bounds ---------------------------------------------------------
-    // Colour sits in a brushed shape ~3/5 of the scene wide; beyond it the paint keeps going as
-    // a long, low-opacity diffusion along the same horizontal strokes. The pencil drawing
-    // covers a wider area and fades out on its own.
-    float edgeBumps = (fbm(uv * 10.0 + 5.0) - 0.5) * 0.14 + (fbm(uv * 30.0 + 9.0) - 0.5) * 0.06;
-    vec3 sw = strokeWeights(uv);
-    float band = 0.0, bristle = 0.0;
-    for (int k = 0; k < 3; k++) {
-      vec2 suv = rot(uv, STROKE_ANG[k]) + vec2(0.0, (fbm(uv * vec2(1.5, 3.0) + 2.0) - 0.5) * 0.06);
-      band += sw[k] * fbm(vec2(suv.x * 1.6, suv.y * 34.0) + 31.0 + float(k) * 7.0);   // one value per stroke row
-      bristle += sw[k] * fbm(vec2(suv.x * 9.0, suv.y * 210.0) + 47.0 + float(k) * 5.0);
-    }
-
-    vec2 cc = (uv - vec2(0.5, 0.47)) / vec2(0.30, 0.36);
-    float core = pow(pow(abs(cc.x), 3.0) + pow(abs(cc.y), 3.0), 1.0 / 3.0);
-    core += (fbm(uv * vec2(2.6, 3.4) + 11.0) - 0.5) * 0.3;
-    float edgeIn = (1.0 - core) + edgeBumps * 0.6 + (band - 0.45) * 0.3;    // > 0 inside colour
-
-    float tc = clamp((edgeIn + 0.06) / 0.26, 0.0, 1.0);
-    float body = tc * tc * (3.0 - 2.0 * tc);
-    float dry = 1.0 - clamp((edgeIn + 0.04) / 0.24, 0.0, 1.0);
-    body *= mix(1.0, smoothstep(0.3 + 0.3 * dry, 0.72, bristle + 0.25), dry * 0.8);
-    // diffusion: long, faint tail outside the colour shape, streaked and uneven
-    float out_ = max(-edgeIn, 0.0);
-    float tail = 0.55 * exp(-out_ * mix(2.5, 6.5, fbm(uv * 3.0 + 61.0)));
-    tail *= mix(0.45, 1.0, band) * mix(0.6, 1.0, bristle);
-    float fillVis = max(body, tail);
-
-    // pencil: wider, softer shape
-    vec2 cl = (uv - vec2(0.5, 0.48)) / vec2(0.43, 0.41);
-    float lshape = pow(pow(abs(cl.x), 3.0) + pow(abs(cl.y), 3.0), 1.0 / 3.0);
-    lshape += (fbm(uv * vec2(2.6, 3.4) + 17.0) - 0.5) * 0.3;
-    float li = (1.0 - lshape) + edgeBumps + (band - 0.45) * 0.2;
-    float tl = clamp((li + 0.1) / 0.2, 0.0, 1.0);
-    float lineVis = tl * tl * (3.0 - 2.0 * tl);
-    reveal *= fillVis;
-
-    vec3 paint = painted;
+    reveal *= fB.y;                                                      // painted bounds
+    float lineVis = fB.z;                                                // pencil bounds
 
     // pencil over the paint (premultiplied): partial paint is see-through, never grey
     float aFill = solid * reveal;
     float aLine = ink * (1.0 - 0.55 * reveal) * lineVis;
-    // washed, streaky application: horizontal drag marks thin the pigment unevenly
-    float drag = 0.0;
-    for (int k = 0; k < 3; k++) {
-      vec2 duv = rot(uv, STROKE_ANG[k]);
-      drag += sw[k] * (fbm(vec2(duv.x * 2.2, duv.y * 140.0) + 5.0 + float(k) * 3.0) * 0.6
-                     + fbm(vec2(duv.x * 6.0, duv.y * 320.0) + 19.0 + float(k) * 3.0) * 0.4);
-    }
-    aFill *= 0.9 + 0.1 * smoothstep(0.25, 0.75, drag);
-    paint = mix(paint, uPaper, (1.0 - smoothstep(0.3, 0.7, drag)) * 0.05);
     vec3 premul = uInk * aLine + paint * aFill * (1.0 - aLine);
     float alpha = aLine + aFill * (1.0 - aLine);
     gl_FragColor = vec4(premul, alpha);
